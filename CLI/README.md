@@ -162,6 +162,6 @@ $ cat file.txt -n
 <div style="padding: 0 0 0 2em; margin:2em 0 4em;">
 
   1. **Up** / **Down** arrows **↑ ↓** - Use bash history
-  2. **TAB** - 
+  2. **...** - other will follow...
 
 </div>
