@@ -33,7 +33,7 @@ Follow the steps in this page [Creating a new repository](https://help.github.co
    `README.md        (this will be your global info file, we'll use it for training your "markdown" skills)
 ```
 
----
+<br>
 
 ## D. Clone your Github repository locally
 
