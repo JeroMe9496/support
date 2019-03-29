@@ -23,7 +23,7 @@ Follow the steps in this page [Creating a new repository](https://help.github.co
 ### powercoders
 ```
    portfolio         (this will hold your personal website)
-   support           (this will hold the support files, a clone of https://github.com/powercoders-lausanne/support)
+   support           (this will hold the support files, a clone of a remote folder...)
    workshop          (this is your training folder, create a folder for each subject taught in class !)
       cli            (CLI exercices)
       html-css       (html-css exercices)
