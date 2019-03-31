@@ -39,6 +39,14 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
     "update.enableWindowsBackgroundUpdates": false,
     "liveServer.settings.donotShowInfoMsg": true,
 
+    //EXPLORER
+    "files.exclude": {
+      "**/.git": false,
+      ".gitignore": false
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+
     //WORKBENCH - UI look and feel
     "workbench.settings.editor": "json",
     "workbench.settings.useSplitJSON": true,
@@ -59,17 +67,12 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
     "editor.parameterHints.enabled": false,
     "editor.hover.enabled": false,
 
-    //EXPLORER
-    "files.exclude": {
-      "**/.git": false,
-      ".gitignore": false
-    },
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
+    //EMMET
+    "emmet.triggerExpansionOnTab": true,
 
     //WHAT INTEGRATED TERMINAL SHELL
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     //"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 }
 ```
 
