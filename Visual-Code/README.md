@@ -83,10 +83,8 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
 #### Click Extensions in activity bar and type a keyword in the search box
 ![VSCode Extensions](../_assets/vscode-install-extensions.png)
 
-#### Search for and install :
-> *Note: if you find extensions with similar name, always install the most popular extension, look for number of downloads!*
 
-#### Sorin's recommanded extensions
+#### Sorin's recommanded extensions. Search for and install :
 1. Material Theme
 2. Material Icon Theme
 3. Live Server
@@ -94,6 +92,8 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
 5. vscode-faker
 
 > *Others later in this course*
+
+> *Note: if you find extensions with similar name, always install the most popular extension, look for number of downloads!*
 
 <br>
 
