@@ -10,7 +10,6 @@ If you are not present and you want to catch up, please go to directly to [Githu
 
 > *Note: If you already have an account on Github, jump to the next section* 
 
-:fa-thumbs-up:
 <br>
 
 ## B. Create the "powercoders" repository
