@@ -118,20 +118,23 @@ $ mv dir1/style.css ./
 
 <br>
 
-## **cp** - Copy file/directory
-```
+## cp
+> *Copy file/directory*
+``` shell
 $ cp style.css dir1
 ```
 *to copy the file "style.css" to "dir1"*
-```
+
+``` shell
 $ cp -r dir1 dir2
 ```
 *to copy "dir1" into "dir2" (-r option is for recursive)*
 
 <br>
 
-## **clear** - Clear bash window
-```
+## clear
+> *Clear bash window*
+``` shell
 $ clear
 ```
 
@@ -151,7 +154,7 @@ $ nano file.txt
 ```
 *will open "file.txt" inside bash editor*
 
-### Then, inside nano editor
+#### Then, inside nano editor
 `CTRL + X` - to quit the editor (will be asked to save the file)
 
 `Y/N` - to save or not the content
@@ -160,12 +163,14 @@ $ nano file.txt
 
 <br>
 
-## **cat** - See (the content of a) a (text) file
+## cat
+> *See (the content of a) a (text) file*
 ``` shell
 $ cat file.txt
 ```
 
 if you want to see also the line numbers, add the option **-n**
+
 ``` shell
 $ cat file.txt -n
 ```
