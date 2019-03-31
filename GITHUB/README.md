@@ -73,7 +73,7 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
 <br>
 
 ## E. Clone PowerCoders support repo inside "powercoders" folder
-1. #### Be sure to be into your powercoders folder :
+1. #### Be sure to be into your *powercoders* folder :
 
    **`$ cd ~/powercoders`**
 
