@@ -77,7 +77,7 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
 
 ## Install Extensions
 
-#### Click Extensions in activity bar and type in the search box
+#### Click Extensions in activity bar and type a keyword in the search box
 ![VSCode Extensions](../_assets/vscode-install-extensions.png)
 
 #### Search for and install :
