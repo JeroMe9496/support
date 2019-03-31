@@ -90,8 +90,7 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
 3. Live Server
 4. Markdown Preview Github Styling
 5. vscode-faker
-
-> *Others later in this course*
+6. ... `Others later in this course`
 
 > *Note: if you find extensions with similar name, always install the most popular extension, look for number of downloads!*
 
