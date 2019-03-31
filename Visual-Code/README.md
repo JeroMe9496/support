@@ -30,7 +30,7 @@ By default VC shows settings in a UI style. If you want more control and speed c
 
 ## Basic (Sorin's) settings
 This is my JSON User Settings. I'll try to keep it up to date, so visit this page again...
-``` json
+``` javascript
 {
     //Microsoft
     "telemetry.enableCrashReporter": false,
