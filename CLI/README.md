@@ -1,106 +1,122 @@
 # COMMAND LINE INTERFACE
 <h3>Must known bash commands</h3>
-<p>Bash is an acronym for "Bourne Again Shell" named after Stephen Bourne, the creator of the Unix shell "sh."
-</p>
+<p>Bash is an acronym for "Bourne Again Shell" named after Stephen Bourne, the creator of the Unix shell "sh."</p>
 
-<hr style="margin-bottom: 4em;">
-
+<br>
 
 ## USEFUL FILE SYSTEM COMMANDS
-<div style="padding: 0 0 0 2em; margin:0 0 4em;">
 
-## **pwd** - Print Working Directory
-```
+## pwd
+> *Print Working Directory*
+``` shell
 $ pwd
 /PowerCoders/GitHub/support/CLI
 ```
 
----
+<br>
 
-## **ls** - List (files and folders of the current working directory)
-```
+## ls
+> *List (files and folders of the current working directory)*
+
+``` shell
 $ ls
 dir1/  dir2/  README.md
 ```
 add option -a to display also hidden files and folders 
-```
+``` shell
 $ ls -a
 ./  ../  .bob/  dir1/  dir2/  README.md
 ```
 
----
+<br>
 
-## **cd** - Change directory
-```
+## cd
+> *Change directory*
+
+``` shell
 $ cd /path/to/your/folder
 ```
-*Note: if the path is too long, you can type **cd** and drag the folder into the bash window*
+*Tip: if the path is too long, you can type **cd** and drag the folder into the bash window*
 
 **cd ..** - *go to parent dir (one step above)*
-```
+``` shell
 $ cd ..
 ```
+
 *or, go two or more steps above*
-```
+``` shell
 $ cd ../..
 $ cd ../../..
 etc.
 ```
 
----
+<br>
 
-## **touch** - Create a file
-```
+## touch
+> *Create a file*
+
+``` shell
 $ touch index.html
 ```
 *creates a file named "index.html" into the current dir*
-```
+
+``` shell
 $ touch dir1/index.html
 ```
 *creates a file named "index.html" into "dir1" (if dir exists)*
 
----
+<br>
 
-## **mkdir** - Make Directory
-```
+## mkdir
+> *Make Directory*
+
+``` shell
 $ mkdir dir3
 ```
 *creates a folder named "dir3" into the current dir*
 
----
+<br>
 
-## **rm** - Remove file/directory
-```
+## rm
+> *Remove file/directory*
+``` shell
 $ rm index.html
 ```
 *removes the file "index.html" (if exists)*
-```
+
+``` shell
 $ rm dir3
 ```
 *removes the folder "dir3" (if exists and not empty!)*
-```
+
+``` shell
 $ rm dir3 -r
 ```
 *removes the folder "dir3" even if not empty. **-r** stands for recursive*
 
----
+<br>
 
-## **mv** - Move file/directory
-```
+## mv
+> *Move file/directory*
+``` shell
 $ mv style.css dir1
+
 or
+
 $ mv style.css ./dir1
 ```
 *moves "style.css" from current directory to dir1*
 
-```
+``` shell
 $ mv dir1/style.css .
+
 or
+
 $ mv dir1/style.css ./
 ```
 *moves "style.css" from "dir1" to current directory*
 
----
+<br>
 
 ## **cp** - Copy file/directory
 ```
@@ -112,56 +128,55 @@ $ cp -r dir1 dir2
 ```
 *to copy "dir1" into "dir2" (-r option is for recursive)*
 
----
+<br>
 
 ## **clear** - Clear bash window
 ```
 $ clear
 ```
 
-</div>
+<br>
 
+---
 
-<hr style="margin-bottom: 4em;">
-
+<br>
 
 ## OTHER USEFUL COMMANDS
-<div style="padding: 0 0 0 2em; margin:2em 0 4em;">
 
-## **nano** - Edit a file
-```
+## nano
+> *Edit a file*
+
+``` shell
 $ nano file.txt
 ```
 *will open "file.txt" inside bash editor*
 
-### Inside nano editor
+### Then, inside nano editor
 `CTRL + X` - to quit the editor (will be asked to save the file)
 
 `Y/N` - to save or not the content
 
 `ENTER` - to validate
 
----
+<br>
 
 ## **cat** - See (the content of a) a (text) file
-```
+``` shell
 $ cat file.txt
 ```
+
 if you want to see also the line numbers, add the option **-n**
-```
+``` shell
 $ cat file.txt -n
 ```
 
-</div>
+<br>
 
+---
 
-<hr style="margin-bottom: 4em;">
-
+<br>
 
 ## USEFUL KEYBOARD SHORTCUTS
-<div style="padding: 0 0 0 2em; margin:2em 0 4em;">
 
-  1. **Up** / **Down** arrows **↑ ↓** - Use bash history
-  2. **...** - other will follow...
-
-</div>
+1. **`Up / Down`** arrows **`↑ ↓`** - Navigate in bash history
+2. **...** - other will follow...
