@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pseudo Classes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/reset.css">
+
+    <!-- CUSTOM FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+    <!-- DEMO STYLES -->
+    <link rel="stylesheet" href="css/pseudo.css">
+
+    <style>
+
+      p, a {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      p:hover {
+        background-color: #e5e5e5;
+        color: #000;
+        transition: all .5s ease;
+      }
+
+      a:hover, a:visited:hover {
+        color: #4e5ef0;
+      }
+      a:visited {
+        color: #bc4ef0;
+      }
+
+      .big-link {
+        display: inline-block;
+        width: auto;
+        max-width: 200px;
+        padding: .5rem 2rem;
+        background-color: #f5f5f5;
+        transition: background-color .5s ease, color .5s ease;
+      }
+      .big-link:hover {
+        background-color: #7a7a7a;
+        color: #f5f5f5;
+      }
+      .big-link:focus {
+        background-color: #fc0;
+      }
+
+
+
+      /*first-child, last-child*/
+      div.para p:first-child {
+        background-color: #fc0;
+        color: #000;
+      }
+      div.para p:last-child {
+        background-color: #f00;
+        color: #fff;
+      }
+
+      /*nth-child*/
+      div.para p:nth-child(3) {
+        background-color: #85bb11;
+        color: #fff;
+      }
+      div.para p:nth-child(3):hover {
+        background-color: #53740c;
+      }
+
+      div.type span:nth-child(3) {
+        background-color: #fc0;
+      }
+
+      /*first-of-type, last-of-type*/
+      div.type span:first-of-type {
+        background-color: olive;
+        color: #fff;
+      }
+      div.type span:last-of-type {
+        background-color: tomato;
+        color: #000;
+      }
+
+
+      .exemple {
+        margin: 0 0 2rem;
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <main>
+
+      <h1>Pseudo Classes</h1>
+
+      <hr>
+
+      <div class="exemple link">
+        <a href="#" class="big-link">Un lien</a>
+      </div>
+
+      <div class="exemple para">
+        <p>Paragraphe 1 </p>
+        <p>Paragraphe 2</p>
+        <p>Paragraphe 3</p>
+        <p>Paragraphe 4</p>
+        <p>Paragraphe 5</p>
+        <p>Paragraphe 6</p>
+      </div>
+
+      <div class="exemple type">
+        <span>Voici le premier span !</span>
+        <span>Un autre span, pas le premier.</span>
+        <span>Quid de cet <em>élément imbriqué </em>?</span>
+        <b>Un autre type d'élément.</b>
+        <span>Ce type là est déjà apparu.</span>
+      </div>
+
+    </main>
+
+    <!-- FOOTER - liens ressources -->
+    <footer class="footer">
+      <ul>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes" target="_blank">MDN - Pseudo-classes</a></li>
+        <li><a href="https://css-tricks.com/how-nth-child-works/" target="_blank">CSS Tricks - How nth-child Works</a></li>
+        <li><a href="https://css-tricks.com/useful-nth-child-recipies/" target="_blank">Useful :nth-child Recipes</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

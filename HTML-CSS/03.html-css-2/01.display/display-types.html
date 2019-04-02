@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS - La propriété display</title>
+
+	<style>
+		/* Un peu de formatage de base */
+		html { font-size:20px; }
+		body { margin:20px 40px; font-family:sans-serif; font-size:inherit; line-height:1.4; }
+		h1, h2 {  margin: 0; }
+		h1 { font-size: 2em; }
+		hr { margin:2em 0; }
+		ul { list-style: none; margin: 0; padding: 0; }
+		header, section { border-bottom: solid 1px #ccc; margin-bottom: 2em; padding-bottom: 2em; }
+		cite { display: block; }
+
+		/* boîtes bloc */
+		.block {
+			background: #fc0;
+		}
+
+		/* boîtes en ligne */
+		.inline {
+			background: #fcc;
+		}
+
+		/* boîtes en ligne-block */
+		.inline-block {
+			background: #eaa;
+			padding: 5px 10px;
+		}
+
+		/* boîtes invisibles */
+		.none {
+			display: none;
+		}
+
+		/* boîtes flex */
+		.flex {
+	  	display: flex;
+	  	flex-flow: row wrap;
+	  	justify-content: space-between;
+
+	    background: #f5f5f5;
+	    margin-top: 20px;
+		}
+		.flex li {
+			width: 30%;
+			height: 200px;
+
+			background: tomato;
+			line-height: 200px;
+			color: white;
+			font-weight: bold;
+			font-size: 3em;
+			text-align: center;
+		}
+
+		/* Classes communes */
+
+		.example { margin: 20px 0 10px 0; }
+		.margin-left { margin-left: 20px; }
+		.margin-top { margin-top: 20px; }
+		.margin-bottom { margin-bottom: 20px; }
+
+	</style>
+
+</head>
+<body>
+
+	<article>
+
+		<header>
+			<h1>CSS - La propriété display</h1>
+			<cite>La propriété display définit le type de boîte utilisée pour le rendu d'un élément.</cite>
+		</header>
+
+
+		<section>
+			<h2>display: block</h2>
+			<cite class="margin-bottom">Cet élément génère une boîte bloc</cite>
+			<ul>
+				<li>PAR DEFAUT...</li>
+				<li>J'ai une largeur "100%"</li>
+				<li>J'ai une hauteur "auto" (hauteur du text)</li>
+				<li>Je suis invisible sans contenu</li>
+				<li>
+					balises communes: <cite>article, aside, div, figure, footer, h1(etc), header, hr, main, nav, p, ul, section, table</cite> (<a href="https://developer.mozilla.org/fr/docs/Web/HTML/%C3%89l%C3%A9ments_en_bloc#Éléments" target="_blank">voir tout</a>)
+				</li>
+			</ul>
+
+			<div class="block example">Je suis un texte dans une boîte bloc</div>
+		</section>
+
+
+		<section>
+			<h2>display: inline</h2>
+			<cite class="margin-bottom">Cet élément génère une ou plusieurs boîtes en ligne.</cite>
+			<ul>
+				<li>PAR DEFAUT...</li>
+				<li>J'ai une largeur "auto" (largeur du text)</li>
+				<li>J'ai une hauteur "auto" (hauteur du text)</li>
+				<li>Je suis invisible sans contenu</li>
+				<li>
+					balises communes: <cite>a, b, cite, code, em, img, span, strong</cite> (<a href="https://developer.mozilla.org/fr/docs/Web/HTML/%C3%89l%C3%A9ments_en_ligne#Éléments" target="_blank">voir tout</a>)
+				</li>
+			</ul>
+
+			<p class="example">
+				Je suis un texte dans un paragraphe. <span class="inline">Moi aussi, mais dans une balise span.</span>
+				Souvent utilisé pour mettre un <strong>mot en évidence</strong>, <a href="#">un lien</a>, une image comme celle-ci... <img src="https://wattsupwiththat.files.wordpress.com/2015/11/bill_gates.jpg?w=50&h=50&crop=1" alt="petite">
+			</p>
+		</section>
+
+
+		<section>
+			<h2>display: inline-block</h2>
+			<cite class="margin-bottom">Une boîte pour un élément en bloc qui « s'écoule » dans le contenu environnant comme s'il était une boîte en ligne. Un hybride entre un élément bloc et inline...</cite>
+
+			<p class="example">
+				<span class="inline-block">En ligne aussi mais je peut avoir un "padding"</span> <span class="inline-block margin-left">un "margin", plutôt cool.</span>
+			</p>
+		</section>
+
+
+		<section>
+			<h2>display: flex</h2>
+			<cite class="margin-bottom">L'élément se comporte comme un élément de bloc et dispose son contenu selon le modèle de boîte flexible.</cite>
+
+			<ul class="flex example">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</section>
+
+
+		<section>
+			<h2>display: none</h2>
+			<cite>Je dans le code mais invisible !</cite>
+
+			<p class="none">Je suis là!! Quelqu'un m'entend ?</p>
+		</section>
+
+	</article>
+
+	<footer>
+		voir plus chez MDN: <a href="https://developer.mozilla.org/fr/docs/Web/CSS/display" target="_blank">La propriété display</a>
+	</footer>
+</body>
+</html>

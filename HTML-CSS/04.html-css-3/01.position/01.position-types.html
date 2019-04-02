@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - Position</title>
+
+		<style>
+
+			/* Formatage de base
+			------------------------------------*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				margin: 2.5em;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 18px;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+
+			h1, h2, h3 {
+				font-weight: 400;
+				line-height: 1;
+				margin-bottom: .5em;
+				padding: 0;
+			}
+
+			h1 {
+				font-size: 2.5em;
+				margin-bottom: 0;
+			}
+
+			footer, section {
+				padding: 2em 0;
+				margin-top: 2em;
+				border-top: solid 1px #ccc;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			pre {
+				tab-size: 2;
+			}
+
+
+			/* LAYOUT - COMMON
+			------------------------------------*/
+			.container {
+				position: relative;
+				display: flex;
+				margin-top: 1em;
+				padding: 2em;
+				background-color: #eee;
+			}
+
+			.container-info {
+				position: absolute;
+				top: 10px;
+				right: 20px;
+				text-align: right;
+			}
+
+			.box {
+				width: 100px;
+				height: 100px;
+				margin-right: 20px;
+				text-align: center;
+				line-height: 100px;
+				background-color: #fc0;
+			}
+
+			.box.active {
+				background-color: #dc2221;
+				color: #fff;
+			}
+
+
+			/* POSITIONS
+			------------------------------------*/
+
+
+			/* relative */
+			#c2-deux {
+				position: relative;
+				top: 30px;
+				left: 30px;
+			}
+
+			/* absolute */
+			#c3 {
+				position: relative;
+			}
+			#c3-deux {
+				position: absolute;
+				top: -20px;
+				left: -20px;
+			}
+
+			/* fixed */
+			#c4-deux {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+			}
+			/* juste pour le texte info à l'interieur du #c4-deux */
+			#c4-deux span {
+				display: block;
+				width: 100%;
+
+				position: absolute;
+				bottom: 10px;
+
+				font-size: 12px;
+				line-height: 1.5;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<article>
+
+				<header><h1>CSS - Position</h1></header>
+				<p>La propriété position choisit des règles alternatives pour le positionnement des éléments.</p>
+				<p>Les propriétés top, right, bottom et left spécifient la position des éléments positionnés.</p>
+
+
+				<!-- STATIC -->
+				<section>
+					<h2>position: static;</h2>
+					<p>Comportement normal (par défaut). L'élément est alors positionné dans le flux avec sa position.</p>
+					<p>Les propriétés top, right, bottom, left et z-index ne s'appliquent pas.</p>
+
+					<div id="c1" class="container">
+						<cite class="container-info">#c1</cite>
+						<div class="box" id="c1-un">Un</div>
+						<div class="box" id="c1-deux">Deux</div>
+						<div class="box" id="c1-trois">Trois</div>
+						<div class="box" id="c1-quatre">Quatre</div>
+					</div>
+				</section>
+
+
+				<!-- RELATIVE -->
+				<section>
+					<h2>position: relative;</h2>
+					<p>Ce mot-clé dispose tous les éléments comme s'ils n'étaient pas positionnés puis ajuste la position de l'élément, sans modifier la présentation</p>
+					<p>Dans cet exemple, on voit comment les autres éléments sont positionnés, comme si « Deux » prenait l'espace de sa position normale.</p>
+
+					<pre><code>
+					#c2-deux {
+						position: relative;
+						top: 30px;
+						left: 30px;
+					}
+					</code></pre>
+
+					<div id="c2" class="container">
+						<cite class="container-info">#c2</cite>
+						<div class="box" id="c2-un">Un</div>
+						<div class="box active" id="c2-deux">Deux</div>
+						<div class="box" id="c2-trois">Trois</div>
+						<div class="box" id="c2-quatre">Quatre</div>
+					</div>
+				</section>
+
+
+				<!-- ABSOLUTE -->
+				<section>
+					<h2>position: absolute;</h2>
+					<p>Les éléments positionnés de façon absolue sont retirés du flux et ne prennent donc plus d'espace lorsqu'il s'agit de positionner les autres éléments. Un élément positionné de façon absolu <strong>est positionné par rapport à son plus proche ancêtre positionné</strong>.</p>
+					<p>Dans cet exemple, le parent (#c3) est positionné en relative et (donc) les enfants en position absolue sont positionnés par rapport à lui.</p>
+
+					<pre><code>
+					#c3 {
+						position: relative;
+					}
+
+					#c3-deux {
+						position: absolute;
+						top: -20px;
+						left: -20px;
+					}
+					</code></pre>
+
+					<div id="c3" class="container">
+						<cite class="container-info">#c3</cite>
+						<div class="box" id="c3-un">Un</div>
+						<div class="box active" id="c3-deux">Deux</div>
+						<div class="box" id="c3-trois">Trois</div>
+						<div class="box" id="c3-quatre">Quatre</div>
+					</div>
+				</section>
+
+
+				<!-- FIXE -->
+				<section>
+					<h2>position: fixed;</h2>
+					<p>Le positionnement fixe est semblable au positionnement absolu sauf qu'ici, la référence "parent" correspond au <strong>viewport</strong> (fenêtre navigateur).</p>
+					<p>On utilise souvent ce positionnement pour créer un élément flottant qui reste à la même position, même lorsqu'on fait défiler la page !</p>
+					<p>Dans l'exemple qui suit, la boîte « Deux » est fixée à 20 pixels du haut de la page (viewport) et à 20 pixels du bord droit.</p>
+
+					<pre><code>
+					#c4-deux {
+						position: fixed;
+						top: 20px;
+						right: 20px;
+					}
+					</code></pre>
+
+					<div id="c4" class="container">
+						<cite class="container-info">#c4</cite>
+						<div class="box" id="c4-un">Un</div>
+						<div class="box active" id="c4-deux">Deux <span>[ je suis fixed ! ]</span></div>
+						<div class="box" id="c4-trois">Trois</div>
+						<div class="box" id="c4-quatre">Quatre</div>
+					</div>
+				</section>
+
+			</article>
+
+		</main>
+
+
+		<footer>
+			<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/position" target="_blank">MDN - position</a></p>
+			<p><a href="http://cssreference.io/positioning/" target="_blank">cssreference.io - Positioning in CSS</a></p>
+		</footer>
+
+	</body>
+</html>

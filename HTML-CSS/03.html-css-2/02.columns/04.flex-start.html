@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Colonnes - Flex</title>
+<style>
+  /* GLOBAL - facultatif */
+  * {
+    margin: 0;
+    padding: 0;
+    font: normal 18px/1 sans-serif;
+    box-sizing: border-box;
+  }
+
+  ul,li {
+    list-style: none;
+  }
+
+  /* MAIN CONTAINER */
+  .flex-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+    width: 80%;
+    margin: 0 auto;
+    background: #e5e5e5;
+  }
+
+  /* DIV enfants -les colonnes */
+  .flex-item {
+    width: 23%;
+    height: 200px;
+
+    margin-bottom: 40px;
+    color: white;
+    background: tomato;
+    line-height: 200px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  /* MISC - facultatif */
+  header, footer {
+    text-align: center;
+    margin: 3em 0;
+  }
+</style>
+</head>
+
+<body>
+
+  <header><h1>Méthode: "flex"</h1></header>
+
+  <ul class="flex-container">
+    <li class="flex-item">1</li>
+    <li class="flex-item">2</li>
+    <li class="flex-item">3</li>
+    <li class="flex-item">4</li>
+    <li class="flex-item">5</li>
+    <li class="flex-item">6</li>
+  </ul>
+
+  <footer>
+    <p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks - A complete guide to Flexbox</p>
+    <p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/flex" target="_blank">MDN - flex</p>
+    <p><a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html" target="_blank">THE ULTIMATE FLEXBOX CHEAT SHEET</p>
+  </footer>
+
+</body>
+</html>

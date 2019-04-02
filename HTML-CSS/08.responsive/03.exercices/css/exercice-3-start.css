@@ -1,0 +1,43 @@
+/* VARIANTE BOOTSTRAP
+ * Points de ruptures:
+ * 576px -> 768px -> 992px -> 1200px
+--------------------------------------------*/
+
+
+/* PAR DEFAUT - POUR "PHONES" PORTRAIT
+ * < 576
+--------------------------------------------*/
+/* HEADER */
+
+
+/* TITRE */
+
+
+/* SECTION */
+
+
+/* FOOTER */
+
+
+/* POUR "PHONES" PAYSAGE ou PORTRAIT LARGE
+ * >= 576
+--------------------------------------------*/
+
+
+
+/* POUR "TABLETTES" orientation PORTRAIT
+ * >= 768
+--------------------------------------------*/
+
+
+
+/* POUR "TABLETTES" orientation PAYSAGE
+ * et écrans petite résolution
+ * >= 992
+--------------------------------------------*/
+
+
+
+/* POUR ORDINATEURS AFFICHAGE HD
+ * >= 1200
+--------------------------------------------*/

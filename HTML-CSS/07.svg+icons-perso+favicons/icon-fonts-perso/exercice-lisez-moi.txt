@@ -1,0 +1,15 @@
+01. Créez un (petit et simple) logo en Illustrator ou utilisez un logo crée précédemment
+02. Enregistrez en .ai dans le dossier __ai (sautez à l'étape 5 si logo existant)
+03. Enregistrez sous .svg dans le dossier __ai
+04. Optimisez le SVG avec le SVGOMG Editor (https://jakearchibald.github.io/svgomg/) et enregistrez-le dans votre dossier "img"
+05. Importez le SVG dans icomoon.io (https://icomoon.io/app/)
+06. Sélectionnez 4 icon fonts en plus de votre logo
+07. Créez un "set" et ajustez le "grid" du logo
+08. Générez les polices avec "Generate Font"
+09. Enregistrez l'archive dans votre dossier "css"
+10. Désarchivez et supprimez les fichiers "demo"
+11. Renommez le fichier des styles fourni par icomoon.io en "font-icons.css"
+12. Liez "font-icons.css" à votre page HTML
+13. Regardez les classes dans le fichier "font-icons.css" et utilisez-les dans votre code
+		a. en utilisant la balise <i>
+		b. en utilisant la balise <p> ou autre...

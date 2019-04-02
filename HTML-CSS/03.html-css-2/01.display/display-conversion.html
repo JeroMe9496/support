@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS - Changer le type de display</title>
+
+	<style>
+		html { font-size:20px; }
+		body { font-family:sans-serif; font-size:inherit; line-height:1.4; }
+	
+		h1 { font-size: 2em; margin: 0; }
+		header, section { border-bottom: solid 1px #ccc; margin-bottom: 2em; padding-bottom: 2em; }
+
+		/* bloc => inline */
+		#s1 p {
+			display: inline;
+		}
+
+		/* bloc => inline-block */
+		#s2 p {
+			display: inline-block;
+		}
+
+		/* inline => block */
+		#s3 a {
+			display: block;
+
+			padding: 2em;
+			font-size: 2em;
+			text-decoration: none;
+			text-align: center;
+			color: black;
+			background: #fc0;
+		}
+
+		/* inline => flex */
+		#s4 div {
+			display: flex;
+  		justify-content: space-between;
+		}
+
+		#s4 div span {
+			padding: 1em;
+			background: #fc0;
+		}
+	</style>
+</head>
+<body>
+
+	<article>
+
+		<header>
+			<h1>CSS - Changer le type de display</h1>
+			<cite>Même si par défaut les éléments ont un certin type de "display", on peut les convertir en d'autres types</cite>
+		</header>
+
+		<section id="s1">
+			<h2>Changer "block" en "inline"</h2>
+			
+			<p>Un paragraphe en ligne !</p>
+			<p>Un autre paragraphe en ligne !</p>
+		</section>
+
+		<section id="s2">
+			<h2>Changer "block" en "inline-block"</h2>
+			
+			<p>Un paragraphe en inline-block !</p>
+			<p>Un autre paragraphe en inline-block !</p>
+		</section>
+
+		<section id="s3">
+			<h2>Changer "inline" en "block"</h2>
+			
+			<a href="#">Un lien bloc. Pratique quand on veux un big button !</a>
+		</section>
+
+		<section id="s4">
+			<h2>Changer n'importe quoi en "flex" !</h2>
+			
+			<div id="flex-baby">
+				<span>Un span</span> <span> + </span> <span>un autre span</span> <span> flex baby !</span>
+			</div>
+		</section>
+
+	</article>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Colonnes - Justify et inline-block</title>
+<style>
+  /* GLOBAL - facultatif */
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font: normal 18px/1 sans-serif;
+  }
+
+
+  /* MAIN CONTAINER */
+  #grid {
+    text-align: justify;    /* 1 */
+    font-size: 0.1px;       /* 2 */
+
+    width: 80%;
+    margin: 0 auto;
+  	background: #f5f5f5;
+  }
+
+  /* DIV enfants - les colonnes */
+  #grid div {
+    display: inline-block;  /* 3 */
+
+    width: 30%;
+    padding: 50px 0;
+    text-align: center;
+    font-size: 20px;
+    background: #e5e5e5;
+  }
+
+  /* PSEUDO ELEMENT - inséré via CSS APRES les (3) div enfants - Indispensable ! */
+  #grid:after {
+    content: "";            /* 4 */
+    display: inline-block;  /* 5 */
+    width: 100%;            /* 6 */
+  }
+
+
+  /* MISC - facultatif */
+  header, footer {
+  	text-align: center;
+    margin: 3em 0;
+  }
+</style>
+</head>
+
+<body>
+
+  <header><h1>Méthode: "text-align: justify"</h1></header>
+
+  <div id="grid" class="grid">
+  	<div id="c1">Contenu colonne 1</div>
+    <div id="c2">Contenu colonne 2</div>
+    <div id="c3">Contenu colonne 3</div>
+
+  </div>
+
+
+  <footer>
+    <p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks - A complete guide to Flexbox</p>
+    <p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/flex" target="_blank">MDN - flex</p>
+    <p><a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html" target="_blank">THE ULTIMATE FLEXBOX CHEAT SHEET</p>
+  </footer>
+
+</body>
+</html>

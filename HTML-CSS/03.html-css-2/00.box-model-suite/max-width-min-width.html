@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - max-width et min-width</title>
+
+		<style>
+			html {
+				box-sizing: border-box;
+				font-size: 16px;
+			}
+			body {
+				font-family: sans-serif;
+				line-height: 1.5;
+				text-align: center;
+			}
+
+			*, *:before, *:after {
+				box-sizing: inherit;
+			}
+
+			.content-box, .content-box * {
+				box-sizing: content-box;
+			}
+
+			/* Exemples - commun */
+			div {
+				height: 200px;
+				line-height: 200px;
+				margin: 40px auto;
+				background-color: #fc0;
+			}
+
+			/* max-width */
+			.max-width {
+				width: 90%;
+				max-width: 800px;
+			}
+
+			/* min-width */
+			.min-width {
+				width: 50%;
+				min-width: 800px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<h1>CSS - max-width et min-width</h1>
+
+		<article>
+
+			<section>
+				<h2>max-width</h2>
+				<div class="max-width">LARGEUR=90%, MAX=800px</div>
+			</section>
+
+
+			<section>
+				<h2>min-width</h2>
+				<div class="min-width">LARGEUR=50%, MIN=800px</div>
+			</section>
+
+		</article>
+
+
+		<footer>
+			<p>Voir plus chez MDN - <a href="https://developer.mozilla.org/fr/docs/Web/CSS/max-width" target="_blank">max-width</a></p>
+			<p>Voir plus chez MDN - <a href="hhttps://developer.mozilla.org/fr/docs/Web/CSS/min-width" target="_blank">min-width</a></p>
+		</footer>
+
+	</body>
+</html>

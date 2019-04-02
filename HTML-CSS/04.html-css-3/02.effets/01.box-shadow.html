@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - box-shadow</title>
+
+		<style>
+			
+			/* Formatage de base
+			------------------------------------*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				margin: 2.5em;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 18px;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+
+			h1, h2, h3 {
+				font-weight: 400;
+				line-height: 1;
+				margin-bottom: .5em;
+				padding: 0;
+			}
+
+			h1 {
+				font-size: 2.5em;
+				margin-bottom: 0;
+			}
+
+			footer, section {
+				padding: 2em 0;
+				margin-top: 2em;
+				border-top: solid 1px #ccc;
+			}
+
+			pre {
+				tab-size: 2;
+			}
+
+
+			/* LAYOUT - COMMON
+			------------------------------------*/
+			.container {
+				display: flex;
+				margin-top: 1em;
+				padding: 2em;
+				background-color: #eee;
+			}
+
+			.box {
+				width: 100px;
+				height: 100px;
+				margin: 0 2em;
+				text-align: center;
+				font-size: 14px;
+				line-height: 100px;
+				background-color: #fff;
+			}
+
+
+			/* BOX-SHADOW
+			------------------------------------*/
+			#shadow-1 {
+				box-shadow: 0 0 20px 3px #ccc;
+			}
+
+			#shadow-2 {
+				box-shadow: 5px 5px 20px 3px rgba(150, 150, 150, .5);
+			}
+
+			#shadow-3 {
+				box-shadow: 1px 1px 10px 1px rgba(150, 150, 150, .5) inset;
+			}
+
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<article>
+
+				<header><h1>CSS - box-shadow</h1></header>
+				<p>La propriété box-shadow décrit les ombres portées appliquées à une boîte avec une liste des valuers séparées par des virgules:</p>
+				<cite>offset-x | offset-y | blur-radius | spread-radius | color</cite>
+
+				<!-- EXEMPLES -->
+				<section>
+					<h2>Exemples</h2>
+					
+					<div id="c1" class="container">
+						<div class="box" id="shadow-1">#shadow-1</div>
+						<div class="box" id="shadow-2">#shadow-2</div>
+						<div class="box" id="shadow-3">#shadow-3</div>
+					</div>
+
+					<pre><code>
+					#shadow-1 {
+						box-shadow: 0 0 20px 3px #ccc;
+					}
+
+					#shadow-2 {
+						box-shadow: 5px 5px 20px 3px rgba(150, 150, 150, .5);
+					}
+
+					#shadow-3 {
+						box-shadow: 1px 1px 10px 1px rgba(150, 150, 150, .5) inset;
+					}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Compatibilité avec les vieux navigateurs</h2>
+					
+					<pre><code>
+					#shadow-1 {
+						-webkit-box-shadow: 0 0 20px 3px #ccc;
+						-moz-box-shadow: 0 0 20px 3px #ccc;
+						box-shadow: 0 0 20px 3px #ccc;
+					}
+					</code></pre>
+				</section>
+
+			</article>
+
+		</main>
+
+
+		<footer>
+			<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/box-shadow" target="_blank">MDN - box-shadow</a></p>
+
+			<p><a href="https://cssgenerator.org/box-shadow-css-generator.html" target="_blank">MDN - Box Shadow CSS Generator</a></p>
+		</footer>
+
+	</body>
+</html>

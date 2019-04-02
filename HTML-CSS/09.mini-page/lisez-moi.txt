@@ -1,0 +1,38 @@
+Notes sur la page "mini-page"
+
+
+1. Structure HTML
+   La structure HTML est déjà faite !
+   Regardez attentivement la structure HTML et les attributs présents sur les balises.
+
+
+2. Google Fonts + Font Icons
+   Le lien vers Google Fonts sont déjà fait. Polices utilisées "Open Sans" et Merriweather :
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Merriweather:300,400">
+
+   Vous avez également un lien vers des "font icons". Les icônes viennent de https://icomoon.io :
+   <link rel="stylesheet" href="css/fonticons/style.css">
+
+
+3. Pour activer/désactiver une feuille de style CSS, enlevez/ajouter le double underscore devant le nom du fichier dans le <head> du document.
+	
+   EXEMPLES
+	
+   Si vous voulez VOIR la version "mobile-first", les attributs "href" de <link> doivent être :
+   "css/styles-mobile-first.css" => active
+   "css/__styles-mobile-first-START.css"
+   "css/__styles-desktop-first.css"
+   "css/__styles-desktop-first-START.css"
+	
+   Si vous voulez FAIRE l'exercice "mobile first" :
+   "css/__styles-mobile-first.css"
+   "css/styles-mobile-first-START.css" => active
+   "css/__styles-desktop-first.css"
+   "css/__styles-desktop-first-START.css"
+	
+   etc...
+
+
+4. Pour faire un exercice
+   Vous pouvez faire un exercice CSS en activant la bonne feuille de style finnisant en "-START" comme indiqué ci-dessus.
+   Suivez les commentaires présents dans le fichier pour ajouter de styles. En cas de doute/blocage regarder le code dans le fichier CSS fini.

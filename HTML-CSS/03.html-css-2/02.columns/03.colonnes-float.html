@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Colonnes - Classic approach with float</title>
+<style>
+  /* GLOBAL - facultatif */
+  * {
+    margin: 0;
+    padding: 0;
+    font: normal 18px/1 sans-serif;
+  }
+
+  /* MAIN CONTAINER */
+  #grid {
+  	width: 80%; /* juste un exemple */
+    margin: 0 auto; /* pour un alignement au centre de la page */
+    background: #f5f5f5;
+  }
+
+  /* DIV enfants -les colonnes */
+  #grid div {
+    text-align: center; /* left, etc. */
+    width: 30%; /* juste un exemple de largeur */
+    padding: 50px 0; /* facultatif, juste pour "voir" le div */
+    float: left;
+    margin-right: 5%; /* 3 colonnes = 2 espaces de 5% */
+    background: #e5e5e5;
+  }
+  #grid #c3 {
+  	margin-right: 0;
+  }
+
+  /* PSEUDO ELEMENT - pour effacer le flottement - Indispensable ! */
+  #grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+
+  /* MISC - facultatif */
+  header, footer {
+  	text-align: center;
+    margin: 3em 0;
+  }
+</style>
+</head>
+
+<body>
+
+  <header><h1>Méthode: "classic" avec flottement</h1></header>
+
+  <div id="grid" class="grid">
+  	<div id="c1">Contenu colonne 1</div>
+    <div id="c2">Contenu colonne 2</div>
+    <div id="c3">Contenu colonne 3</div>
+  </div>
+
+  <footer>footer content...</footer>
+
+</body>
+</html>

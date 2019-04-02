@@ -1,0 +1,11 @@
+1. Créez un (petit et simple) "favicon" en Illustrator
+2. Enregistrez en .ai (sautez à l'étape 5 si logo existant)
+3. Enregistrez sous .svg dans le dossier __ai
+4. Optimisez le SVG avec Optimisez le SVG avec un des outils ci-dessous et enregistrez-le dans le dossier __ai
+https://jakearchibald.github.io/svgomg/
+https://petercollingridge.appspot.com/svg-editor
+5. Importez le SVG dans realfavicongenerator.net http://realfavicongenerator.net/
+6. Éditez les options...
+7. Choisissez l'option "I cannot or I do not want to place favicon files at the root of my web site" et écrivez "favicons" dans le champ de texte
+8. Générez les codes avec "Generate your Favicons and HTML code"
+9. Suivez les recommandations 1, 2, 3 dans la nouvelle page

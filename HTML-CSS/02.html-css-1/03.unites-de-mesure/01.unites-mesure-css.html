@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="font-size: 20px; font-family: sans-serif;">
+<head>
+	<meta charset="utf-8">
+	<title>Unités de mesure en CSS</title>
+</head>
+
+<body>
+
+	<h1>Unités de mesure pour longeurs en CSS</h1>
+
+	<h2>Unités relatives</h2>
+
+	<!-- em -->
+	<h3>em</h3>
+	<p>
+	Représente la taille de police <em>héritée</em> de l'élément parent le plus proche<br>
+	Les propriétés CSS <em>line-height, font-size, margin-bottom et margin-top</em> sont souvent des dimensions exprimées en <strong>em</strong></p>
+	<pre><code>
+		html {
+			font-size: 20px;
+		}
+
+		html p {
+			width: 20em;		=> 400px;
+			font-size: 1em;		=> 20px
+			line-height: 1.5em;	=> 30px
+
+			margin-top: 1em;	=> 20px;
+			padding: 2em;		=> 40px autour du texte;
+		}
+	</code></pre>
+
+		<p style="width: 20em; font-size: 1em; line-height: 1; margin-top: 1em; padding: 2em; background-color: #fc0;">
+			Lorem Ipsum M
+		</p>
+
+
+
+	<!-- rem -->
+	<h3>rem (root em)</h3>
+	<p>
+	représente la font-size de l'élément racine (la taille de la police de l'élément html (root))</p>
+	<pre><code>
+		html {
+			font-size: 20px;
+		}
+
+		div {
+			font-size: 12px;
+		}
+
+		div p {
+			font-size: <strong>1rem</strong>;	=> 20px
+		}
+	</code></pre>
+
+	<div style="font-size: 12px; background-color: #fc0;">
+		Some div text (12px	)
+		<p style="font-size: 1rem; line-height: 1; padding: 2rem;">
+			Lorem Ipsum <strong style="font-size: 1rem">M</strong>
+		</p>
+	</div>
+
+
+
+	<h2>Unités proportionnelles</h2>
+
+	<!-- % -->
+	<h3>%</h3>
+	<p>
+	Pour déterminer des tailles en fonction de la taille des éléments parent
+	</p>
+	<pre><code>
+		div {
+			width: 800px;
+		}
+		div p {
+			width: 50%;		=> 400px
+		}
+	</code></pre>
+
+	<div style="width: 800px; background: #fc0;">
+		<p style="width: 50%; background: #f5f5f5;">Texte dans un paragraphe</p>
+	</div>
+
+
+
+		<h2>Unités absolues</h2>
+
+	<!-- % -->
+	<h3>px</h3>
+	<p>
+	Pour l'affichage sur écran, correspond typiquement à un pixel de l'affichage<br>
+	Pour les écrans en haute résolution et les imprimantes, un pixel CSS correspond à plusieurs pixels du périphérique, de sorte que le nombre de pixels par pouce (ppi) reste aux alentours de 96 (!)
+	</p>
+	<pre><code>
+		div 1 {
+			width: 200px;
+			height: 50px;
+		}
+		div 2 {
+			width: 800px;
+			height: 50px;
+		}
+	</code></pre>
+
+	<div style="width: 200px; height: 50px; background: #f00;"></div>
+	<div style="width: 800px; height: 50px; background: #fc0;"></div>
+
+
+	<hr>
+	<footer>
+		<h3>voir plus...</h3>
+		<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/length" target="_blank">MDN</a> - Le type de données CSS length</p>
+		<p><a href="http://pxtoem.com/" target="_blank">pxtoem</a> - PX to EM conversion made simple.</p>
+		<p><a href="https://mydevice.io/devices/" target="_blank">mydevice.io - Mobile devices CSS size</a></p>
+
+	</footer>
+
+</body>
+
+</html>

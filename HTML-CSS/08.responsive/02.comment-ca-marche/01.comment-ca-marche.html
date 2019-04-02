@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - Media Queries</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<style>
+			
+			/* Formatage de base
+			------------------------------------*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			/* Box Sizing pour tout le monde */
+			html {
+				box-sizing: border-box;
+			}
+
+			*, *:before, *:after {
+				box-sizing: inherit;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			body {
+				margin: 2.5em;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 18px;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+
+			h1, h2, h3 {
+				font-weight: 400;
+				line-height: 1;
+				margin-bottom: .5em;
+				padding: 0;
+			}
+
+			h1 {
+				font-size: 2.5em;
+				margin-bottom: 0;
+			}
+
+			footer, section {
+				padding: 2em 0;
+				margin-top: 2em;
+				border-top: solid 1px #ccc;
+			}
+
+			pre {
+				tab-size: 2;
+			}
+
+
+			/* DESKTOP STYLES
+			------------------------------------*/
+			#box {
+				width: 100%;
+				padding: 3em 10%;
+				text-align: center;
+				background: #ccc;
+			}
+
+
+			/* MEDIA QUERIES STYLES
+			------------------------------------*/
+			/* Point de rupture 1 - tablettes paysage  */
+			@media (max-width: 1024px) {
+		    #box {
+		      background: #AED6F1;
+		    }
+			}
+
+			/* Point de rupture 2 - tablettes portrait  */
+			@media only screen and (max-width: 768px) {
+		    #box {
+		      background: #A569BD;
+		    }
+			}
+
+			/* Point de rupture 3 - phones paysage  */
+			@media only screen and (max-width: 667px) {
+		    #box {
+		      background: #CB4335;
+		      color: #fff;
+		    }
+		    pre {
+					tab-size: 1;
+				}
+			}
+
+			/* Point de rupture 4 - phones portrait  */
+			@media only screen and (max-width: 480px) {
+		    * {
+		    	text-align: center;
+		    }
+
+				pre {
+					display: none;
+				}
+
+		    #box {
+		      background: #2E4053;
+		    }
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<article>
+
+				<header><h1>CSS - Media Queries</h1>
+					<p>Une media query (ou requête média) consiste en un type de média, et au moins une expression limitant la portée des déclarations CSS, en mettant à profit les particularités des supports multimédias comme leur largeur, leur hauteur ou leur affichage des couleurs. Ajouté dans CSS3, les media queries permettent d'adapter la présentation du contenu à une large gamme d'appareils sans changer le contenu lui-même.</p>
+					<p>On peut changer les media queries en fonction de...</p>
+					<ul>
+						<li>Type de media (screen, print, ...)</li>
+						<li>Largeur/Hauteur device</li>
+						<li>Orientation device</li>
+					</ul>
+				</header>
+
+				<!-- EXEMPLES -->
+				<section>
+					<h2>Exemple - Changez la largeur de la fenêtre</h2>
+					
+					<div id="box">J'aurai un background different à chaque point de rupture</div>
+
+					<pre><code>
+					#box {
+						width: 100%;
+						padding: 3em 10%;
+						text-align: center;
+						background: #ccc;
+					}
+
+					/* Point de rupture 1 - tablettes paysage  */
+					@media only screen and (max-width: 1024px) {
+				    #box {
+				      background: #AED6F1;
+				    }
+					}
+
+					/* Point de rupture 2 - tablettes portrait  */
+					@media only screen and (max-width: 768px) {
+				    #box {
+				      background: #A569BD;
+				    }
+					}
+
+					/* Point de rupture 3 - phones paysage  */
+					@media only screen and (max-width: 667px) {
+				    #box {
+				      background: #CB4335;
+				    }
+					}
+
+					/* Point de rupture 4 - phones portrait  */
+					@media only screen and (max-width: 480px) {
+				    #box {
+				      background: #2E4053;
+				      color: #fff;
+				    }
+					}
+				</code></pre>
+				</section>
+
+			</article>
+
+		</main>
+
+
+		<footer>
+			<p><a href="https://mydevice.io/devices/" target="_blank">mydevice.io</a></p>
+		</footer>
+
+	</body>
+</html>

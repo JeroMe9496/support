@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - z-index</title>
+
+		<style>
+			
+			/* Formatage de base
+			------------------------------------*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				margin: 2.5em;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 18px;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+
+			h1, h2, h3 {
+				font-weight: 400;
+				line-height: 1;
+				margin-bottom: .5em;
+				padding: 0;
+			}
+
+			h1 {
+				font-size: 2.5em;
+				margin-bottom: 0;
+			}
+
+			footer, section {
+				padding: 2em 0;
+				margin-top: 2em;
+				border-top: solid 1px #ccc;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			pre {
+				tab-size: 2;
+			}
+
+
+			/* LAYOUT - COMMON
+			------------------------------------*/
+			#container {
+				position: relative; /* ses enfants vont se positionner par rapport à lui */
+				height: 190px;
+				margin-top: 1em;
+				background-color: #eee;
+			}
+
+			#container .box {
+				position: absolute;
+
+				width: 100px;
+				height: 100px;
+
+				text-align: center;
+				line-height: 100px; /* centrer le texte sur la verticale */
+			}
+
+
+			/* z-index
+			------------------------------------*/
+			#un {
+				top: 60px;
+				left: 30px;
+				z-index: 2;
+
+				background: #FC0;
+			}
+
+			#deux {
+				top: 30px;
+				left: 100px;
+				z-index: 1;
+
+				background: #2E86C1;
+			}
+
+			#trois {
+				top: 60px;
+				left: 170px;
+				z-index: 2;
+
+				background: #D7BDE2;
+			}
+
+			#quatre {
+				top: 30px;
+				left: 240px;
+				z-index: 1;
+
+				background: #9B59B6;
+			}
+
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<article>
+
+				<header><h1>CSS - z-index</h1></header>
+				<p>La propriété z-index définit le « z-order » d'un élément positionné en absolu par rapport à d'autres éléments.</p>
+				<p>Lorsque des éléments se chevauchent, le z-order détermine l'ordre des différentes couches que formeront les éléments. </p>
+				<p>Un élément couvrira un autre élément si sa valeur de  z-index est supérieure à celle du deuxième élément.</p>
+				<p>On peut faire une analogie avec les calques en Photoshop.</p>
+
+
+				<!-- z-index -->
+				<section>
+					<h2>Exemple</h2>
+					<p>Ci-dessous un exemple de positionnement avec z-index.</p>
+					<p>Les div #un et #trois ont un z-index 2</p>
+					<p>Les div #deux et #quatre ont un z-index 1</p>
+					
+					<pre><code>
+					#container .box {
+						position: absolute;
+					}
+
+					#un {
+						top: 60px;
+						left: 30px;
+						z-index: 2;
+					}
+
+					#deux {
+						top: 30px;
+						left: 100px;
+						z-index: 1;
+					}
+
+					#trois {
+						top: 60px;
+						left: 170px;
+						z-index: 2;
+					}
+
+					#quatre {
+						top: 30px;
+						left: 240px;
+						z-index: 1;
+					}
+					</code></pre>
+
+					<div id="container">
+						<div class="box" id="un">Un</div>
+						<div class="box" id="deux">Deux</div>
+						<div class="box" id="trois">Trois</div>
+						<div class="box" id="quatre">Quatre</div>
+					</div>
+				</section>
+
+			</article>
+
+		</main>
+
+
+		<footer>
+			<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/z-index" target="_blank">MDN - z-index</a></p>
+		</footer>
+
+	</body>
+</html>

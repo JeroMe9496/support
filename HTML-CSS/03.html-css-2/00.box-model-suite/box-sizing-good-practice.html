@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - box-sizing, meilleures pratiques</title>
+
+		<style>
+			html {
+				box-sizing: border-box;
+			}
+
+			*, *:before, *:after {
+				box-sizing: inherit;
+			}
+
+			.content-box, .content-box * {
+				box-sizing: content-box;
+			}
+
+			/* Exemple */
+			div {
+				width: 500px;
+				height: 200px;
+				border: solid 30px #ccc;
+				padding-bottom: 30px;
+
+				margin: 40px;
+				font-size: 1.5em;
+				background-color: #fc0;
+			}
+
+
+			/* Facultatif, pour l'affichage du code exemple */
+			body {
+				font-size: 16px;
+				font-family: sans-serif;
+				line-height: 1.5;
+				text-align: center;
+			}
+			pre { tab-size: 2; }
+			code { font-size: 2em; }
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<h1>box-sizing, meilleures pratiques</h1>
+
+		<article>
+
+			<section>
+				<h2>Code à mettre tout en haut dans vos styles</h2>
+
+				<pre><code>
+				html {
+					box-sizing: border-box;
+				}
+
+				*, *:before, *:after {
+					box-sizing: inherit;
+				}
+				</code></pre>
+
+
+				<h2>Code à mettre sur une élément html ou le box-sizing est different</h2>
+
+				<pre><code>
+				element-html-cible, element-html-cible * {
+					box-sizing: content-box;
+				}
+				</code></pre>
+			</section>
+
+
+			<section>
+				<h2>Example de mise en place</h2>
+
+				<div>J'ai un box-sizing hérité !</div>
+
+				<div class="content-box">J'ai un box-sizing de type "content-box" !</div>
+
+			</section>
+
+		</article>
+
+
+		<footer>
+			<p>Voir plus chez MDN - <a href="https://developer.mozilla.org/fr/docs/Web/CSS/box-sizing">box-sizing</a></p>
+		</footer>
+
+	</body>
+</html>

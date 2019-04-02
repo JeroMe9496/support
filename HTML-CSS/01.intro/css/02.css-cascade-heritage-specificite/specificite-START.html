@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>CSS - La SPECIFICITE</title>
+
+  <style>
+
+    /* Juste pour avoir un BIG titre centré, ignorez... */
+    h1 {
+      font-size: 8em;
+      text-align: center;
+    }
+
+
+    /* SPECIFICITE AVEC NIVEAUX D'IMPORTANCE
+    --------------------------------------------------*/
+    h1 {  } /*0001*/
+
+    body h1 {  } /*0002*/
+
+    html body h1 {  } /*0003*/
+
+    .hhh {  } /*0010*/
+
+    body .hhh {  } /*0011*/
+
+    #hhh {  } /*0100*/
+
+    body #hhh {  } /*0101*/
+
+    /*l'attribut style directement sur la balise: 1000. Voir ci-dessous*/
+
+    h1 {  } /*!important: 10000 écrase tout le monde !*/
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- L'élément de toutes les convoitises
+       id, class et style. L'attribut style pèse le plus lourd -->
+  <h1 id="hhh" class="hhh" style="">THE TITRE</h1>
+
+  <!-- Des liens... -->
+  <footer>
+    <hr>
+    <div><a href="https://specificity.keegan.st/">Specificity Calculator</a></div>
+    <div><a href="https://css-tricks.com/specifics-on-css-specificity/">Specifics on CSS Specificity</a></div>
+  </footer>
+
+</body>
+</html>

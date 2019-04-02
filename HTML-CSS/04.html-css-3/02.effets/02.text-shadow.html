@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - text-shadow</title>
+
+		<style>
+			
+			/* Formatage de base
+			------------------------------------*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				margin: 2.5em;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 18px;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+
+			h1, h2, h3 {
+				font-weight: 400;
+				line-height: 1;
+				margin-bottom: .5em;
+				padding: 0;
+			}
+
+			h1 {
+				font-size: 2.5em;
+				margin-bottom: 0;
+			}
+
+			footer, section {
+				padding: 2em 0;
+				margin-top: 2em;
+				border-top: solid 1px #ccc;
+			}
+
+			pre {
+				tab-size: 2;
+			}
+
+
+			/* LAYOUT - COMMON
+			------------------------------------*/
+			.container {
+				padding: 2em;
+				background-color: #eee;
+			}
+
+			.box {
+				font-size: 1.4em;
+				font-weight: 300;
+				color: black;
+				text-align: center;
+				margin-bottom: 2em;
+			}
+
+
+			/* TEXT-SHADOW
+			------------------------------------*/
+			#shadow-1 {
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+			}
+
+			#shadow-2 {
+				text-shadow: 5px 5px 2px rgba(0,0,0,0.5);
+			}
+
+			#shadow-3 {
+				text-shadow: 0 0 8px rgba(0,0,0,0.8);
+			}
+
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<article>
+
+				<header><h1>CSS - text-shadow</h1></header>
+				<p>La propriété text-shadow permet d'ajouter une ombre au texte boîte avec une liste des valuers séparées par des virgules:</p>
+				<cite>offset-x | offset-y | blur-radius | color</cite>
+
+				<!-- EXEMPLES -->
+				<section>
+					<h2>Exemples</h2>
+					
+					<div id="c1" class="container">
+						<p class="box" id="shadow-1">
+							C’est bien facile à dire « Buvez-moi, » mais Alice était trop fine pour obéir à l’aveuglette.
+						</p>
+						<p class="box" id="shadow-2">
+							C’est bien facile à dire « Buvez-moi, » mais Alice était trop fine pour obéir à l’aveuglette.
+						</p>
+						<p class="box" id="shadow-3">
+							C’est bien facile à dire « Buvez-moi, » mais Alice était trop fine pour obéir à l’aveuglette.
+						</p>
+					</div>
+
+					<pre><code>
+					#shadow-1 {
+						text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+					}
+
+					#shadow-2 {
+						text-shadow: 5px 5px 2px rgba(0,0,0,0.5);
+					}
+
+					#shadow-3 {
+						text-shadow: 0 0 8px rgba(0,0,0,0.8);
+					}
+					</code></pre>
+				</section>
+
+			</article>
+
+		</main>
+
+
+		<footer>
+			<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/text-shadow" target="_blank">MDN - text-shadow</a></p>
+
+			<p><a href="https://cssgenerator.org/text-shadow-css-generator.html" target="_blank">MDN - Text Shadow CSS Generator</a></p>
+		</footer>
+
+	</body>
+</html>

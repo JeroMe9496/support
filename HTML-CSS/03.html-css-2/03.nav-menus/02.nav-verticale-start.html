@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>La balise "nav" - Comment on fait un menu vertical</title>
+
+	<style>
+
+		/* La Nav */
+		nav {
+			*width: 300px;
+			background-color: #f5f5f5;
+		}
+
+		/* La liste */
+		nav ul {
+			*list-style: none;
+			*margin: 0;
+			*padding: 0;
+		}
+
+		/* Les éléments de la liste */
+		nav ul li {
+			/* circulez, il n'y a rien à faire */
+		}
+
+		/* Les liens de la liste */
+		nav ul li a {
+			*font-size: 22px;
+			*line-height: 1;
+			*text-decoration: none;
+			*display: block;
+			*padding: 1em 2em;
+			*color: #888;
+			*transition: background .5s ease, color .5s ease;
+		}
+
+		/* Survol sur les liens */
+		nav ul li a:hover {
+			*color: #000;
+			*background: #e5e5e5;
+		}
+	
+	</style>
+
+</head>
+
+<body>
+
+	<nav>
+		<ul>
+			<li><a href="#">Menu A</a></li>
+			<li><a href="#">Menu B</a></li>
+			<li><a href="#">Menu C</a></li>
+		</ul>
+	</nav>
+
+</body>
+
+</html>
