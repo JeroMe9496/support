@@ -158,5 +158,6 @@ In order to have the last changes from the remote suport repo, you have to updat
    **`$ git push`** - push changes to remote repo
 
    > *Note:*<br>
-   > *When you push files/folders to remote, GitHub may ask you to login*<br>
-   > *We have a support chapter on how to permanently store your GitHub credentials*
+   > *When you push files/folders to remote, GitHub may ask you **to login***<br>
+   > *We have a support chapter on how to permanently store your GitHub credentials :*<br>
+   > **[GitHub - Storing your credentials](github-bash-login.md)**
