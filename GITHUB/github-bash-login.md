@@ -69,6 +69,6 @@ For a more robust and flexible solution (you can use your SSH keys on each of yo
   <br>
 
   4. **Add the SSH key to your GitHub account**
-  <br>
+
   > Please follow the steps in GitHub Help Page:<br>
   > https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
