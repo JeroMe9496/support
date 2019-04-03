@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>CSS - SPECIFICITY</title>
+
+  <style>
+
+    /* Move along, this is not important... */
+    h1 {
+      font-size: 8em;
+      text-align: center;
+    }
+    
+
+    /* BY IMPORTANCE
+    --------------------------------------------------*/
+    h1 { color: lightgrey; } /*0001*/
+
+    body h1 { color: darkmagenta; } /*0002*/
+
+    html body h1 { color: gold; } /*0003*/
+
+    .hhh { color: black; } /*0010*/
+
+    body .hhh { color: darkred; } /*0011*/
+
+    #hhh { color: grey; } /*0100*/
+
+    body #hhh { color: olive; } /*0101*/
+
+     /*style attribute on tag: 1000. See bellow*/
+
+    h1 { color: navy !important; } /*!important: 10000 force most important (avoid) !*/
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1 id="hhh" class="hhh" style="color: #fc0;">THE TITLE</h1>
+
+  <!-- Links... -->
+  <footer>
+    <hr>
+    <div><a href="https://specificity.keegan.st/">Specificity Calculator</a></div>
+    <div><a href="https://css-tricks.com/specifics-on-css-specificity/">Specifics on CSS Specificity</a></div>
+  </footer>
+
+</body>
+</html>

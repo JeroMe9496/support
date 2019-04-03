@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Syntaxe CSS</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:300,400" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+	<section>
+		<h1>HTML code</h1>
+
+		<pre class="nowrap html-color">
+			<h2>Some HTML</h2>
+
+			<code>
+				<nav id="nav">
+					<ul id="menu-1" class="menu-niveau-1">
+						<li>Level 1 → List item 1</li>
+						<li>Level 1 → List item 2
+							<ul id="menu-2" class="menu-niveau-2">
+								<li>Level 2 → List item 1</li>
+								<li>Level 2 → List item 2</li>
+								<li>Level 2 → List item 3</li>
+							</ul>
+						</li>
+						<li>Level 1 → List item 3</li>
+						<li>Level 1 → List item 4</li>
+						<li>Level 1 → List item 5</li>
+					</ul>
+				</nav>
+				<p>Habemus Papam</p>
+				<p>Carpe diem</p>
+				<p>Carpe diem</p>
+				<p id="middle-p">Casus belli</p>
+				<p class="last-p">Cugito ergo sum</p>
+			</code>
+		</pre>
+	</section>
+
+
+	<section>
+		<h1>CSS SYNTAX</h1>
+
+		<pre class="wrap css-color">
+			<h2>HTML selectors</h2>
+      <h3>Target HTML tags</h3>
+
+			<code>
+			body {
+				color: #1a1a1a;
+				background-color: #e5e5e5;
+				font-size: 16px;
+			}
+
+			h1 {
+				font-size: 3em;
+				line-height: 2.5;
+				text-transform: uppercase;
+				text-align: center <quote>/* For the last element we can ignore the semicolon ";" */</quote>
+			}
+
+			h2 {
+				font-size: 2em;
+			}
+
+			pre {
+				display: block;
+				width: 60%;
+				margin: 0 auto 30px	;
+				padding: 20px;
+				background-color: white;
+				white-space: pre-wrap;
+				tab-size: 2;
+			}
+
+
+			nav {
+				white-space: normal;
+			}
+
+			quote {
+				color: #aaa;
+			}
+
+			<quote>//When several tags have the same styles</quote>
+			h1, h2 {
+				margin: 0;
+				font-weight: normal;
+				color: #212121;
+			}
+
+			<quote>//Parent - child relationship</quote>
+			pre code {
+				font-family: monospace;
+				font-size: 1.2em;
+			}
+
+			code p {
+				color: darkgrey;
+			}
+
+			nav ul {
+				font-weight: normal;
+			}
+
+			nav ul li {
+				color: #7a7a7a;
+			}
+
+			<quote>//Parent - child relationship, change only the first child</quote>
+			nav > ul {
+				font-weight: bold;
+			}
+
+			nav > ul > li {
+				color: #212121;
+			}
+
+			<quote>//Parent - child relationship, change only the last child</quote>
+			code p:last-child {
+				color: orange;
+			}
+
+			<quote>//Parent - child relationship, ignore the first two children</quote>
+			code p + p + p {
+				color: #212121;
+			}
+
+
+			<quote>//Change styles on "hover"</quote>
+			nav li:hover {
+				text-indent: 20px;
+			}
+
+			nav li ul li:hover  {
+				text-indent: 5px;
+			}
+			</code>
+		</pre>
+
+
+
+		<pre class="wrap css-color">
+			<h2>HTML attribute "class"
+				Apply styles only on elements with ".class"</h2>
+
+			<code>
+			.nowrap {
+				white-space: nowrap;
+			}
+
+			.html-color {
+				color: navy;
+			}
+
+			.css-color {
+				color: fuchsia;
+			}
+
+			code .last-p {
+				background-color: #f5f5f5;
+			}
+			</code>
+		</pre>
+
+		<pre class="wrap css-color">
+			<h2>HTML attribute "id"
+				Apply styles only on elements with "#id"</h2>
+
+			<code>
+			#nav {
+
+			}
+
+			#menu-1 {
+				background-color: #e5e5e5;
+			}
+
+			#menu-2 {
+				background-color: #f5f5f5;
+			}
+
+			code #middle-p {
+				background-color: #fc0;
+			}
+			</code>
+		</pre>
+
+	</section>
+	
+</body>
+</html>
