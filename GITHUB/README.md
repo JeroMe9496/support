@@ -58,7 +58,7 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
 
 ## D. Create this folder structure INSIDE the "powercoders" folder :
 ### powercoders folder contents
-```sh
+``` sh
    portfolio         (this will hold your portfolio projects)
    workshop          (this is your training folder, create a folder for each subject taught in class !)
       CLI            (CLI exercices)
@@ -80,7 +80,7 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
 2. #### Clone the support repo
 
    **`$ git clone https://github.com/powercoders-lausanne/support.git`**
-   ```sh
+   ``` sh
    Cloning into 'support'...
    remote: Enumerating objects: 32, done.
    remote: Counting objects: 100% (32/32), done.
@@ -157,7 +157,40 @@ In order to have the last changes from the remote suport repo, you have to updat
 
    **`$ git push`** - push changes to remote repo
 
+
    > *Note:*<br>
    > *When you push files/folders to remote, GitHub may ask you **to login***<br>
    > *We have a support chapter on how to permanently store your GitHub credentials :*<br>
    > **[GitHub - Storing your credentials](github-bash-login.md)**
+
+   -------------------
+   
+   ### TIP
+
+   While **push**ing your changes you may see an error like this :
+
+   ``` shell
+   ! [rejected] master -> master (non-fast-forward)
+   error: failed to push some refs to 'git@github.com:user/project.git'
+   hint: Updates were rejected because the tip of your current branch is behind
+   hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+   hint: before pushing again.
+   hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+   ```
+
+   This is because you made some changes on remote and you do not have them on your local machine.<br>
+   To resolve this issue try first to **pull** the changes from your remote :
+
+   ``` shell
+   $ git pull origin master
+   ```
+
+   If no errors try again the push command.
+   If you see an error, you can use **force** option :
+
+   ``` shell
+   $ git push -f origin master
+   ```
+
+   The **-f** option means *force*. This can cause the remote repository to lose commits; use it with care.<br>
+   See more **[here](https://stackoverflow.com/a/18135171)**.
