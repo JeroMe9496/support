@@ -185,7 +185,7 @@ In order to have the last changes from the remote suport repo, you have to updat
    $ git pull origin master
    ```
 
-   If no errors try again the push command.
+   If no errors try again the push command.<br>
    If you see an error, you can use **force** option :
 
    ``` shell
