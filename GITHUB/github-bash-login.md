@@ -19,7 +19,7 @@ Done !
 For a more robust and flexible solution (you can use your SSH keys on each of your working computers) follow the steps bellow. **You have to to this just once!**
 
 
-1. ### Checking for existing SSH keys - [GitHub Help](https://help.github.com/en/articles/checking-for-existing-ssh-keys)
+1. **Checking for existing SSH keys** - [GitHub Help](https://help.github.com/en/articles/checking-for-existing-ssh-keys)
 
     ``` sh
     # Lists the files in your .ssh directory, if they exist
@@ -27,7 +27,7 @@ For a more robust and flexible solution (you can use your SSH keys on each of yo
     ```
 
 
-2. ### Generating a new SSH key and adding it to the ssh-agent - [GitHub Help Page](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. **Generating a new SSH key and adding it to the ssh-agent** - [GitHub Help Page](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
     ##### I. Open Git Bash and paste the text below, substituting in your GitHub email address.
 
