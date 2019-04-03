@@ -16,7 +16,7 @@ Done !
 <br>
 
 ## 2. OPTION TWO - Connecting to GitHub with SSH
-For a more robust and flexible solution (you can use your SSH keys on each of your working computers) follow the steps bellow. **You have to to this just once!**
+For a more robust and flexible solution (you can use your SSH keys on each of your working computers) follow the steps bellow. **You have to do this just once!**
 
 
 1. **Checking for existing SSH keys** - [GitHub Help](https://help.github.com/en/articles/checking-for-existing-ssh-keys)
