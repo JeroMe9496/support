@@ -1,139 +1,92 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>CSS - filter</title>
 
-		<style>
-			
-			/* Formatage de base
+<head>
+	<meta charset="utf-8">
+	<title>CSS - filter</title>
+
+	<link rel="stylesheet" href="https://files.squarelabel.com/assets/prism.css">
+	<link rel="stylesheet" href="https://files.squarelabel.com/assets/common.css">
+	<style>
+		/* LAYOUT - COMMON
 			------------------------------------*/
-			* {
-				margin: 0;
-				padding: 0;
-			}
+		.container {
+			display: flex;
+			margin-top: 1em;
+			padding: 2em;
+			background-color: #eee;
+		}
 
-			/* Box Sizing pour tout le monde */
-			html {
-				box-sizing: border-box;
-			}
-
-			*, *:before, *:after {
-				box-sizing: inherit;
-			}
-
-			a {
-				text-decoration: none;
-			}
-
-			body {
-				margin: 2.5em;
-				font-family: Helvetica, Arial, sans-serif;
-				font-size: 18px;
-				font-weight: 300;
-				line-height: 1.5;
-			}
-
-			h1, h2, h3 {
-				font-weight: 400;
-				line-height: 1;
-				margin-bottom: .5em;
-				padding: 0;
-			}
-
-			h1 {
-				font-size: 2.5em;
-				margin-bottom: 0;
-			}
-
-			footer, section {
-				padding: 2em 0;
-				margin-top: 2em;
-				border-top: solid 1px #ccc;
-			}
-
-			pre {
-				tab-size: 2;
-			}
+		.box {
+			display: block;
+			width: 100px;
+			height: 100px;
+			margin: 0 2em;
+			text-align: center;
+			font-size: 14px;
+			line-height: 100px;
+			color: #fff;
+			background-color: #333;
+			background-image: url(img/ps.jpg);
+		}
 
 
-			/* LAYOUT - COMMON
+		/* FILTER
 			------------------------------------*/
-			.container {
-				display: flex;
-				margin-top: 1em;
-				padding: 2em;
-				background-color: #eee;
-			}
+		#filter-1 {
+			filter: drop-shadow(0 0 20px blue);
+		}
 
-			.box {
-				display: block;
-				width: 100px;
-				height: 100px;
-				margin: 0 2em;
-				text-align: center;
-				font-size: 14px;
-				line-height: 100px;
-				color: #fff;
-				background-color: #333;
-				background-image: url(img/ps.jpg);
-			}
+		#filter-2 {
+			filter: blur(3px);
+		}
 
+		#filter-3 {
+			filter: grayscale(80%);
+		}
 
-			/* FILTER
-			------------------------------------*/
-			#filter-1 {
-				filter: drop-shadow(0 0 20px blue);
-			}
+		#filter-4 {
+			filter: hue-rotate(90deg);
+		}
 
-			#filter-2 {
-				filter: blur(3px);
-			}
+		#filter-5 {
+			filter: opacity(25%);
+		}
 
-			#filter-3 {
-				filter: grayscale(80%);
-			}
+		#filter-6 {
+			filter: sepia(100%) brightness(0.7);
+		}
+	</style>
 
-			#filter-4 {
-				filter: hue-rotate(90deg);
-			}
+</head>
 
-			#filter-5 {
-				filter: opacity(25%);
-			}
+<body>
 
-			#filter-6 {
-				filter: sepia(100%) brightness(0.7);
-			}
+	<main>
 
-		</style>
+		<article>
 
-	</head>
+			<header>
+				<h1>CSS - filter</h1>
+			</header>
+			<p>The filter CSS property applies graphical effects like blur or color shift to an element. Filters are commonly
+				used to adjust the rendering of images, backgrounds, and borders.</p>
+			<cite>filter: filter-function [filter-function]* | none</cite>
 
-	<body>
+			<!-- EXEMPLES -->
+			<section>
+				<h2>Examples</h2>
 
-		<main>
+				<div id="c1" class="container">
+					<img class="box" id="filter-1" src="img/ps.jpg">
+					<img class="box" id="filter-2" src="img/ps.jpg">
+					<img class="box" id="filter-3" src="img/ps.jpg">
+					<img class="box" id="filter-4" src="img/ps.jpg">
+					<img class="box" id="filter-5" src="img/ps.jpg">
+					<img class="box" id="filter-6" src="img/ps.jpg">
+				</div>
 
-			<article>
-
-				<header><h1>CSS - filter</h1></header>
-				<p>La propriété filter permet d'appliquer des filtres et d'obtenir des effets graphiques de flou, de saturation, etc. Les filtres sont généralement utilisés pour ajuster le rendu d'une image, d'un arrière-plan ou des bordures.</p>
-				<cite>filter: filter-function [filter-function]* | none</cite>
-
-				<!-- EXEMPLES -->
-				<section>
-					<h2>Exemples</h2>
-					
-					<div id="c1" class="container">
-						<img class="box" id="filter-1" src="img/ps.jpg">
-						<img class="box" id="filter-2" src="img/ps.jpg">
-						<img class="box" id="filter-3" src="img/ps.jpg">
-						<img class="box" id="filter-4" src="img/ps.jpg">
-						<img class="box" id="filter-5" src="img/ps.jpg">
-						<img class="box" id="filter-6" src="img/ps.jpg">
-					</div>
-
-					<pre><code>
+				<pre><code class="language-css">
 					#filter-1 {
 						filter: drop-shadow(0 0 20px blue);
 					}
@@ -158,31 +111,33 @@
 						filter: sepia(100%) brightness(0.7);
 					}
 				</code></pre>
-				</section>
+			</section>
 
-				<section>
-					<h2>Compatibilité avec les vieux navigateurs</h2>
-					
-					<pre><code>
-					#filter-2 {
-				    -webkit-filter: blur(3px);
-				    -moz-filter: blur(3px);
-				    -ms-filter: blur(3px);
-				    -o-filter: blur(3px);
-				    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius = '3');
-				    filter: blur(3px);
-					}
+			<section>
+				<h2>Compatibility with old browsers</h2>
+
+				<pre class="MW-800"><code class="language-css">
+						#filter-2 {
+							-webkit-filter: blur(3px);
+							-moz-filter: blur(3px);
+							-ms-filter: blur(3px);
+							-o-filter: blur(3px);
+							filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius = '3');
+							filter: blur(3px);
+						}
 					</code></pre>
-				</section>
+			</section>
 
-			</article>
+		</article>
 
-		</main>
+	</main>
 
 
-		<footer>
-			<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/filter" target="_blank">MDN - filter</a></p>
-		</footer>
+	<footer>
+		<p><a href="https://developer.mozilla.org/docs/Web/CSS/filter" target="_blank">MDN - filter</a></p>
+	</footer>
 
-	</body>
+	<script src="https://files.squarelabel.com/assets/prism.js"></script>
+</body>
+
 </html>

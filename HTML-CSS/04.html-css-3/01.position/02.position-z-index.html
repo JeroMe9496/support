@@ -3,71 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>CSS - z-index</title>
-
+		<link rel="stylesheet" href="https://files.squarelabel.com/assets/prism.css">
+		<link rel="stylesheet" href="https://files.squarelabel.com/assets/common.css">
 		<style>
-			
-			/* Formatage de base
-			------------------------------------*/
-			* {
-				margin: 0;
-				padding: 0;
-			}
-
-			body {
-				margin: 2.5em;
-				font-family: Helvetica, Arial, sans-serif;
-				font-size: 18px;
-				font-weight: 300;
-				line-height: 1.5;
-			}
-
-			h1, h2, h3 {
-				font-weight: 400;
-				line-height: 1;
-				margin-bottom: .5em;
-				padding: 0;
-			}
-
-			h1 {
-				font-size: 2.5em;
-				margin-bottom: 0;
-			}
-
-			footer, section {
-				padding: 2em 0;
-				margin-top: 2em;
-				border-top: solid 1px #ccc;
-			}
-
-			p {
-				margin: 0;
-			}
-
-			pre {
-				tab-size: 2;
-			}
-
-
-			/* LAYOUT - COMMON
-			------------------------------------*/
-			#container {
-				position: relative; /* his children will position themselves in relation to him */
-				height: 190px;
-				margin-top: 1em;
-				background-color: #eee;
-			}
-
-			#container .box {
-				position: absolute;
-
-				width: 100px;
-				height: 100px;
-
-				text-align: center;
-				line-height: 100px; /* centrer le texte sur la verticale */
-			}
-
-
 			/* z-index
 			------------------------------------*/
 			#one {
@@ -101,8 +39,6 @@
 
 				background: #9B59B6;
 			}
-
-
 		</style>
 
 	</head>
@@ -127,7 +63,7 @@
 					<p>The divs #one and #three have a z-index of 2</p>
 					<p>The divs #two and #four have a z-index of 1.</p>
 					
-					<pre><code>
+					<pre><code class="language-css">
 					#container .box {
 						position: absolute;
 					}
@@ -173,6 +109,8 @@
 		<footer>
 			<p><a href="https://developer.mozilla.org/docs/Web/CSS/z-index" target="_blank">MDN - z-index</a></p>
 		</footer>
+
+		<script src="https://files.squarelabel.com/assets/prism.js"></script>
 
 	</body>
 </html>
