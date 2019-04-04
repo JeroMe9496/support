@@ -51,7 +51,7 @@
 			/* LAYOUT - COMMON
 			------------------------------------*/
 			#container {
-				position: relative; /* ses enfants vont se positionner par rapport à lui */
+				position: relative; /* his children will position themselves in relation to him */
 				height: 190px;
 				margin-top: 1em;
 				background-color: #eee;
@@ -70,7 +70,7 @@
 
 			/* z-index
 			------------------------------------*/
-			#un {
+			#one {
 				top: 60px;
 				left: 30px;
 				z-index: 2;
@@ -78,7 +78,7 @@
 				background: #FC0;
 			}
 
-			#deux {
+			#two {
 				top: 30px;
 				left: 100px;
 				z-index: 1;
@@ -86,7 +86,7 @@
 				background: #2E86C1;
 			}
 
-			#trois {
+			#three {
 				top: 60px;
 				left: 170px;
 				z-index: 2;
@@ -94,7 +94,7 @@
 				background: #D7BDE2;
 			}
 
-			#quatre {
+			#four {
 				top: 30px;
 				left: 240px;
 				z-index: 1;
@@ -114,43 +114,43 @@
 			<article>
 
 				<header><h1>CSS - z-index</h1></header>
-				<p>La propriété z-index définit le « z-order » d'un élément positionné en absolu par rapport à d'autres éléments.</p>
-				<p>Lorsque des éléments se chevauchent, le z-order détermine l'ordre des différentes couches que formeront les éléments. </p>
-				<p>Un élément couvrira un autre élément si sa valeur de  z-index est supérieure à celle du deuxième élément.</p>
-				<p>On peut faire une analogie avec les calques en Photoshop.</p>
+				<p>The z-index property defines the "z-order" of an element positioned in absolute relative to other elements.</p>
+				<p>When elements overlap, the z-order determines the order of the different layers that will form the elements.</p>
+				<p>An element will cover another element if its z-index value is greater than that of the second element.</p>
+				<p>One can make an analogy with layers in Photoshop.</p>
 
 
 				<!-- z-index -->
 				<section>
-					<h2>Exemple</h2>
-					<p>Ci-dessous un exemple de positionnement avec z-index.</p>
-					<p>Les div #un et #trois ont un z-index 2</p>
-					<p>Les div #deux et #quatre ont un z-index 1</p>
+					<h2>Example</h2>
+					<p>Below is an example of positioning with z-index.</p>
+					<p>The divs #one and #three have a z-index of 2</p>
+					<p>The divs #two and #four have a z-index of 1.</p>
 					
 					<pre><code>
 					#container .box {
 						position: absolute;
 					}
 
-					#un {
+					#one {
 						top: 60px;
 						left: 30px;
 						z-index: 2;
 					}
 
-					#deux {
+					#two {
 						top: 30px;
 						left: 100px;
 						z-index: 1;
 					}
 
-					#trois {
+					#three {
 						top: 60px;
 						left: 170px;
 						z-index: 2;
 					}
 
-					#quatre {
+					#four {
 						top: 30px;
 						left: 240px;
 						z-index: 1;
@@ -158,10 +158,10 @@
 					</code></pre>
 
 					<div id="container">
-						<div class="box" id="un">Un</div>
-						<div class="box" id="deux">Deux</div>
-						<div class="box" id="trois">Trois</div>
-						<div class="box" id="quatre">Quatre</div>
+						<div class="box" id="one">One</div>
+						<div class="box" id="two">Two</div>
+						<div class="box" id="three">Three</div>
+						<div class="box" id="four">Four</div>
 					</div>
 				</section>
 
@@ -171,7 +171,7 @@
 
 
 		<footer>
-			<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/z-index" target="_blank">MDN - z-index</a></p>
+			<p><a href="https://developer.mozilla.org/docs/Web/CSS/z-index" target="_blank">MDN - z-index</a></p>
 		</footer>
 
 	</body>
