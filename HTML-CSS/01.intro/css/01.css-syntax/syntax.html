@@ -1,97 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Syntaxe CSS</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:300,400" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>CSS Syntax</title>
+  <link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/prism.css">
+	<link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
 </head>
 
-<body>
+<body class="AC">
 
-	<section>
-		<h1>HTML code</h1>
 
-		<pre class="nowrap html-color">
-			<h2>Some HTML</h2>
-
-			<code>
-				<nav id="nav">
-					<ul id="menu-1" class="menu-niveau-1">
-						<li>Level 1 → List item 1</li>
-						<li>Level 1 → List item 2
-							<ul id="menu-2" class="menu-niveau-2">
-								<li>Level 2 → List item 1</li>
-								<li>Level 2 → List item 2</li>
-								<li>Level 2 → List item 3</li>
-							</ul>
-						</li>
-						<li>Level 1 → List item 3</li>
-						<li>Level 1 → List item 4</li>
-						<li>Level 1 → List item 5</li>
-					</ul>
-				</nav>
-				<p>Habemus Papam</p>
-				<p>Carpe diem</p>
-				<p>Carpe diem</p>
-				<p id="middle-p">Casus belli</p>
-				<p class="last-p">Cugito ergo sum</p>
-			</code>
-		</pre>
-	</section>
+	<h1>CSS SYNTAX</h1>
 
 
 	<section>
-		<h1>CSS SYNTAX</h1>
+		<h2>Target with tag name</h2>
 
-		<pre class="wrap css-color">
-			<h2>HTML selectors</h2>
-      <h3>Target HTML tags</h3>
+		<pre class="MW-800 MA"><code class="language-css">
+			/* Target a (single) tag 
+			-----------------------------------------------*/
+			html {
+				font-size: 18px; /* global font size */
+			}
 
-			<code>
 			body {
 				color: #1a1a1a;
+				font-size: 1em;
+
+				/* we can ignore the semicolon ";" for the last element */
 				background-color: #e5e5e5;
-				font-size: 16px;
 			}
 
 			h1 {
 				font-size: 3em;
 				line-height: 2.5;
 				text-transform: uppercase;
-				text-align: center <quote>/* For the last element we can ignore the semicolon ";" */</quote>
+				text-align: center;
 			}
 
 			h2 {
 				font-size: 2em;
 			}
 
-			pre {
-				display: block;
-				width: 60%;
-				margin: 0 auto 30px	;
-				padding: 20px;
-				background-color: white;
-				white-space: pre-wrap;
-				tab-size: 2;
-			}
 
-
-			nav {
-				white-space: normal;
-			}
-
-			quote {
-				color: #aaa;
-			}
-
-			<quote>//When several tags have the same styles</quote>
+			/* Target multiple tags at once 
+			-----------------------------------------------*/
 			h1, h2 {
 				margin: 0;
 				font-weight: normal;
 				color: #212121;
 			}
 
-			<quote>//Parent - child relationship</quote>
+
+			/* Target a tag inside of another tag 
+			-----------------------------------------------*/
 			pre code {
 				font-family: monospace;
 				font-size: 1.2em;
@@ -109,8 +70,10 @@
 				color: #7a7a7a;
 			}
 
-			<quote>//Parent - child relationship, change only the first child</quote>
-			nav > ul {
+
+			/* Target only the immediate child of a tag 
+			-----------------------------------------------*/
+			section > p {
 				font-weight: bold;
 			}
 
@@ -118,77 +81,156 @@
 				color: #212121;
 			}
 
-			<quote>//Parent - child relationship, change only the last child</quote>
-			code p:last-child {
-				color: orange;
-			}
 
-			<quote>//Parent - child relationship, ignore the first two children</quote>
-			code p + p + p {
+			/* Target the third child
+			-----------------------------------------------*/
+			section p + p + p {
 				color: #212121;
 			}
+			</code></pre>
+		</section>
 
 
-			<quote>//Change styles on "hover"</quote>
-			nav li:hover {
-				text-indent: 20px;
-			}
+		<section>
+			<h2>Target with "pseudo-classes"</h2>
+			
+			<pre class="MW-800 MA"><code class="language-css">
+				/* Target the first child */
+				section p:first-child {
+					color: red;
+				}
 
-			nav li ul li:hover  {
-				text-indent: 5px;
-			}
-			</code>
-		</pre>
+				/* Target the last child */
+				section p:last-child {
+					color: orange;
+				}
+
+				/* Target the nth element */
+				section p:last-child {
+					color: orange;
+				}
+
+				/* Target on "hover" */
+				nav li:hover {
+					text-indent: 20px;
+				}
+				
+				/* Target the seventh p element inside a section */
+				section p:nth-child(7) {
+					color: red;
+				}
+
+				/* Target every fourth p element inside a section */
+				section p:nth-child(4n) {
+					color: lime;
+				}
+			</code></pre>
+		</section>
 
 
+		<section>
+			<h2>Target with attribute selector</h2>
+			
+			<pre class="MW-800 MA"><code class="language-css">
+				/* a elements with a title attribute */
+				a[title] {
+					color: purple;
+				}
+				
+				/* a elements with an href matching "https://example.org" */
+				a[href="https://example.org"] {
+					color: green;
+				}
+				
+				/* a elements with an href containing "example" */
+				a[href*="example"] {
+					font-size: 2em;
+				}
+				
+				/* a elements with an href ending ".org" */
+				a[href$=".org"] {
+					font-style: italic;
+				}
+			</code></pre>
+		</section>
 
-		<pre class="wrap css-color">
-			<h2>HTML attribute "class"
-				Apply styles only on elements with ".class"</h2>
 
-			<code>
-			.nowrap {
-				white-space: nowrap;
-			}
+		<section>
+			<h2>Target with "universal" selectors</h2>
+			
+			<pre class="MW-800 MA"><code class="language-css">
+				/* Target all elements */
+				* {
+					margin: 0;
+				}
+				
+				/* Target all children of section p */
+				section p * {
+					font-weight: 300;
+				}
+			</code></pre>
+		</section>
 
-			.html-color {
-				color: navy;
-			}
 
-			.css-color {
-				color: fuchsia;
-			}
+		<section>
+			<h2>Target only on elements with a ".class-name"</h2>
+			
+			<pre class="MW-800 MA"><code class="language-css">
+				/* All elements with class "I" */
+				.I {
+					font-style: italic;
+				}
 
-			code .last-p {
-				background-color: #f5f5f5;
-			}
-			</code>
-		</pre>
+				/* Paragraphs with class "bold" */
+				p.bold {
+					font-weight: bold;
+				}
 
-		<pre class="wrap css-color">
-			<h2>HTML attribute "id"
-				Apply styles only on elements with "#id"</h2>
+				/* All span elements inside an element with class "navy" */
+				.navy span {
+					color: navy;
+				}
 
-			<code>
+				/* All elements with class "last-p" inside of a section element */
+				section .last-p {
+					background-color: #f5f5f5;
+				}
+			</code></pre>
+		</section>
+
+		<section>
+		<h2>Target only on elements with an "#id-name"</h2>
+		
+		<pre class="MW-800 MA"><code class="language-css">
 			#nav {
-
+				margin-top: 1em;
 			}
 
-			#menu-1 {
+			#menu-bottom {
 				background-color: #e5e5e5;
 			}
 
-			#menu-2 {
+			#menu-aside {
 				background-color: #f5f5f5;
 			}
 
-			code #middle-p {
+			div#bob {
+				border-top: solid 1px #ccc;
+			}
+
+			section #middle-p {
 				background-color: #fc0;
 			}
-			</code>
-		</pre>
-
+			</code></pre>
 	</section>
-	
+
+	<!-- Links... -->
+	<footer>
+		<div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">MDN - CSS selectors</a></div>
+		<div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">MDN - Pseudo-classes</a></div>
+	</footer>
+
+	<script src="https://poco.squarelabel.com/assets/common/prism.js"></script>
+
 </body>
 </html>

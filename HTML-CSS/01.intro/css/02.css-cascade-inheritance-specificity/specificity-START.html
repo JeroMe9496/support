@@ -7,7 +7,6 @@
   <title>CSS - SPECIFICITY</title>
 
   <style>
-
     /* Move along, this is not important... */
     h1 {
       font-size: 8em;
@@ -17,24 +16,48 @@
 
     /* BY IMPORTANCE
     --------------------------------------------------*/
-    h1 {  } /*0001*/
+    /*001*/
+    h1 {
+      
+    }
 
-    body h1 {  } /*0002*/
+    /*002*/
+    body h1 {
+      
+    }
 
-    html body h1 {  } /*0003*/
+    /*003*/
+    html body h1 {
+      
+    }
 
-    .hhh {  } /*0010*/
+    /*010*/
+    .hhh {
+      
+    }
 
-    body .hhh {  } /*0011*/
+    /*011*/
+    body .hhh {
+      
+    }
 
-    #hhh {  } /*0100*/
+    /*100*/
+    #hhh {
+      
+    }
 
-    body #hhh {  } /*0101*/
+    /*101*/
+    body #hhh {
+      
+    }
 
-    /*style attribute on tag: 1000. See bellow*/
+    /*0101*/
+    /*style attribute on tag: 1000. See bellow on the h1 tag*/
 
-    h1 {  } /*!important: 10000 force most important (avoid) !*/
-
+    /*!important: 10000 force most important (avoid) !*/
+    h1 {
+      
+    }
   </style>
 
 </head>
@@ -51,4 +74,5 @@
   </footer>
 
 </body>
+
 </html>
