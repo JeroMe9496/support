@@ -53,9 +53,32 @@ pre {
   margin: 1em 0 !important;
 }
 
+em {
+  font-family: serif;
+  font-style: italic;
+  font-size: 1.1em;
+}
+strong {
+  font-weight: bold;
+}
+
 
 /* COMMON CLASSES
 ------------------------------------*/
+.B {
+  font-weight: 700;
+}
+.I {
+  font-style: italic;
+}
+
+.FS-2 {
+  font-size: 2em;
+}
+.FS-3 {
+  font-size: 3em;
+}
+
 .MW-800 {
   max-width: 800px !important;
 }
