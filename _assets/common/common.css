@@ -78,7 +78,10 @@ strong {
 .FS-3 {
   font-size: 3em;
 }
-
+.W-100P {
+  width: 100% !important;
+  max-width: 100% !important;
+}
 .MW-800 {
   max-width: 800px !important;
 }
@@ -105,6 +108,16 @@ strong {
 }
 .MT-3 {
   margin-top: 3em;
+}
+
+.MB-1 {
+  margin-bottom: 1em;
+}
+.MB-2 {
+  margin-bottom: 2em;
+}
+.MB-3 {
+  margin-bottom: 3em;
 }
 
 

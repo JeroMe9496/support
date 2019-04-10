@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS - Media Queries</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/prism.css">
+		<link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
+		<style>
+			/* DESKTOP STYLES
+			------------------------------------*/
+			#box {
+				width: 100%;
+				padding: 3em 10%;
+				text-align: center;
+				background: #ccc;
+			}
+
+
+			/* MEDIA QUERIES STYLES
+			------------------------------------*/
+			/* Point de rupture 1 - tablettes paysage  */
+			@media (max-width: 1024px) {
+		    #box {
+		      background: #AED6F1;
+		    }
+			}
+
+			/* Point de rupture 2 - tablettes portrait  */
+			@media only screen and (max-width: 768px) {
+		    #box {
+		      background: #A569BD;
+		    }
+			}
+
+			/* Point de rupture 3 - phones paysage  */
+			@media only screen and (max-width: 667px) {
+		    #box {
+		      background: #CB4335;
+		      color: #fff;
+		    }
+		    pre {
+					tab-size: 1;
+				}
+			}
+
+			/* Point de rupture 4 - phones portrait  */
+			@media only screen and (max-width: 480px) {
+		    * {
+		    	text-align: center;
+		    }
+
+				pre {
+					display: none;
+				}
+
+		    #box {
+		      background: #2E4053;
+		    }
+			}
+			ul {
+				margin-left: 2em;
+				list-style: disc;
+				list-style-position: inside;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<main>
+
+			<article>
+
+				<header><h1>CSS - Media Queries</h1>
+					<p>A media query (or media query) consists of a media type, and at least one expression that limits the scope of CSS declarations, taking advantage of media features such as width, height, or color display. Added in CSS3, the media queries allow to adapt the presentation of the content to a wide range of devices without changing the content itself.</p>
+					<p>We can change the media queries according to: </p>
+					<ul>
+						<li>Type of media (screen, print, ...)</li>
+						<li>Device Width/Height</li>
+						<li>Device Orientation</li>
+					</ul>
+				</header>
+
+				<!-- EXEMPLES -->
+				<section>
+					<h2>Example - Change the width of the window</h2>
+					
+					<div id="box">I will have a different background at each break point</div>
+
+					<pre class="MW-800 MA"><code class="language-css">
+					/*DEFAULT STYLES (desktop or mobile)*/
+					#box {
+						width: 100%;
+						padding: 3em 10%;
+						text-align: center;
+						background: #ccc;
+					}
+
+					/* Break Point 1 - Landscape Tablets  */
+					@media only screen and (max-width: 1024px) {
+
+						#box {
+							background: #AED6F1;
+						}
+
+					}
+
+
+					/* Break Point 2 - portrait tablets  */
+					@media only screen and (max-width: 768px) {
+
+						#box {
+							background: #A569BD;
+						}
+
+					}
+
+
+					/* Break point 3 - landscape phones  */
+					@media only screen and (max-width: 667px) {
+
+						#box {
+							background: #CB4335;
+						}
+
+					}
+
+
+					/* Break point 4 - phones portrait  */
+					@media only screen and (max-width: 480px) {
+
+						#box {
+							background: #2E4053;
+							color: #fff;
+						}
+						
+					}
+				</code></pre>
+				</section>
+
+			</article>
+
+		</main>
+
+
+		<footer>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">Using media queries</a></p>
+			<p><a href="https://mydevice.io/devices/" target="_blank">mydevice.io</a></p>
+		</footer>
+
+		<script src="https://poco.squarelabel.com/assets/common/prism.js"></script>
+	</body>
+</html>

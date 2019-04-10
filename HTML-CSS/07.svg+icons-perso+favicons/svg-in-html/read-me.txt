@@ -1,0 +1,10 @@
+1. Create a (small and simple) logo in Illustrator
+2. Save as .ai in the __ai folder (to keep the edit file)
+3. Save as .svg in the __ai folder
+4. Optimize the SVG with one of the tools below and save it in your "img" folder
+	https://jakearchibald.github.io/svgomg/
+	https://petercollingridge.appspot.com/svg-editor
+5. Insert SVG into your HTML page
+	a. As SVG code
+	b. In a <img> tag
+	c. In the background of a <figure> tag

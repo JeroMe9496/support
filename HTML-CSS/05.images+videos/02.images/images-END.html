@@ -9,7 +9,7 @@
     <style>
       /* LAYOUT
       ---------------------------------------*/
-      .flex {
+      .bob {
         display: flex;
       }
 
@@ -25,7 +25,9 @@
         margin: auto; /* juste un centrage au cas ou ce n'est pas du 100%... */
       }
       figure img {
-        /*propriétés de la balise <img>...*/
+        display: block;
+        width: 100%;
+        height: auto;
       }
 
       .figure-aside {
@@ -36,7 +38,10 @@
 
       .img-bg {
         min-height: 400px;
-        /*propriétés du background...*/
+        background-image: url(img/judas-priest.jpg);
+        background-repeat: no-repeat;
+        background-size: cover; /*testez aussi 100%*/
+        background-position: center center;
       }
     </style>
   </head>
@@ -44,14 +49,14 @@
   <body>
 
     <section id="section-1">
-      <figure class="image">
-        <!--put an image here-->
+      <figure>
+        <img src="img/judas-priest.jpg" alt="judas priest">
       </figure>
     </section>
 
-    <section id="section-2" class="flex">
+    <section id="section-2" class="bob">
       <figure>
-        <!--put an image here-->
+        <img src="img/judas-priest.jpg" alt="judas priest">
       </figure>
       <div class="figure-aside">
         <h2>Some title</h2>
@@ -61,7 +66,7 @@
       </div>
     </section>
 
-    <section id="section-3" class="flex">
+    <section id="section-3" class="bob">
       <figure class="img-bg"></figure>
       <div class="figure-aside">
         <h2>Some title</h2>

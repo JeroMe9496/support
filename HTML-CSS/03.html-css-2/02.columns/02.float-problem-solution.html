@@ -1,8 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>CSS - Le problème du float</title>
+
+  <link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
 
   <style>
 
@@ -53,14 +55,14 @@
       margin-top: 2em;
     }
 
-    /* LA SOLUTION - Enlever les commentaires ci-dessous pour voir... */
+    /* THE SOLUTION - Take out the comments below to see it... */
     /*
-	main:after {
+    main:after {
       content: "";
       display: block;
       clear: both;
     }
-	*/
+    */
 
   </style>
 
@@ -70,7 +72,7 @@
 
 
   <header>
-    <h1>Le problème du float</h1>
+    <h1>The float problem</h1>
   </header>
 
   <main>
@@ -91,11 +93,11 @@
     </aside>
 
     <!-- 
-      EFFACER LE FLOTTEMENT ICI !!!
-      On efface le flottement APRÈS le dernier élément qui flotte
+      CLEAR THE FLOAT HERE !
+      Clear the float AFTER the last "float-ed" element
 
-      Le mieux c'est => main:after { ... } qui va inserer un 
-      "pseudo élément" DANS la balise "main" après tout le contenu
+      The best is => main:after {...} who will insert a
+       "pseudo element" IN the "main" tag after all the content
     -->
 
 
@@ -105,7 +107,7 @@
   <footer>
     <h2>The footer</h2>
     <p>voir <a href="https://css-tricks.com/all-about-floats/" target="_blank">All about floats</a></p>
-    <p>voir <a href="https://developer.mozilla.org/fr/docs/Web/CSS/float" target="_blank">MDN float</a></p>
+    <p>voir <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank">MDN - float</a></p>
   </footer>
 
 </body>

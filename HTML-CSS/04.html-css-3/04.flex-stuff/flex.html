@@ -19,10 +19,9 @@
 			.flex {
 				display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
 			}
 			.flex.wrap {
-
+        flex-wrap: wrap;
 			}
 			.flex.no-wrap {
 				flex-wrap: no-wrap; /*default wrap*/
@@ -49,7 +48,16 @@
 			}
 			.align-content {
 				align-content: flex-start;
-			}
+      }
+      .columns {
+        flex-direction: column;
+      }
+      .columns.center {
+        align-items: center;
+      }
+      .columns.right {
+        align-items: flex-end;
+      }
 
 
     </style>
@@ -110,13 +118,17 @@
       </section>
 
       <section class="exemple">
-        <h2>Flex Justify Content - wrap, éléments vides</h2>
+        <h2>Flex Justify Content - wrap, empty elements</h2>
         <div class="container flex wrap space-evenly">
         	<div>Flex item 1</div>
           <div>Flex item 2</div>
           <div>Flex item 3</div>
           <div>Flex item 4</div>
           <div>Flex item 5</div>
+          <div>Flex item 6</div>
+          <div>Flex item 7</div>
+          <div class="holder"></div>
+          <div class="holder"></div>
           <div class="holder"></div>
         </div>
       </section>
@@ -143,16 +155,49 @@
         </div>
       </section>
 
+      <section class="exemple">
+        <h2>Flex Columns</h2>
+        <div class="container flex columns">
+          <div>Flex item 1</div>
+          <div>Flex item 2</div>
+          <div>Flex item 3</div>
+          <div>Flex item 4</div>
+          <div>Flex item 5</div>
+        </div>
+      </section>
+
+      <section class="exemple">
+        <h2>Flex Columns Center</h2>
+        <div class="container flex columns center">
+          <div>Flex item 1</div>
+          <div>Flex item 2</div>
+          <div>Flex item 3</div>
+          <div>Flex item 4</div>
+          <div>Flex item 5</div>
+        </div>
+      </section>
+
+
+      <section class="exemple">
+          <h2>Flex Columns Right</h2>
+          <div class="container flex columns right">
+            <div>Flex item 1</div>
+            <div>Flex item 2</div>
+            <div>Flex item 3</div>
+            <div>Flex item 4</div>
+            <div>Flex item 5</div>
+          </div>
+        </section>
     </article>
 
 
-    <!-- FOOTER - liens ressources -->
+    <!-- FOOTER - ressources -->
     <footer class="footer">
       <ul>
-      	<li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Disposition_flexbox_CSS/Concepts_de_base_flexbox" target="_blank">MDN - Les concepts de base pour flexbox</a></li>
+      	<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank">MDN - Basic concepts of flexbox</a></li>
         <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks - A Complete Guide to Flexbox</a></li>
         <li><a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank">A Visual Guide to CSS3 Flexbox Properties</a></li>
-        <li><a href="https://www.youtube.com/watch?v=JJSoEo8JSnc" target="_blank">Flexbox CSS In 20 Minutes (EN, YouTube)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=JJSoEo8JSnc" target="_blank">Flexbox CSS In 20 Minutes (YouTube)</a></li>
 
       </ul>
     </footer>

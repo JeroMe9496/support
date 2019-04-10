@@ -2,23 +2,26 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>CSS - Changer le type de display</title>
+	<title>CSS - Change the display type</title>
+
+	<link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
 
 	<style>
-		html { font-size:20px; }
-		body { font-family:sans-serif; font-size:inherit; line-height:1.4; }
 	
-		h1 { font-size: 2em; margin: 0; }
-		header, section { border-bottom: solid 1px #ccc; margin-bottom: 2em; padding-bottom: 2em; }
+		/*COMMON*/
+
+		section p{ background: #fc0; padding: .5em; }
 
 		/* bloc => inline */
 		#s1 p {
 			display: inline;
+			margin-top: 2em; /*will not work on inline elements*/
 		}
 
 		/* bloc => inline-block */
 		#s2 p {
 			display: inline-block;
+			margin-top: 2em;
 		}
 
 		/* inline => block */
@@ -31,6 +34,10 @@
 			text-align: center;
 			color: black;
 			background: #fc0;
+			transition: background-color, .4s ease;
+		}
+		#s3 a:hover {
+			background: #0cf;
 		}
 
 		/* inline => flex */
@@ -50,39 +57,40 @@
 	<article>
 
 		<header>
-			<h1>CSS - Changer le type de display</h1>
-			<cite>Même si par défaut les éléments ont un certin type de "display", on peut les convertir en d'autres types</cite>
+			<h1>CSS - Change the display type</h1>
+			<p class="MT-1">We can convert all html elements default display into other types with "display" property</p>
 		</header>
 
 		<section id="s1">
-			<h2>Changer "block" en "inline"</h2>
+			<h2>Change "block" into "inline"</h2>
 			
-			<p>Un paragraphe en ligne !</p>
-			<p>Un autre paragraphe en ligne !</p>
+			<p>An inline paragraph !</p>
+			<p>Another inline paragraph !</p>
 		</section>
 
 		<section id="s2">
-			<h2>Changer "block" en "inline-block"</h2>
+			<h2>Change "block" into "inline-block"</h2>
 			
-			<p>Un paragraphe en inline-block !</p>
-			<p>Un autre paragraphe en inline-block !</p>
+			<p>An inline-block paragraph !</p>
+			<p>Another inline-block paragraph !</p>
 		</section>
 
 		<section id="s3">
-			<h2>Changer "inline" en "block"</h2>
+			<h2>Change "inline" into "block"</h2>
 			
-			<a href="#">Un lien bloc. Pratique quand on veux un big button !</a>
+			<a href="#">A block link. Convenient when you want a big button !</a>
 		</section>
 
 		<section id="s4">
-			<h2>Changer n'importe quoi en "flex" !</h2>
+			<h2>Change everything into "flex" !</h2>
 			
 			<div id="flex-baby">
-				<span>Un span</span> <span> + </span> <span>un autre span</span> <span> flex baby !</span>
+				<span>A span</span> <span> + </span> <span>another span</span> <span> flex baby !</span>
 			</div>
 		</section>
 
 	</article>
+
 
 </body>
 </html>

@@ -1,0 +1,11 @@
+1. Create a (small and simple) "favicon" in Illustrator
+2. Save in .ai (skip to step 5 if existing logo)
+3. Save as .svg in the __ai folder
+4. Optimize SVG with Optimize SVG with one of the tools below and save it in the __ai folder
+https://jakearchibald.github.io/svgomg/
+https://petercollingridge.appspot.com/svg-editor
+5. Import the SVG into realfavicongenerator.net http://realfavicongenerator.net/
+6. Edit options ...
+7. Choose the option "I can not get rid of my website" and write "favicons" in the text field
+8. Generate the codes with "Generate your Favicons and HTML code"
+9. Follow recommendations 1, 2, 3 in the new page

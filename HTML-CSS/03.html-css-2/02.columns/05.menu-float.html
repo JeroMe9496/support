@@ -1,17 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Menu - Float et inline-block</title>
-<style>
-  /* GLOBAL - facultatif */
-  * {
-    margin: 0;
-    padding: 0;
-    font: normal 18px/1 sans-serif;
-    box-sizing: border-box;
-  }
 
+<head>
+  <meta charset="utf-8">
+  <title>CSS Horizontal Menu - The flex Method</title>
+
+  <link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
+
+  <style>
   a {
     color: #555;
     text-decoration:none;
@@ -22,38 +18,42 @@
 
   /* MAIN CONTAINER */
   #menu {
-    width: 50%; /* juste un exemple */
-    padding:20px 0; /* facultatif */
-    margin: 0 auto; /* pour un alignement au centre de la page */
+    width: 50%;
+    padding:20px 0;
+    margin: 0 auto;
     background: #f5f5f5;
-  }
-
-  /* PSEUDO ELEMENT - inséré via CSS APRES les (3) div enfants - Indispensable ! */
-  #menu:after {
-    content: '';
-    display: table; /* ?!? oui, c'est la seule valuer qui marche par tout */
-    clear: both;
+    text-align: center;
   }
 
   /* LI -les colonnes */
   #menu li {
-    display: inline-block; /* pour pouvoir mettre un padding */
-    float: left; /* !!! c'est là que ça se passe */
-    margin-right: 10%;
+    display: block;
+    width: 18%; /*18 * 5 = 90%*/
+    margin-right: 2.5%; /*2.5 * 4 = 10%*/
+    float: left; /*this is where it's happening*/
+  }
+  #menu li:last-child {
+    margin-right: 0;
+  }
+
+  /* CLEAR THE FLOAT - MANDATORY!*/
+  #menu:after {
+    content: '';
+    display: table;
+    clear: both;
   }
 
   #menu li a {
     display: block;
-    width: 100%; /* necessaire dans certains navigateurs */
     padding: .5em 1em;
     background: #e5e5e5;
-    transition: color 1s ease, background 1s ease; /* transitions sur color & background */
-    /* transition: all 1s ease - alternative */
+    transition: color .5s ease, background 1s ease, border-radius .5s ease;
   }
 
   #menu li a:hover {
     background: #aaa;
     color: #000;
+    border-radius: .5em;
   }
 
   /* MISC - facultatif */
@@ -66,7 +66,7 @@
 
 <body>
 
-  <header><h1>Méthode: float</h1></header>
+  <header><h1>CSS Horizontal Menu - The flex Method</h1></header>
 
   <nav>
     <ul id="menu" class="menu">
