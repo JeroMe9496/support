@@ -68,6 +68,12 @@ strong {
 .B {
   font-weight: 700;
 }
+.SB {
+  font-weight: 500;
+}
+.R {
+  font-weight: 400;
+}
 .I {
   font-style: italic;
 }
