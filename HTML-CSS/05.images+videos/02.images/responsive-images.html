@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML - Responsive Images</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
+
+    <style>
+      /* COMMON
+      ---------------------------------------*/
+      picture {
+        display: block;
+        max-width: 1024px;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: width .3s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Responsive images</h1>
+
+    <section id="section-1">
+      <h2>Using picture tag</h2>
+
+      <picture>
+        <source class="phone" media="(max-width: 480px)" srcset="img/unsplash-01-phone.jpg">
+        <source class="tablet" media="(max-width: 1024px)" srcset="img/unsplash-01-tablet.jpg">
+        <img class="desktop" src="img/unsplash-01.jpg" alt="Unsplash aerial image">
+      </picture>
+    </section>
+
+    <section id="section-2">
+        <h2>Using srcset and sizes attributes</h2>
+        <p>to come...</p>
+    </section>
+
+    <footer>
+      <p><a href="https://unsplash.com/" target="_blank">Unsplash - Free Images</a></p>
+      <p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank">Responsive images</a></p>
+    </footer>
+
+  </body>
+</html>
