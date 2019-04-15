@@ -3,21 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Pseudo Classes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/common.css">
 
     <!-- DEMO STYLES -->
-    <link rel="stylesheet" href="css/pseudo.css">
-
     <style>
-
+      /* COMMON
+      ------------------------------------------*/
+      main,
+      header,
+      footer {
+        width: 100%;
+        max-width: 1140px;
+        padding: 2rem;
+        margin: 0 auto;
+      }
       p, a {
         padding: 1rem;
         margin-bottom: 1rem;
         color: #333;
       }
+      .exemple {
+        margin: 2rem 0 4rem;
+      }
 
+      .exemple.bg {
+        background: #f5f5f5;
+        padding: 2rem;
+      }
+
+      /* PSEUDO CLASSES
+      ------------------------------------------*/
       p:hover {
         background-color: #e5e5e5;
         color: #000;
@@ -30,6 +47,7 @@
       a:visited {
         color: #bc4ef0;
       }
+      
 
       .big-link {
         display: inline-block;
@@ -46,7 +64,6 @@
       .big-link:focus {
         background-color: #fc0;
       }
-
 
 
       /*first-child, last-child*/
@@ -83,9 +100,7 @@
       }
 
 
-      .exemple {
-        margin: 0 0 2rem;
-      }
+
 
     </style>
 
@@ -96,13 +111,11 @@
 
       <h1>Pseudo Classes</h1>
 
-      <hr>
-
-      <div class="exemple link">
+      <div class="container exemple link MT-2">
         <a href="#" class="big-link">A link</a>
       </div>
 
-      <div class="exemple para">
+      <div class="container exemple para">
         <p>Paragraph 1 </p>
         <p>Paragraph 2</p>
         <p>Paragraph 3</p>
@@ -111,7 +124,7 @@
         <p>Paragraph 6</p>
       </div>
 
-      <div class="exemple type">
+      <div class="container exemple type">
         <span>Here is the first span!</span>
         <span>Another span, not the first.</span>
         <span>A <em>nested element</em> ?</span>
