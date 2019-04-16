@@ -47,10 +47,13 @@ p {
 }
 
 pre {
-  font-size: 1em !important;
-  tab-size: 2 !important;
   max-width: 600px !important;
   margin: 1em 0 !important;
+}
+pre code[class*='language-'] {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .9em;
+  tab-size: 2;
 }
 
 em {
@@ -124,4 +127,8 @@ strong, b {
 }
 .MB-3 {
   margin-bottom: 3em;
+}
+
+.grey {
+  color: #ccc;
 }
