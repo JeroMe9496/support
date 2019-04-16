@@ -1,4 +1,4 @@
-/* CSS en commun, pour ne pas poluer les styles mobile, desktop... */
+/* Common CSS */
 
 /* HEADER */
 header {
@@ -16,7 +16,7 @@ header {
   font-family: sans-serif;
 }
 
-/* TITRE */
+/* TITLE */
 h1 {
   background: #fff;
   text-align: center;
@@ -29,7 +29,7 @@ h1 {
 #section-2 {
   background: #A4EBFF;
 }
-/* CONTENU SECTION */
+/* SECTION CONTENT */
 section .contenu {
   min-height: 240px;
   background: #fff;

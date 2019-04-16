@@ -1,10 +1,10 @@
-/* VARIANTE BOOTSTRAP
- * Points de ruptures:
+/* BOOTSTRAP 4 VARIANT
+ * Breakpoints:
  * 576px -> 768px -> 992px -> 1200px
 --------------------------------------------*/
 
 
-/* PAR DEFAUT - POUR "PHONES"
+/* DEFAULT - FOR "PHONES" PORTRAIT
  * < 576
 --------------------------------------------*/
 /* HEADER */
@@ -33,7 +33,7 @@ header {
   display: none;
 }
 
-/* TITRE */
+/* TITLE */
 h1 {
   height: 80px;
   font-size: 1.5em;
@@ -54,15 +54,15 @@ footer {
 
 
 
-/* POUR "PHONES" PAYSAGE ou PORTRAIT LARGE
+/* FOR "PHONES" LANDSCAPE or PORTRAIT LARGE
  * >= 576
 --------------------------------------------*/
 @media (min-width: 576px) {
-  /* Rien à faire, pour cette mise en page c'est pareil que le défaut... */
+  /* Nothing to do, for this layout we have the same as the default... */
 }
 
 
-/* POUR "TABLETTES" orientation PORTRAIT
+/* FOR "TABLETS" PORTRAIT orientation
  * >= 768
 --------------------------------------------*/
 @media (min-width: 768px) {
@@ -88,8 +88,8 @@ footer {
 }
 
 
-/* POUR "TABLETTES" orientation PAYSAGE
- * et écrans petite résolution
+/* FOR "TABLETS" LANDSCAPE orientation 
+ * and small desktop resolution screens
  * >= 992
 --------------------------------------------*/
 @media (min-width: 992px) {
@@ -132,7 +132,7 @@ footer {
 }
 
 
-/* POUR ORDINATEURS AFFICHAGE HD
+/* FOR COMPUTERS large displays
  * >= 1200
 --------------------------------------------*/
 @media (min-width: 1200px) {
