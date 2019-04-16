@@ -58,7 +58,7 @@ em {
   font-style: italic;
   font-size: 1.1em;
 }
-strong {
+strong, b {
   font-weight: bold;
 }
 
@@ -129,19 +129,3 @@ strong {
 
 /* LAYOUT
 ------------------------------------*/
-#container {
-  position: relative;
-  height: 190px;
-  margin-top: 1em;
-  background-color: #eee;
-}
-
-#container .box {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
-  font-weight: 400;
-  /* centrer le texte sur la verticale */
-}
