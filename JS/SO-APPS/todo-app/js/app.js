@@ -1,6 +1,42 @@
+/* HELPER - TARGET ANY DOM ELEMENT (jQuery style)
+======================================================*/
+//#region DOM HELPER FUNCTION
+function $(elemStr, eventName, eventFunc) {
+
+
+	if (eventName !== undefined && eventFunc !== undefined) {
+
+		var domElements = document.querySelectorAll(elemStr);
+
+		for (let i = 0; i < domElements.length; i++) {
+			domElements[i].addEventListener(eventName, eventFunc);
+		}
+
+	}
+
+
+	else {
+		return document.querySelector(elemStr);;
+	}
+
+	
+}
+//Usage:
+/*
+$('.myclass', 'click', function() {
+	console.log("TADA !");
+});
+*/
+//console.log($('.filter'));
+//$('.filter').classList.add("test"); //will add "test" ONLY on the first matched element
+
+//#endregion
+
+
+
 /* TODO LIST OBJECT
 ======================================================*/
-//#region
+//#region TODO LIST
 var todoList = {
 
 
@@ -11,10 +47,10 @@ var todoList = {
 
 	/* ADD SAMPLE TODOs (ONLY IF EMPTY !)
 	----------------------------------------------*/
-	addSampleData: function() {
+	addSampleData: function () {
 
 		//IF LIST IS EMPTY
-		if(this.todos.length === 0) {
+		if (this.todos.length === 0) {
 
 			this.todos = [
 				{
@@ -23,7 +59,7 @@ var todoList = {
 				},
 				{
 					"todoText": 'Second',
-					"completed": false
+					"completed": true
 				},
 				{
 					"todoText": 'Third',
@@ -49,7 +85,7 @@ var todoList = {
 
 	/* ADD TODO
 	----------------------------------------------*/
-	addTodo: function(todoText) {
+	addTodo: function (todoText) {
 		this.todos.push({
 			todoText: todoText,
 			completed: false
@@ -59,34 +95,33 @@ var todoList = {
 
 	/* CHANGE TODO
 	----------------------------------------------*/
-	changeTodo: function(position, todoText) {
+	changeTodo: function (position, todoText) {
 		this.todos[position].todoText = todoText;
 	},
 
 
 	/* DELETE TODO
 	----------------------------------------------*/
-	deleteTodo: function(position) {
+	deleteTodo: function (position) {
 		this.todos.splice(position, 1);
 	},
 
 
 	/* TOGGLE (ITEM) COMPLETED STATUS
 	----------------------------------------------*/
-	toggleCompleted: function(position) {
-		console.log(position);
-		var todo = this.todos[position];
+	toggleCompleted: function (position) {
+		var todo = this.todos[position]; //console.log(position);
 		todo.completed = !todo.completed;
 	},
 
 
 	/* TOGGLE ALL TODOs COMPLETED STATUS
 	----------------------------------------------*/
-	toggleAll: function() {
+	toggleAll: function () {
 
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
-		
+
 		// Get the number of completed todos
 		this.todos.forEach(function (todo) {
 			if (todo.completed === true) {
@@ -117,168 +152,86 @@ var todoList = {
 
 
 
-/* HANDLERS
-======================================================*/
-//#region
-var handlers = {
-
-
-	/* ADD TODO
-	----------------------------------------------*/
-	addTodo: function(inputElem) {
-
-		//debugger;
-		todoList.addTodo(inputElem.value);
-		inputElem.value = '';
-
-		view.displayTodos();
-
-	},
-
-
-	/* CHANGE TODO
-	----------------------------------------------*/
-	changeTodo: function(position, value) {
-
-		todoList.changeTodo(position, value);
-		view.displayTodos();
-
-	},
-
-
-	/* DELETE TODO
-	----------------------------------------------*/
-	deleteTodo: function(position) {
-
-		todoList.deleteTodo(position);
-		view.displayTodos();
-
-	},
-
-
-	/* TOGGLE (ITEM) COMPLETED STATUS
-	----------------------------------------------*/
-	toggleCompleted: function(position) {
-
-		todoList.toggleCompleted(position);
-		view.displayTodos();
-
-	},
-
-
-	/* TOGGLE ALL TODOs COMPLETED STATUS
-	----------------------------------------------*/
-	toggleAll: function() {
-
-		todoList.toggleAll();
-		view.displayTodos();
-
-	}
-
-
-};
-//#endregion
-
-
-
-/* HANDLERS VARIANTE (manual input)
-======================================================*/
-//#region
-var handlersVariante = {
-
-
-	/* ADD TODO
-	----------------------------------------------*/
-	addTodo: function() {
-
-		var addTodoTextInput = document.getElementById('addTodoTextInput');
-		todoList.addTodo(addTodoTextInput.value);
-		addTodoTextInput.value = '';
-
-		view.displayTodos();
-
-	},
-
-	
-	/* CHANGE TODO
-	----------------------------------------------*/
-	changeTodo: function() {
-
-		var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
-		var changeTodoTextInput = document.getElementById('changeTodoTextInput');
-		todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
-		changeTodoPositionInput.value = "";
-		changeTodoTextInput.value = '';
-
-		view.displayTodos();
-
-	},
-
-
-	/* DELETE TODO
-	----------------------------------------------*/
-	deleteTodo: function(position) {
-
-		var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-		todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-		deleteTodoPositionInput.value = '';
-
-		view.displayTodos();
-
-	},
-
-
-	/* TOGGLE (ITEM) COMPLETED STATUS
-	----------------------------------------------*/
-	toggleCompleted: function() {
-
-		var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
-		todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
-		toggleCompletedPositionInput = '';
-
-		view.displayTodos();
-
-	},
-
-
-	/* TOGGLE ALL TODOs COMPLETED STATUS
-	----------------------------------------------*/
-	toggleAll: function() {
-
-		todoList.toggleAll();
-		view.displayTodos();
-
-	}
-
-
-};
-//#endregion
-
-
-
 /* VIEW TODOs
 ======================================================*/
-//#region
+//#region VIEW
 var view = {
+
+
+	/* INIT - Do stuff (ONCE) when loading 
+	----------------------------------------------*/
+	init: function () {
+
+		//Use data from localStorage ?
+		if (storage.useStorage === true) {
+			todoList.todos = storage.getData();
+		}
+
+		//Check if hash is present and apply filter
+		utilities.filterToHashValue();
+
+		//Attach events to chosen DOM elements
+		this.setUpEventListeners();
+
+		//Finally, display Todos !
+		this.displayTodos();
+
+	},
 
 
 	/* DISPLAY TODOs
 	----------------------------------------------*/
 	displayTodos: function () {
 
-		
-		var todoUl = document.querySelector('.todo-list');
-		todoUl.innerHTML = '';
-		//console.log('todos: ', todoList.todos);
+		//debugger;
 
-		//var listTodos = (storage.checkStorage === true) ? storage.getData() : todoList.todos; //not there yet
-		var listTodos = todoList.todos;
-		
-		//LOOP into todos
+		//CALL TODOs UTILITIES
+		utilities.checkStatus();
+
+		//CREATE ITEMS
+		this.createListItems();
+
+	}, //END displayTodos
+
+
+	/* CREATE LIST ITEMS
+	----------------------------------------------*/
+	createListItems: function () {
+
+		//debugger;
+
+		//LIST DOM ELEMENT
+		const todoUl = document.querySelector('#todo-list');
+
+		//TODO ARRAY
+		const listTodos = todoList.todos;
+
+
+		//BE SURE TO EMPTY THE LIST BEFORE ADDING ELEMENTS !
+		todoUl.innerHTML = '';
+
+
+		//LOOP into todos List
 		for(var i = 0; i < listTodos.length; i++) {
 
 
 			var todo = listTodos[i];
+
+
+			//SKIP HERE DEPENDING ON FILTERS
+			const currentFilter = utilities.currentFilter; //console.log(currentFilter);
+
+			if(currentFilter !== 'all') {
+
+				if(currentFilter === 'active' && todo.completed === true) {
+					continue;
+				}
+				else if(currentFilter === 'completed' && todo.completed === false) {
+					continue;
+				}
+
+			}
+
 
 			//CREATE LI (FOR EACH TODOs ITEM)
 			var ulLi = document.createElement('li');
@@ -291,14 +244,16 @@ var view = {
 			//DIV container
 			var liDiv = document.createElement("div");
 			liDiv.setAttribute('class', 'view');
-			
+
 			//INPUT - hidden, will show on DblClick
 			var divInput = document.createElement("input");
+			//divInput.setAttribute('id', 'toggle-' + i);
 			divInput.setAttribute('class', 'toggle');
 			divInput.setAttribute('type', 'checkbox');
 
 			//LABEL
 			var divLabel = document.createElement("label");
+			//divLabel.setAttribute('for', 'toggle-' + i);
 			divLabel.className = "item-label";
 			divLabel.textContent = todo.todoText;
 
@@ -308,9 +263,9 @@ var view = {
 			divButton.setAttribute('class', 'destroy');
 
 
-			/* CHECK IF COMPLETED
+			/* COMPLETED CLASS AND CHECKED ATTRIBUTE
 			---------------------------------------*/
-			if(todo.completed === true) {
+			if (todo.completed === true) {
 				ulLi.setAttribute('class', 'completed');
 				divInput.setAttribute('checked', '');
 			}
@@ -327,30 +282,12 @@ var view = {
 			liDiv.appendChild(divInput);
 			liDiv.appendChild(divLabel);
 			liDiv.appendChild(divButton);
-			
-			
-
-
-			/* TODOs FILTERS
-			----------------------------------------*/
-			var countCompleted = document.querySelector(".todo-count strong");
-			var uncompleted = 0;
-			
-			for(let i = 0; i < todoList.todos.length; i++) {
-				let todo = todoList.todos[i];
-				if(todo.completed === false) {
-					uncompleted++;
-				}
-			}
-			countCompleted.textContent = uncompleted;
-
-			filters.checkStatus();
 
 
 		} //End Loop
 
 
-	}, //END displayTodos
+	}, //END createListItems
 
 
 	/* EVENT LISTENERS
@@ -358,19 +295,23 @@ var view = {
 	setUpEventListeners: function () { //  Event Delegation Method
 
 
+		/* DOM ELEMENTS TO "LISTEN"
+		***************************************/
+		const todosUl = document.querySelector('#todo-list');
+		const newTodo = document.querySelector('#add-todo');
+		const todosUtilities = document.querySelector('#utilities');
+
+
 		/* LIST EVENTS
 		***************************************/
-		const todosUl = document.querySelector('.todo-list');
-
-
 		//CLICK EVENT
-		todosUl.addEventListener('click', function(e) {
+		todosUl.addEventListener('click', function (e) {
 
 			//debugger;
-			
+
 			//GET CLICKED ELEMENT
 			const clickedElem = e.target; //console.log('dataId from Event:', dataId);
-			
+
 			//GET DATA ID FROM PARENT LI
 			const dataId = parseInt(clickedElem.closest("li").dataset.id); //console.log('Event dataId:', dataId);
 
@@ -385,11 +326,13 @@ var view = {
 				handlers.toggleCompleted(dataId);
 			}
 
+
+
 		});
 
 
 		//DBLCLICK EVENT
-		todosUl.addEventListener('dblclick', function(e) {
+		todosUl.addEventListener('dblclick', function (e) {
 
 
 			//REMOVE ALL EDIT INPUTS (if any)
@@ -402,16 +345,16 @@ var view = {
 
 			//GET CLICKED ELEMENT
 			const clickedElem = e.target; //console.log("dbclick on: ", clickedElem);
-			
+
 			// IF CLICKED ELEMENT IS A LABEL
-			if(clickedElem.className === "item-label") {	
+			if(clickedElem.className === "item-label") {
 
 				var closestLi = clickedElem.closest('li'); //variante: clickedElem.parentNode
 				var labelText = clickedElem.textContent; //console.log(labelText);
 				var dataId = parseInt(closestLi.dataset.id); //console.log(dataId);
 
 				closestLi.classList.add('editing');
-				
+
 
 				//Create an Input to edit label...
 				var inputEdit = document.createElement('input');
@@ -423,22 +366,21 @@ var view = {
 
 
 				//ON Input Keypress ENTER
-				inputEdit.addEventListener('keypress', function(e) {
-					
+				inputEdit.addEventListener('keypress', function (e) {
+
 					var key = e.which || e.keyCode;
 
 					if(key === 13) { // 13 is enter
 
 						handlers.changeTodo(dataId, inputEdit.value);
-						
+
 						closestLi.classList.remove("editing");
 						inputEdit.remove();
 
-						view.displayTodos(); //refresh the view of the list
+						//view.displayTodos(); //refresh the view of the list
 					}
 
 				}); //End inputEdit KEYPRESS
-
 
 			} //End IF clickedElem
 
@@ -446,16 +388,14 @@ var view = {
 
 
 
-		/* TOP INPUT (new-todo) EVENTS
+		/* TOP INPUT (#add-todo) EVENTS
 		***************************************/
-		const newTodo = document.querySelector('.new-todo');
-
 		//KEYPRESS EVENT
-		newTodo.addEventListener('keypress', function(e) {
+		newTodo.addEventListener('keypress', function (e) {
 
 			var key = e.which || e.keyCode;
-			
-			if(key === 13) { // 13 is enter
+
+			if (key === 13) { // 13 is enter
 
 				const clickedElem = e.target; //console.log(clickedElem);
 				handlers.addTodo(clickedElem);
@@ -467,17 +407,22 @@ var view = {
 
 		/* UTILITIES EVENTS
 		***************************************/
-		const todosUtilities = document.querySelector('.utilities');
-
 		//CLICK EVENT
-		todosUtilities.addEventListener('click', function(e) {
-			// Get the element that was clicked on.
-			const clickedElem = e.target;
+		todosUtilities.addEventListener('click', function (e) {
 
-			// Check if clickedElem is SAVE.
+			// Get the element that was clicked on.
+			const clickedElem = e.target; //console.log(clickedElem);
+
+			// When clickedElem is a FILTER.
+			if (clickedElem.classList.contains("filter")) {
+				utilities.selectedOnFilter(clickedElem);
+			}
+
+			// When clickedElem is SAVE.
 			if (clickedElem.id === "save-list") {
 				storage.saveData();
 			}
+
 		});
 
 
@@ -489,45 +434,253 @@ var view = {
 
 
 
-/* TODOs FILTERS
+/* HANDLERS
 ======================================================*/
-//#region
-var filters = {
+//#region HANDLERS
+var handlers = {
 
 
+	/* ADD TODO
+	----------------------------------------------*/
+	addTodo: function (inputElem) {
+		todoList.addTodo(inputElem.value);
+		inputElem.value = '';
+		view.displayTodos();
+	},
+
+
+	/* CHANGE TODO
+	----------------------------------------------*/
+	changeTodo: function (position, value) {
+		todoList.changeTodo(position, value);
+		view.displayTodos();
+	},
+
+
+	/* DELETE TODO
+	----------------------------------------------*/
+	deleteTodo: function (position) {
+		todoList.deleteTodo(position);
+		view.displayTodos();
+	},
+
+
+	/* TOGGLE (ITEM) COMPLETED STATUS
+	----------------------------------------------*/
+	toggleCompleted: function (position) {
+		todoList.toggleCompleted(position);
+		view.displayTodos();
+	},
+
+
+	/* TOGGLE ALL TODOs COMPLETED STATUS
+	----------------------------------------------*/
+	toggleAll: function () {
+		todoList.toggleAll();
+		view.displayTodos();
+	}
+
+
+};
+//#endregion
+
+
+
+/* HANDLERS VARIANTE (manual input)
+======================================================*/
+//#region HANDLERS VARIANTE
+var handlersVariante = {
+
+
+	/* ADD TODO
+	----------------------------------------------*/
+	addTodo: function () {
+
+		var addTodoTextInput = document.getElementById('addTodoTextInput');
+		todoList.addTodo(addTodoTextInput.value);
+		addTodoTextInput.value = '';
+
+		view.displayTodos();
+
+	},
+
+
+	/* CHANGE TODO
+	----------------------------------------------*/
+	changeTodo: function () {
+
+		var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+		var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+		todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+		changeTodoPositionInput.value = "";
+		changeTodoTextInput.value = '';
+
+		view.displayTodos();
+
+	},
+
+
+	/* DELETE TODO
+	----------------------------------------------*/
+	deleteTodo: function (position) {
+
+		var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+		todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+		deleteTodoPositionInput.value = '';
+
+		view.displayTodos();
+
+	},
+
+
+	/* TOGGLE (ITEM) COMPLETED STATUS
+	----------------------------------------------*/
+	toggleCompleted: function () {
+
+		var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+		todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+		toggleCompletedPositionInput = '';
+
+		view.displayTodos();
+
+	},
+
+
+	/* TOGGLE ALL TODOs COMPLETED STATUS
+	----------------------------------------------*/
+	toggleAll: function () {
+
+		todoList.toggleAll();
+		view.displayTodos();
+
+	}
+
+
+};
+//#endregion
+
+
+
+/* TODOs UTILITIES
+======================================================*/
+//#region UTILITIES
+var utilities = {
+
+
+	/* CURRENT FILTER
+	----------------------------------------------*/
+	currentFilter: 'all',
+
+
+	/* CHECK ITEMS STATUS
+	----------------------------------------------*/
 	checkStatus: function() {
 
-		var listIsEmpty = todoList.todos.length === 0;
-		var sampleDataLink = document.getElementById("sample-data");
-		var saveToStorageLink = document.getElementById("save-list");
 
-		//IF EMPTY LIST, REMOVE CLASS HIDE ON SAVE AND ADD SAMPLE
-		if(listIsEmpty) {
+		/* COMMON DOM ELEMENTS
+		***********************************/
+		const sampleDataLink = document.querySelector("#sample-data");
+
+
+		/* IF LIST IS NOT EMPTY
+		***********************************/
+		if (todoList.todos.length > 0) {
+
+
+			//DOM ELEMENTS
+			const countCompleted = document.querySelector("#todo-count strong");
+			const saveToStorageLink = document.querySelector("#save-list");
+
+
+			//COUNT UNCOMPLETED ITEMS
+			var uncompleted = 0;
+
+			for (let i = 0; i < todoList.todos.length; i++) {
+				let todo = todoList.todos[i];
+				if (todo.completed === false) {
+					uncompleted++;
+				}
+			}
+
+
+			//DISPLAY UNCOMPLETED TEXT VALUE
+			countCompleted.textContent = uncompleted;
+
+
+			//CHANGE ITEMS TEXT IF uncompleted == 1 (items => item)
+			if(uncompleted === 1) {
+				$('#s').classList.add('hide');
+			}
+			else {
+				$('#s').classList.remove('hide');
+			}	
+
+
+			//SHOW/HIDE FILTERS DEPENDING ON STATUS
+			sampleDataLink.classList.add("hide");
+			saveToStorageLink.classList.remove("hide");
+
+
+		}
+
+
+		/* IF LIST IS EMPTY
+		***********************************/
+		else {
 			sampleDataLink.classList.remove("hide");
 		}
-		else {
-			sampleDataLink.classList.add("hide");
-		}
 
-		if(!listIsEmpty) {
-			saveToStorageLink.classList.remove("hide");
-		}
 
 	},
 
 
+	/* SHOW ALL FILTER
+	----------------------------------------------*/
 	showAll: function() {
-
+		this.currentFilter = 'all';
+		view.displayTodos();
 	},
 
 
+	/* SHOW ACTIVE FILTER
+	----------------------------------------------*/
 	showActive: function() {
-		
+		this.currentFilter = 'active';
+		view.displayTodos();
 	},
 
 
+	/* SHOW COMPLETED FILTER
+	----------------------------------------------*/
 	showCompleted: function() {
-		
+		this.currentFilter = 'completed';
+		view.displayTodos();
+	},
+
+
+	/* SHOW COMPLETED FILTER
+	----------------------------------------------*/
+	filterToHashValue: function() {
+
+		const hashValue = window.location.hash.substr(2); //remove 2 characters from begining of the hash
+
+		//Don't bother with "all", is the default
+		if (hashValue !== '' && hashValue !== 'all') {
+			this.currentFilter = hashValue;
+			this.selectedOnFilter(document.querySelector('#filter-' + hashValue));
+		}
+
+	},
+
+
+	/* PUT SELECTED CLASS ON A FILTER
+	----------------------------------------------*/
+	selectedOnFilter: function(targetElem) {
+		//Remove "selected" class on the active filter
+		document.querySelector('a.selected').classList.remove('selected');
+
+		//Put "selected" class on the target element (to be defined when calling the function)
+		targetElem.classList.add('selected');
 	}
 
 
@@ -538,12 +691,12 @@ var filters = {
 
 /* TODOs LOCAL STORAGE
 ======================================================*/
-//#region
+//#region STORAGE
 var storage = {
 
 
-	//CHECK STORAGE - Once per refresh
-	checkStorage: true,
+	//USE STORAGE - If you want to use storage when loading the window
+	useStorage: true,
 
 
 	// STORAGE ITEM NAME
@@ -551,36 +704,27 @@ var storage = {
 
 
 	//GET STORAGE
-	getData: function() {
-		
+	getData: function () {
+
 		//debugger;
 		const data = localStorage.getItem(this.keyName);
-		
-		if(data !== null && data !== undefined) {
-			
-			var storageData = JSON.parse(data);
-			todoList.todos = storageData;
 
-			return todoList.todos;
-		}
-		else {
-			this.saveData();
-			const data = localStorage.getItem(this.keyName);
-
+		if (data !== null && data !== undefined) {
 			return JSON.parse(data);
 		}
 
+		return [];
 	},
 
 
 	//SET STORAGE
-	saveData: function() {
+	saveData: function () {
 		localStorage.setItem(this.keyName, JSON.stringify(todoList.todos));
 	},
 
 
 	//REMOVE STORAGE
-	removeData: function() {
+	removeData: function () {
 		localStorage.removeItem(this.keyName);
 	},
 
@@ -589,7 +733,5 @@ var storage = {
 
 
 
-//CALL TODOs
-view.setUpEventListeners();
-view.displayTodos();
-filters.checkStatus();
+//INIT THE VIEW OF THE APP
+view.init();

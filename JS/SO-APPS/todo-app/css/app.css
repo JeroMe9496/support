@@ -1,20 +1,23 @@
 /* RESET - Reset browser defaults
-================================================= */
+=====================================================*/
+/*#region RESET*/
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
 /* Box-sizing border-box by default*/
 html {
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 14px;
 }
+/*endregion*/
 
 
 
 /* LAYOUT
-================================================= */
+=====================================================*/
+/* COMMON TAGS AND HELPER CLASSES
+--------------------------------------------*/
 body {
-	font: 14px 'Roboto', Helvetica, Arial, sans-serif;
-	line-height: 1.4em;
+	font: 1em/1.5 'Roboto', Helvetica, Arial, sans-serif;
 	background: #f5f5f5;
 	color: #4d4d4d;
 	
@@ -22,7 +25,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-weight: 300;
 }
-
 
 button {
 	margin: 0;
@@ -48,6 +50,13 @@ button {
 	display: none;
 }
 
+.hide {
+	display: none!important;
+}
+
+
+/* APP CONTAINER SECTION
+--------------------------------------------*/
 .todoapp {
 	background: #fff;
 	position: relative;
@@ -135,7 +144,7 @@ button {
 	position: absolute;
 	z-index: 1;
 	top: 14px;
-	left: -13px;
+	left: -10px;
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 	cursor: pointer;
@@ -149,9 +158,12 @@ button {
 }
 
 .toggle-all:checked + label:before {
-	color: #737373;
+	color: #5DC2AF;
 }
 
+
+/* TODO LIST
+--------------------------------------------*/
 .todo-list {
 	margin: 0;
 	padding: 0;
@@ -266,7 +278,7 @@ button {
 }
 
 .utilities {
-	color: #777;
+	color: #999;
 	padding: 10px 15px;
 	height: 20px;
 	text-align: center;
@@ -297,6 +309,8 @@ button {
 	font-weight: 300;
 }
 
+/* FILTERS
+--------------------------------------------*/
 .filters {
 	margin: 0;
 	padding: 0;
@@ -317,14 +331,17 @@ button {
 	text-decoration: none;
 	border: 1px solid transparent;
 	border-radius: 3px;
+
+	transition: border-color .3s ease, color .3s ease;
 }
 
 .filters li a:hover {
-	border-color: rgba(175, 47, 47, 0.1);
+	border-color: rgba(47, 47, 47, 0.2);
 }
 
 .filters li a.selected {
-	border-color: rgba(175, 47, 47, 0.2);
+	color: #000;
+	border-color: rgba(47, 47, 47, 0.3);
 }
 
 .filters .not-ready {
@@ -353,6 +370,8 @@ html .clear-completed:active {
 	text-decoration: underline;
 }
 
+
+/*INFO*/
 .info {
 	margin: 65px auto 0;
 	color: #bfbfbf;
@@ -375,9 +394,7 @@ html .clear-completed:active {
 	text-decoration: underline;
 }
 
-.hide {
-	display: none!important;
-}
+
 
 /*
 	Hack to remove background from Mobile Safari.

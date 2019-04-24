@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Todos - by SO</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
   <link rel="stylesheet" href="css/app.css">
 </head>
 
@@ -26,15 +27,16 @@
 
         <!-- TOGGLE ALL INPUT -->
         <input id="toggle-all" class="toggle-all" onclick="handlers.toggleAll()" type="checkbox">
-        <label for="toggle-all">Mark all as complete</label>
-  
-        <input id="add-todo-top" class="new-todo" placeholder="What needs to be done?" autofocus="">
+        <label for="toggle-all">Mark all as complete/uncomplete</label>
+        
+        <!-- ADD TODO INPUT -->
+        <input id="add-todo" class="new-todo" placeholder="What needs to be done?" autofocus="">
       
       </header>
 
 
       <!-- TODO LIST - Will be filled by JavaScript ! -->
-      <ul class="todo-list">
+      <ul id="todo-list" class="todo-list">
         <!-- an element will be somethig like this:
         <li data-id="0" class="completed">
           <div class="view">
@@ -48,27 +50,22 @@
 
 
       <!-- UTILITY BUTTONS -->
-      <footer class="utilities">
+      <footer id="utilities" class="utilities">
 
-        <span class="todo-count"><strong>0</strong> items left</span>
+        <!-- ITEMS LEFT COUNTER -->
+        <span id="todo-count" class="todo-count"><strong>0</strong> item<span id="s">s</span> left</span>
         
-        <ul class="filters">
-          <li class="not-ready">
-            <a href="#/" class="selected">All</a>
-          </li>
-          <li class="not-ready">
-            <a href="#/active">Active</a>
-          </li>
-          <li class="not-ready">
-            <a href="#/completed">Completed</a>
-          </li>
-          <li id="sample-data" class="hide">
-            <a href="#/completed" onclick="todoList.addSampleData()">Add sample data</a>
-          </li>
+        <!-- FILTERS-->
+        <ul id="filters" class="filters">
+          <li><a id="filter-all" href="#/" class="filter selected" onclick="utilities.showAll();">All</a></li>
+          <li><a id="filter-active" href="#/active" class="filter"  onclick="utilities.showActive();">Active</a></li>
+          <li><a id="filter-completed" href="#/completed" class="filter" onclick="utilities.showCompleted();">Completed</a></li>
+          <li id="sample-data" class="hide"><a href="#/completed" onclick="todoList.addSampleData();">Add sample data</a></li>
         </ul>
         
+        <!-- MISC BUTTONS -->
         <button id="save-list" class="save-list hide">SAVE</button>
-        <button class="clear-completed not-ready hide">Clear completed</button>
+        <!-- <button class="clear-completed">Clear completed</button> -->
   
       </footer>
 
