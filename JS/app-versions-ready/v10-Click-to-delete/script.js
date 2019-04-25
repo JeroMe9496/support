@@ -1,21 +1,33 @@
 var todoList = {
+
+
 	todos: [],
+
+
 	addTodo: function (todoText) {
 		this.todos.push({
 			todoText: todoText,
 			completed: false
 		});
 	},
+
+
 	changeTodo: function (position, todoText) {
 		this.todos[position].todoText = todoText;
 	},
+
+
 	deleteTodo: function (position) {
 		this.todos.splice(position, 1);
 	},
+
+
 	toggleCompleted: function (position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
 	},
+
+
 	toggleAll: function () {
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
@@ -37,15 +49,22 @@ var todoList = {
 			}
 		}
 	}
+
+
 };
 
+
 var handlers = {
+
+
 	addTodo: function () {
 		var addTodoTextInput = document.getElementById('addTodoTextInput');
 		todoList.addTodo(addTodoTextInput.value);
 		addTodoTextInput.value = '';
 		view.displayTodos();
 	},
+
+
 	changeTodo: function () {
 		var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
 		var changeTodoTextInput = document.getElementById('changeTodoTextInput');
@@ -54,23 +73,34 @@ var handlers = {
 		changeTodoTextInput.value = '';
 		view.displayTodos();
 	},
+
+
 	deleteTodo: function (position) {
 		todoList.deleteTodo(position);
 		view.displayTodos();
 	},
+
+
 	toggleCompleted: function () {
 		var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
 		todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
 		toggleCompletedPositionInput = '';
 		view.displayTodos();
 	},
+
+
 	toggleAll: function () {
 		todoList.toggleAll();
 		view.displayTodos();
 	}
+
+
 };
 
+
 var view = {
+
+
 	displayTodos: function () {
 		var todoUl = document.querySelector('ul');
 		todoUl.innerHTML = '';
@@ -91,12 +121,16 @@ var view = {
 			todoUl.appendChild(todoLi);
 		}
 	},
+
+
 	createDeleteButton: function () {
 		var deleteButton = document.createElement('button');
 		deleteButton.textContent = 'Delete';
 		deleteButton.className = 'deleteButton';
 		return deleteButton;
 	},
+
+
 	setUpEventListeners: function () {		//  Event Delegation Method
 		var todosUl = document.querySelector('ul');
 
@@ -109,6 +143,9 @@ var view = {
 			}
 		});
 	}
+
+
 };
+
 
 view.setUpEventListeners();

@@ -75,7 +75,7 @@ var todoList = {
 
 		}
 
-		//IF LIST IS NOT EMPTY
+		//IF LIST IS NOT EMPTY (...and the button "Add Sample data" is visible)
 		else {
 			console.log("Cannot add data, Todo List is not empty it contains " + this.todos.length + " elements");
 		}
@@ -122,22 +122,22 @@ var todoList = {
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
 
-		// Get the number of completed todos
-		this.todos.forEach(function (todo) {
-			if (todo.completed === true) {
+		//Get the number of completed todos
+		this.todos.forEach(function(todo) {
+			if(todo.completed === true) {
 				completedTodos++;
 			}
 		});
 
 		//LOOP into todos
-		this.todos.forEach(function (todo) {
+		this.todos.forEach(function(todo) {
 
-			// If everything's true, make everything false.
-			if (completedTodos === totalTodos) {
+			//If everything's true, make everything false.
+			if(completedTodos === totalTodos) {
 				todo.completed = false;
 			}
 
-			// Otherwise, make everything true.
+			//Otherwise, make everything true.
 			else {
 				todo.completed = true;
 			}
@@ -241,6 +241,7 @@ var view = {
 
 			/* CREATE LI CONTENT
 			---------------------------------------*/
+			//#region LI content
 			//DIV container
 			var liDiv = document.createElement("div");
 			liDiv.setAttribute('class', 'view');
@@ -261,10 +262,12 @@ var view = {
 			var divButton = document.createElement("button");
 			divButton.setAttribute('data-id', i);
 			divButton.setAttribute('class', 'destroy');
+			//#endregion
 
 
 			/* COMPLETED CLASS AND CHECKED ATTRIBUTE
 			---------------------------------------*/
+			//#region completed and checked
 			if (todo.completed === true) {
 				ulLi.setAttribute('class', 'completed');
 				divInput.setAttribute('checked', '');
@@ -273,18 +276,34 @@ var view = {
 				ulLi.removeAttribute('class');
 				divInput.removeAttribute('checked');
 			}
+			//#endregion
 
 
 			/* APPEND ELEMENTS
 			---------------------------------------*/
+			//#region append
 			todoUl.appendChild(ulLi);
 			ulLi.appendChild(liDiv);
 			liDiv.appendChild(divInput);
 			liDiv.appendChild(divLabel);
 			liDiv.appendChild(divButton);
+			//#endregion
 
 
 		} //End Loop
+
+
+		/**
+		 * LOOP forEach Method
+		 * In Gordon's course you'll see this "forEach" method
+		 * Not good in our case because we want to use "continue" to skip items
+		 * forEach DO NOT WORK with "continue" and "break" statements
+		*/
+		/*
+		listTodos.forEach(function(todo, index) {
+			//the same code as above
+		}); //END forEach
+		*/
 
 
 	}, //END createListItems
