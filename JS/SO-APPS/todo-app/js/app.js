@@ -298,6 +298,8 @@ var view = {
 		 * In Gordon's course you'll see this "forEach" method
 		 * Not good in our case because we want to use "continue" to skip items
 		 * forEach DO NOT WORK with "continue" and "break" statements
+		 * The content inside the callback function of forEach have a diferent scope...
+		 * see more here: 
 		*/
 		/*
 		listTodos.forEach(function(todo, index) {

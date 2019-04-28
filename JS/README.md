@@ -7,6 +7,30 @@ A **practical** approach to JavaScript language
 
 <br>
 
+### See Sorin's course presentation "JavaScript in a nutshell"
+A humble try to demistify some important JavaScript concepts via a **Todo List** application.
+
+<figure style="margin: 2em 0 0 0;">
+  
+  <a href="https://docs.google.com/presentation/d/1a78GOX2GNlUNSWXmB18Z_HstE6aioU3126CQ4nUU9Rw/edit?usp=sharing" style="display: inline-block; margin: 0 4em 0 0; text-align: center;">
+    <img src="../_assets/google-slides-icon.svg" alt="Google Slides icon" style="height: 5em; width: auto;">
+    <figcaption>As Google Slides</figcaption>
+  </a>
+
+  <a href="../_assets/SO-JS-course-nutshell.pdf" style="display: inline-block; text-align: center;">
+    <img src="../_assets/pdf-logo-icon.svg" alt="PDF icon"style="height: 5em; width: auto;">
+    <figcaption>As PDF</figcaption>
+  </a>
+  
+</figure>
+
+
+<br>
+
+---
+
+<br>
+
 
 ## WHAT
 Create a [classic Todo List](http://todomvc.com/examples/vanillajs/) with [vanilla  JavaScript](https://en.wikipedia.org/wiki/JavaScript) first with some basic operations and after, as you go, adding functionnality to have in the end a real world application:
