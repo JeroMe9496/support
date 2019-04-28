@@ -13,7 +13,7 @@ A humble try to demistify some important JavaScript concepts via a **Todo List**
 <figure style="margin: 2em 0 0 0;">
   
   <a href="https://docs.google.com/presentation/d/1a78GOX2GNlUNSWXmB18Z_HstE6aioU3126CQ4nUU9Rw/edit?usp=sharing" style="display: inline-block; margin: 0 4em 0 0; text-align: center;">
-    <img src="../_assets/google-slides-icon.svg" alt="Google Slides icon" style="height: 5em; width: auto;">
+    <img src="../_assets/google-slides-icon.svg" alt="Google Slides icon" width="auto" height="80px">
     <figcaption>As Google Slides</figcaption>
   </a>
 
