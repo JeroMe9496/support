@@ -8,21 +8,18 @@ A **practical** approach to JavaScript language
 <br>
 
 ### See Sorin's course presentation "JavaScript in a nutshell"
-A humble try to demistify some important JavaScript concepts via a **Todo List** application.
+A humble try to demistify some important JavaScript concepts via a **Todo List** application.<br>
+Click on an icon bellow to see the **Google Slides** or **PDF** version of this presentation.
 
-<figure style="margin: 2em 0 0 0;">
-  
-  <a href="https://docs.google.com/presentation/d/1a78GOX2GNlUNSWXmB18Z_HstE6aioU3126CQ4nUU9Rw/edit?usp=sharing" style="display: inline-block; margin: 0 4em 0 0; text-align: center;">
-    <img src="../_assets/google-slides-icon.svg" alt="Google Slides icon" width="auto" height="80px">
-    <figcaption>As Google Slides</figcaption>
+<p>
+  <a href="https://docs.google.com/presentation/d/1a78GOX2GNlUNSWXmB18Z_HstE6aioU3126CQ4nUU9Rw/edit?usp=sharing">
+    <img src="../_assets/google-slides-icon.svg" width="auto" height="80px" alt="Google Slides icon">
   </a>
-
-  <a href="../_assets/SO-JS-course-nutshell.pdf" style="display: inline-block; text-align: center;">
-    <img src="../_assets/pdf-logo-icon.svg" alt="PDF icon"style="height: 5em; width: auto;">
-    <figcaption>As PDF</figcaption>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="app-versions-curriculum/SO-JS-course-nutshell.pdf">
+    <img src="../_assets/pdf-logo-icon.svg" width="auto" height="80px" alt="PDF icon">
   </a>
-  
-</figure>
+</p>
 
 
 <br>
