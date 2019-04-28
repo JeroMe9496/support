@@ -12,13 +12,9 @@ A humble try to demistify some important JavaScript concepts via a **Todo List**
 Click on an icon bellow to see the **Google Slides** or **PDF** version of this presentation.
 
 <p>
-  <a href="https://docs.google.com/presentation/d/1a78GOX2GNlUNSWXmB18Z_HstE6aioU3126CQ4nUU9Rw/edit?usp=sharing">
-    <img src="../_assets/google-slides-icon.svg" width="auto" height="80px" alt="Google Slides icon">
-  </a>
+  <a href="https://docs.google.com/presentation/d/1a78GOX2GNlUNSWXmB18Z_HstE6aioU3126CQ4nUU9Rw/edit?usp=sharing"><img src="../_assets/google-slides-icon.svg" width="auto" height="80px" alt="Google Slides icon"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="app-versions-curriculum/SO-JS-course-nutshell.pdf">
-    <img src="../_assets/pdf-logo-icon.svg" width="auto" height="80px" alt="PDF icon">
-  </a>
+  <a href="app-versions-curriculum/SO-JS-course-nutshell.pdf"><img src="../_assets/pdf-logo-icon.svg" width="auto" height="80px" alt="PDF icon"></a>
 </p>
 
 
