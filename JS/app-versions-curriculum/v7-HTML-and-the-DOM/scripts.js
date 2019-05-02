@@ -1,6 +1,7 @@
 var todoList = {
 
-
+	/* TODO ARRAY
+	-----------------------------------*/
 	todos: [
 		{
 			todoText: "Item 1",
@@ -17,26 +18,47 @@ var todoList = {
 	],
 
 
+	/* DISPLAY TODOs
+	-----------------------------------*/
 	displayTodos: function () {
 
+		//IF todos ARRAY IS EMPTY
 		if (this.todos.length === 0) {
 			console.log('Your todo list is empty!');
 		}
+		
+		//IF todos ARRAY HAVE ITEMS
 		else {
+
 			console.log('My Todos:');
+			
+			//Start Loop
 			for (var i = 0; i < this.todos.length; i++) {
-				if (this.todos[i].completed === true) {
-					console.log('(x)', this.todos[i].todoText);
+
+				//Grab the todo object from the todos array
+				var todo = this.todos[i];
+
+				//Define completed string
+				var x = '( ) ';
+
+				if (todo.completed === true) {
+					x = '(x) ';
 				}
-				else {
-					console.log('( )', this.todos[i].todoText);
-				}
-			}
-		}
+
+				console.log(x, todo.todoText);
+
+			} //End Loop
+
+			//Just a separation between displays...
+			console.log("-------------------------");
+
+		} //END else
 
 	},
 
 
+	/* ADD TODO
+	-----------------------------------*/
 	addTodo: function (todoText) {
 		this.todos.push({
 			todoText: todoText,
@@ -46,18 +68,24 @@ var todoList = {
 	},
 
 
+	/* CHANGE TODO
+	-----------------------------------*/
 	changeTodo: function (position, todoText) {
 		this.todos[position].todoText = todoText;
 		this.displayTodos();
 	},
 
 
+	/* DELETE TODO
+	-----------------------------------*/
 	deleteTodo: function (position) {
 		this.todos.splice(position, 1);
 		this.displayTodos();
 	},
 
 
+	/* TODO - Toggle Completed
+	-----------------------------------*/
 	toggleCompleted: function (position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
@@ -65,6 +93,8 @@ var todoList = {
 	},
 
 
+	/* TODOs - Toggle All
+	-----------------------------------*/
 	toggleAll: function () {
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
@@ -92,7 +122,7 @@ var todoList = {
 };
 
 
-
+//DOM elements and JS Events
 var displayTodoButton = document.getElementById('displayTodoButton');
 var toggleAllButton = document.getElementById('toggleAllButton');
 

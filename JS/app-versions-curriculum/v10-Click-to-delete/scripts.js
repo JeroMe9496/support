@@ -6,6 +6,8 @@
 var todoList = {
 
 
+	/* TODO ARRAY
+	-----------------------------------*/
 	todos: [
 		{
 			todoText: "Item 1",
@@ -22,6 +24,8 @@ var todoList = {
 	],
 
 
+	/* ADD TODO
+	-----------------------------------*/
 	addTodo: function (todoText) {
 		this.todos.push({
 			todoText: todoText,
@@ -30,22 +34,30 @@ var todoList = {
 	},
 
 
+	/* CHANGE TODO
+	-----------------------------------*/
 	changeTodo: function (position, todoText) {
 		this.todos[position].todoText = todoText;
 	},
 
 
+	/* DELETE TODO
+	-----------------------------------*/
 	deleteTodo: function (position) {
 		this.todos.splice(position, 1);
 	},
 
 
+	/* TODO - Toggle Completed
+	-----------------------------------*/
 	toggleCompleted: function (position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
 	},
 
 
+	/* TODOs - Toggle All
+	-----------------------------------*/
 	toggleAll: function () {
 
 		var totalTodos = this.todos.length;
@@ -57,18 +69,23 @@ var todoList = {
 				completedTodos++;
 			}
 		}
+		
 		// If everything is true, make everything false.
 		if (completedTodos === totalTodos) {
 			for (var i = 0; i < totalTodos; i++) {
 				this.todos[i].completed = false;
 			}
-			// Otherwise make everthing true.
-		}
+			
+		} 
+
+		// Otherwise make everthing true.
 		else {
 			for (var i = 0; i < totalTodos; i++) {
 				this.todos[i].completed = true;
 			}
 		}
+
+		this.displayTodos();
 
 	}
 
