@@ -1,8 +1,9 @@
 /** 
- * TODO LIST OBJECT
- * -------------------------------------------------
+ * TODO LIST OBJECT - "specialized" in list management
+ * ----------------------------------------------------
  * All methods related to list/array manipulation
-*/
+ */
+//#region TODO LIST
 var todoList = {
 
 
@@ -91,13 +92,18 @@ var todoList = {
 
 
 };
+//#endregion
+
 
 
 /** 
- * HANDLERS OBJECT
- * -------------------------------------------------
- * Methods related to DOM elements
-*/
+ * HANDLERS OBJECT - "specialized" in DOM events
+ * ----------------------------------------------------
+ * Note that you could call displayTodos() and toggleAll() bellow directly with todoList object
+ * But, in programming it's adviced to use "specialized" objects and methods for a more flexible application.
+ * Here, the handlers object is "specialized" in DOM event-handlers
+ */
+//#region HANDLERS
 var handlers = {
 
 
@@ -140,13 +146,16 @@ var handlers = {
 
 
 };
+//#endregion
+
 
 
 /** 
- * VIEW OBJECT
- * -------------------------------------------------
+ * VIEW OBJECT - "specialized" in view of the list
+ * ----------------------------------------------------
  * Methods for viewing the todo list
-*/
+ */
+//#region VIEW
 var view = {
 
 
@@ -173,33 +182,41 @@ var view = {
 
 
 	createDeleteButton: function () {
+
 		var deleteButton = document.createElement('button');
 		deleteButton.textContent = 'Delete';
 		deleteButton.className = 'deleteButton';
 		return deleteButton;
+
 	},
 
 
-	setUpEventListeners: function () {		//  Event Delegation Method
+	setUpEventListeners: function () {
+		
 		var todosUl = document.querySelector('ul');
 
-		todosUl.addEventListener('click', function (event) {
-			console.log(event.target.parentNode.id);
+		todosUl.addEventListener('click', function (event) { //  Event Delegation Method
+			
+			//console.log(event.target.parentNode.id);
 			var elementClicked = event.target;
 
 			if(elementClicked.className = "deleteButton"){
 				handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
 			}
+
 		});
 	}
 
 
 };
+//#endregion
+
 
 
 /** 
- * INIT CALLS
- * -------------------------------------------------
- * Methods called when loading the page
-*/
+ * INIT / LOAD
+ * ----------------------------------------------------
+ * What to run when open the page ?
+ */
 view.setUpEventListeners();
+view.displayTodos();
