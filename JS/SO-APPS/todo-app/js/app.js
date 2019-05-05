@@ -212,10 +212,10 @@ var view = {
 
 
 		//LOOP into todos List
-		for(var i = 0; i < listTodos.length; i++) {
+		for(let i = 0; i < listTodos.length; i++) {
 
 
-			var todo = listTodos[i];
+			let todo = listTodos[i];
 
 
 			//SKIP HERE DEPENDING ON FILTERS
@@ -234,7 +234,7 @@ var view = {
 
 
 			//CREATE LI (FOR EACH TODOs ITEM)
-			var ulLi = document.createElement('li');
+			const ulLi = document.createElement('li');
 			ulLi.setAttribute('id', 'item-' + i);
 			ulLi.setAttribute('data-id', i);
 
@@ -243,23 +243,23 @@ var view = {
 			---------------------------------------*/
 			//#region LI content
 			//DIV container
-			var liDiv = document.createElement("div");
+			const liDiv = document.createElement("div");
 			liDiv.setAttribute('class', 'view');
 
 			//INPUT - hidden, will show on DblClick
-			var divInput = document.createElement("input");
+			const divInput = document.createElement("input");
 			//divInput.setAttribute('id', 'toggle-' + i);
 			divInput.setAttribute('class', 'toggle');
 			divInput.setAttribute('type', 'checkbox');
 
 			//LABEL
-			var divLabel = document.createElement("label");
+			const divLabel = document.createElement("label");
 			//divLabel.setAttribute('for', 'toggle-' + i);
 			divLabel.className = "item-label";
 			divLabel.textContent = todo.todoText;
 
 			//BUTTON delete/destroy
-			var divButton = document.createElement("button");
+			const divButton = document.createElement("button");
 			divButton.setAttribute('data-id', i);
 			divButton.setAttribute('class', 'destroy');
 			//#endregion
@@ -298,13 +298,11 @@ var view = {
 		 * In Gordon's course you'll see this "forEach" method
 		 * Not good in our case because we want to use "continue" to skip items
 		 * forEach DO NOT WORK with "continue" and "break" statements
-		 * The content inside the callback function of forEach have a diferent scope...
-		 * see more here: 
 		*/
 		/*
 		listTodos.forEach(function(todo, index) {
 			//the same code as above
-		}); //END forEach
+		});
 		*/
 
 
@@ -313,7 +311,7 @@ var view = {
 
 	/* EVENT LISTENERS
 	----------------------------------------------*/
-	setUpEventListeners: function () { //  Event Delegation Method
+	setUpEventListeners: function () {
 
 
 		/* DOM ELEMENTS TO "LISTEN"
