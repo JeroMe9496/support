@@ -209,7 +209,7 @@ var view = {
 	-----------------------------------*/
 	displayTodos: function () {
 
-		//Get DOM ul
+		//Get DOM UL ELEMENT
 		const todoUl = document.querySelector('ul');
 		
 		//LOOP into todos
