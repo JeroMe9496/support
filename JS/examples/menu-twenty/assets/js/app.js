@@ -1,6 +1,6 @@
-/* ATTENTION !
-   CETTE PAGE UTILISE jQuery ET LES FONCTIONS DU FICHIER "functions.js"
-   VEILLEZ A INSERER "jQuery" et "functions.js" AVANT D'UTILISER LES SCRIPTS CI-DESSOUS
+/* WARNING !
+    THIS PAGE USES jQuery AND FILE FUNCTIONS "functions.js"
+    BE SURE TO INSERT "jQuery" and "functions.js" BEFORE USING THE SCRIPTS BELOW
 */
 
 
@@ -8,7 +8,7 @@
  * jQuery
  * --------------------------------------------------------------
  * On document ready, do this...
- * Avant d'utiliser le code ci-dessous il faut installer jQuery !
+ * Before using the code below you need to install jQuery!
  */
 /*START jQuery Code*/
 $(function() {
