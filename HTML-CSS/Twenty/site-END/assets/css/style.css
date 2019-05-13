@@ -1,8 +1,8 @@
-/* RESET - Enlever les styles par défaut des navigateurs
+/* RESET - Reset default browsers styles
 =================================================================================== */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
-/* Mettre Box Sizing "border-box" par défaut */
+/* Set Box Sizing "border-box" as default */
 html {
   box-sizing: border-box;
 }
@@ -13,18 +13,18 @@ html {
 
 
 
-/* FORMATAGE BALISES PRINCIPALES
+/* MAIN TAGS FORMATTING
 ===================================================================================*/
-/* TAILLE RÉFÉRENCE POUR POLICES
- * On peut utiliser html ou :root
+/* REFERENCE SIZE FOR FONTS
+ * We can use html{} ou :root{}
 ----------------------------------------------*/
 html {
   font-size: 16px;
-	scroll-behavior: smooth;
+	scroll-behavior: smooth; /*optional*/
 }
 
 
-/* FONT - Propriétés par défaut
+/* FONT - Default properties
 ----------------------------------------------*/
 body,
 button,
@@ -33,14 +33,14 @@ select,
 textarea {
 	font-family: 'Lato', sans-serif;
 	font-size: 1em;
-	font-weight: 300;
+	font-weight: 300; /*this is a "light" weight*/
 	letter-spacing: 0.025em;
 	line-height: 1.75em;
 	color: #7c8081;
 }
 
 
-/* TITRES
+/* TITLES
 ----------------------------------------------*/
 h1,
 h2,
@@ -68,14 +68,14 @@ h3 {
 }
 
 
-/* PARAGRAPHES
+/* PARAGRAPHS
 ----------------------------------------------*/
 p {
   margin-bottom: 2em;
 }
 
 
-/* LIENS
+/* LINKS
 ----------------------------------------------*/
 a {
 	text-decoration: none;
@@ -89,7 +89,7 @@ a:hover {
 }
 
 
-/* BOLD
+/* STANDARD TAGS for bold
 ----------------------------------------------*/
 strong, b {
 	font-weight: 400;
@@ -121,7 +121,7 @@ img {
 
 
 
-/* CLASSES EN COMMUN - "Helpers": Éléments qui partagent les mêmes styles
+/* HELPER CLASSES - Useful classes to speed up the design
 ===================================================================================*/
 /* DISPLAY
 ----------------------------------------------*/
@@ -129,7 +129,7 @@ img {
 .DB		{display: block;}
 .DIB	{display: inline-block;}
 
-/*Display FLEX (par défaut pour petits écrans)*/
+/*Display FLEX*/
 .DF {
 	display: flex;
 	flex-direction: column;
@@ -137,7 +137,7 @@ img {
 	justify-content: space-between;
 }
 
-/*Masquer le text pour tous les devices sauf pour les "readers" sans affichage visuel */
+/*Hide text for all devices except for "readers" without visual display*/
 .hide-but-keep {
   position: absolute;
   overflow: hidden;
@@ -147,7 +147,7 @@ img {
 }
 
 
-/* TYPOGRAPHIE
+/* TYPOGRAPHY
 ----------------------------------------------*/
 .FW-300	{font-weight: 300; font-size: 1.02em;}
 .FW-900	{font-weight: 900;}
@@ -293,7 +293,7 @@ body {
 }
 
 
-/* HEADER --> LOGO (pour nous, titre principal)
+/* HEADER --> LOGO
 ----------------------------------------------*/
 #logo {
 	position: relative;
@@ -931,7 +931,7 @@ form .row:last-child {
 	}
 
 
-	/*DISPLAY FLEX (par défaut pour écrans plus larges)*/
+	/*DISPLAY FLEX*/
 	.DF {
 		flex-direction: row;
 	}
