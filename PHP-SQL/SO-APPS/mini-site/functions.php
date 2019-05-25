@@ -19,10 +19,11 @@ error_reporting(E_ALL & ~(E_STRICT|E_NOTICE)); //E_STRICT|E_NOTICE|E_WARNING
 /*#region GLOBALS*/
 /* BASE VARS
 ---------------------------------*/
+$debug_arr  = [];
 $site_data  = site_data();                  //debug($site_data);
 $pages      = $site_data['pages'];          //debug($pages);
-$get_page   = router(array_keys($pages));   //debug('Page: '.$get_page);   
-$debug_arr  = [];
+$get_page   = router(array_keys($pages));   debug('Page: '.$get_page);   
+
 
 
 /* PARAMS FOR DEPENDENCY INJECTION
@@ -74,13 +75,11 @@ function site_data() {
 /*#region ROUTER*/
 function router($pages_keys = []) {
 
-  $root         = $_SERVER['DOCUMENT_ROOT'];                      //debug('DOC ROOT: '.$root);
-  $current_dir  = dirname(__FILE__);                              //debug('Current dir: '.$current_dir);
-  $from_root    = str_replace($root, '', $current_dir).'/';       //debug('From root: '.$from_root);
+  $from_root    = str_replace('/index.php', '', $_SERVER['PHP_SELF']).'/';	debug('From root: '.$from_root);
 
-  $uri          = $_SERVER['REQUEST_URI'];                        //debug('URI: '.$uri);
-  $uri_page     = str_replace($from_root, '', $uri);              //debug('URI Page: '.$uri_page);
-  $get_page     = !empty($uri_page) ? $uri_page : $pages_keys[0]; //debug('Page: '.$get_page);
+  $uri          = $_SERVER['REQUEST_URI'];                        					//debug('URI: '.$uri);
+  $uri_page     = str_replace($from_root, '', $uri);              					//debug('URI Page: '.$uri_page);
+  $get_page     = !empty($uri_page) ? $uri_page : $pages_keys[0]; 					//debug('Page: '.$get_page);
   
   return $get_page;
 
@@ -210,7 +209,7 @@ function debug($data = '') {
   }
 
   $bt         = debug_backtrace();
-  $file_arr   = explode(DS, $bt[0]['file']);
+  $file_arr   = explode(DIRECTORY_SEPARATOR, $bt[0]['file']);
   $file       = array_pop($file_arr);
   $line       = $bt[0]['line'];
 
@@ -224,7 +223,7 @@ function debug($data = '') {
 
 //DISPLAY DEBUG
 function debug_view($debug_arr) {
-  
+ 
   if(empty($debug_arr)) {
     return false;
   }

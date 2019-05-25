@@ -155,6 +155,8 @@ $time_to_date = date('d.m.y H:i:s', $time);         //show($time_to_date);
 
 $rand = rand(1, 100);                               //show('Random number: ' . $rand);
 
+$round = round(6.42);                               show('Round number: ' . $round);
+
 $html_home = file_get_contents('html/home.html');   //show($html_home);
 /*#endregion*/
 
