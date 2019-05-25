@@ -22,7 +22,7 @@ error_reporting(E_ALL & ~(E_STRICT|E_NOTICE)); //E_STRICT|E_NOTICE|E_WARNING
 $debug_arr  = [];
 $site_data  = site_data();                  //debug($site_data);
 $pages      = $site_data['pages'];          //debug($pages);
-$get_page   = router(array_keys($pages));   debug('Page: '.$get_page);   
+$get_page   = router(array_keys($pages));   //debug('Page: '.$get_page);   
 
 
 
@@ -75,7 +75,7 @@ function site_data() {
 /*#region ROUTER*/
 function router($pages_keys = []) {
 
-  $from_root    = str_replace('/index.php', '', $_SERVER['PHP_SELF']).'/';	debug('From root: '.$from_root);
+  $from_root    = str_replace('/index.php', '', $_SERVER['PHP_SELF']).'/';	//debug('From root: '.$from_root);
 
   $uri          = $_SERVER['REQUEST_URI'];                        					//debug('URI: '.$uri);
   $uri_page     = str_replace($from_root, '', $uri);              					//debug('URI Page: '.$uri_page);
