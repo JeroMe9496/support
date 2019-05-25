@@ -54,13 +54,11 @@ function site_data() {
 /*#region ROUTER*/
 function router($pages_keys = []) {
 
-  $root         = $_SERVER['DOCUMENT_ROOT'];                      //debug('DOC ROOT: '.$root);
-  $current_dir  = dirname(__FILE__);                              //debug('Current dir: '.$current_dir);
-  $from_root    = str_replace($root, '', $current_dir).'/';       //debug('From root: '.$from_root);
+  $from_root    = str_replace('/index.php', '', $_SERVER['PHP_SELF']).'/';	//debug('From root: '.$from_root);
 
-  $uri          = $_SERVER['REQUEST_URI'];                        //debug('URI: '.$uri);
-  $uri_page     = str_replace($from_root, '', $uri);              //debug('URI Page: '.$uri_page);
-  $get_page     = !empty($uri_page) ? $uri_page : $pages_keys[0]; //debug('Page: '.$get_page);
+  $uri          = $_SERVER['REQUEST_URI'];                        					//debug('URI: '.$uri);
+  $uri_page     = str_replace($from_root, '', $uri);              					//debug('URI Page: '.$uri_page);
+  $get_page     = !empty($uri_page) ? $uri_page : $pages_keys[0]; 					//debug('Page: '.$get_page);
   
   return $get_page;
 
