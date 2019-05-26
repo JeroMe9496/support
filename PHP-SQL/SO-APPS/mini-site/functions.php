@@ -92,7 +92,6 @@ function router($pages_keys = []) {
  * ----------------------------------------------
  * An example of a dynamic menu
  * Check the active page and add a CSS class
- * The "echo" at the end will display the contents of what you call this function
  */
 /*#region MENU*/
 function menu_html($params = []) {
