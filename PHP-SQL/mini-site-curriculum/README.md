@@ -46,3 +46,58 @@ HOW TO CONVERT A STATIC SITE INTO A DYNAMIC ONE IN 7 STEPS<br>
 - We should store the pages SEO keys into an array
 - We have to change the menu hrefs with SEO keys
 - We shold have a router() function who decompose the URI and grabs the current page
+
+## v8-DataBase-Storage
+- We shoud have a new database called **mini-site**
+- We should have a table called **settings** (with json "site-data" values)<br>
+  The **settings** table columns are:
+  * id
+  * key
+  * value
+- We should have a table called "pages" (with json **pages** values)<br>
+  The **pages** table columns are:
+  * id
+  * title
+  * menu
+  * slug
+  * content
+  * is_home
+
+- We should have a **pdo.php** file with DB connection data
+- We should have a **queries.php** file containing a **query()** function
+
+## v9-DB-Queries
+- We shoud have a query **settings**
+- We shoud have a query **menus**
+- We shoud have a query **page**
+- We shoud replace all json based data with DB data
+
+## v10-Admin-Files
+- We should have an **admin** folder to store all admin pages
+- We should install a CSS Framework to quickly format admin pages
+- We should have a page **index.php** inside admin/ folder<br>
+  * *This page should check if an admin session exists and return the appropriate page*
+- We should have a page **login.php** inside admin/ folder<br>
+  * *This page should contain a login form*
+- We should have a page **pages.php** inside admin/ folder<br>
+  * *This page should contain a the list of DB pages with edit links*<br>
+  * *This page should contain an edit page form with an HTML editor for the content*<br>
+- We should have a page **settings.php** inside admin/ folder<br>
+  * *This page should contain an edit settings form*
+- We should have a page **crud.php** inside admin/ folder<br>
+  * *This page should contain all admin SQL CRUD operations*
+
+## v10-Admin-CRUD
+1. **PAGES**
+    - We should have a SQL command to *Create* a page
+    - We should have a SQL command to *Read* all existing pages
+    - We should have a SQL command to *Read* a single page data
+    - We should have a SQL command to *Update* a page data
+    - We should have a SQL command to *Delete* a page
+
+2. **SETTINGS**
+    - We should have a SQL command to *Create* a page
+    - We should have a SQL command to *Read* all existing settings
+    - We should have a SQL command to *Update* all settings at once
+    - We should have a SQL command to *Delete* a settings item
+
