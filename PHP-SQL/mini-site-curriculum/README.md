@@ -87,7 +87,7 @@ HOW TO CONVERT A STATIC SITE INTO A DYNAMIC ONE IN 7 STEPS<br>
 - We should have a page **crud.php** inside admin/ folder<br>
   * *This page should contain all admin SQL CRUD operations*
 
-## v10-Admin-CRUD
+## v11-Admin-CRUD
 1. **PAGES**
     - We should have a SQL command to *Create* a page
     - We should have a SQL command to *Read* all existing pages
