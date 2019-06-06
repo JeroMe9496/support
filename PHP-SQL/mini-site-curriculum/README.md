@@ -74,9 +74,9 @@ HOW TO CONVERT A STATIC SITE INTO A CMS IN 11 STEPS<br>
 
 ## v10-Admin-Files
 - We should have an **admin** folder to store all admin pages
-- We should install a CSS Framework to quickly format admin pages
-- We should have a page **index.php** inside admin/ folder<br>
   * *This page should check if an admin session exists and return the appropriate page*
+- We should have a page **index.php** inside admin/ folder<br>
+- We should install a CSS Framework to quickly format admin pages
 - We should have a page **login.php** inside admin/ folder<br>
   * *This page should contain a login form*
 - We should have a page **pages.php** inside admin/ folder<br>
@@ -89,15 +89,15 @@ HOW TO CONVERT A STATIC SITE INTO A CMS IN 11 STEPS<br>
 
 ## v11-Admin-CRUD
 1. **PAGES**
-    - We should have a SQL command to *Create* a page
     - We should have a SQL command to *Read* all existing pages
     - We should have a SQL command to *Read* a single page data
+    - We should have a SQL command to *Create* a page
     - We should have a SQL command to *Update* a page data
     - We should have a SQL command to *Delete* a page
 
 2. **SETTINGS**
+    - We should have a SQL command to *Update* all settings at once
     - We should have a SQL command to *Create* a page
     - We should have a SQL command to *Read* all existing settings
-    - We should have a SQL command to *Update* all settings at once
     - We should have a SQL command to *Delete* a settings item
 

@@ -1,22 +1,19 @@
 <?php
-if( !defined('IS_ADMIN_INDEX') ) {
-  exit("This page cannot be displayed in stand-alone mode!");
-}
+//IF THIS PAGE IS NOT CALLED FROM INDEX EXIT!
 
-if(req('action') === 'check-login' && !is_admin()) {
-  check_login($_POST);
-}
-if(req('action') === 'logout' && is_admin()) {
-  logout();
-}
+
+//CHECK LOGIN: IF ACTION IS CHECK LOGIN AND NOT IS ADMIN...
+
+
+//LOGOUT: IF ACTION IS LOGOUT AND IS ADMIN...
 ?>
 
-<?php if(!is_admin()) : ?>
+<?php //IF NOT IS ADMIN ?>
 <h1 class="uk-text-center">LOGIN</h1>
   
-<?php if(req('error')) : ?>
+<?php //ID REQ ERROR ?>
 <h2 class="uk-text-center uk-text-danger uk-h4">Login error. Please try again.</h2>
-<?php endif; ?>
+<?php //ENDIF REQ ERROR ?>
 
 <form class="uk-form-horizontal uk-margin-large" method="post">
 
@@ -42,8 +39,8 @@ if(req('action') === 'logout' && is_admin()) {
 
 </form>
 
-<?php else : ?>
+<?php //ELSE: (is admin) SHOW THIS ?>
 
 <h2 class="uk-text-center uk-text-danger uk-h4">You are already logged.</h2>
 
-<?php endif; ?>
+<?php //ENDIF ?>

@@ -5,10 +5,7 @@ define("IS_ADMIN_INDEX", true);
 //REQUIRES
 require_once('../php/pdo.php');
 require_once('admin_functions.php'); //var_dump($admin_pages);
-
-if(req('crud-action')) {
-  require_once('crud.php');
-}
+require_once('crud.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,8 +53,6 @@ if(req('crud-action')) {
     <footer class="footer">
       <p>&copy;1998 - <?php echo date('Y'); ?> - Heavy Metal Company</p>
     </footer>
-
-    <?php echo debug_view($debug_arr); ?>
 
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>

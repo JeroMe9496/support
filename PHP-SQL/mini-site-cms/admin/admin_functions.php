@@ -2,19 +2,18 @@
 /**
  * ERROR REPORTING
  * ----------------------------------------------
- * display_errors: FOR DEV USE 1, FOR PROD USE 0
- * We display all errors except NOTICE
+ * DONE WITH .htaccess
+ * We call this "server level" errors
  */
-ini_set('display_errors', 1);
-error_reporting(E_ALL & ~E_NOTICE);
 
 
 
 /**
- * START SESSION
+ * START SESSION - TODO
  * ----------------------------------------------
+ * We need this at the very top so we can check
+ * admin session before doing something else
  */
-session_start();
 //$hash = password_hash('bobisgreat!', PASSWORD_DEFAULT); //show($hash);
 
 
@@ -25,10 +24,6 @@ session_start();
  * We store the values to "inject" into our functions 
  */
 /*#region GLOBALS*/
-//DEBUG ARR
-$debug_arr  = [];
-
-
 //ADMIN PAGES ARR
 $admin_pages = [
 
@@ -67,6 +62,7 @@ $admin_pages = [
 
   //CRUD
   'crud' => [
+    'menu'    => '', //no menu for this one
     'file'    => 'crud.php',
     'actions' => [
       'new-page',
@@ -84,7 +80,8 @@ $admin_pages = [
 $params = [
   'admin_pages' => $admin_pages,
   'page'        => req('page'),
-  'action'      => req('action')
+  'action'      => req('action'),
+  'crud-action' => req('crud-action')
 ];
 
 
@@ -96,63 +93,46 @@ $params = [
 
 
 /**
- * ADMIN PAGE
+ * ADMIN PAGE - TODO
  * ----------------------------------------------
  */
 /*#region ADMIN PAGE*/
 function admin_page($params = []) {
 
 
-  //FORCE LOGIN PAGE IF NOT ADMIN SESSION !
-  if(!is_admin()) {
-    ob_start();
-    include('login.php');
-    $admin_content = ob_get_contents();
-    ob_end_clean();
-
-    return $admin_content;
-  }
+  //1. FORCE LOGIN PAGE IF NOT ADMIN SESSION !
+  
 
 
-  //GET PAGE
-  $page = $params['page'];
+  //2. GET PAGE
+  
 
 
-  //IF EMPTY PAGE
-  if(empty($page)) {
-    $default_page = is_admin() ? 'pages' : 'login';
-    redirect('index.php?page='.$default_page);
-  }
+  //3. IF EMPTY PAGE - Redirect to the default admin page
+  
 
-  //ADMIN FILE
-  $file = $page.'.php'; //var_dump($file);
+  //4. ADMIN FILE SHORTCUT
+  
 
-  //REQUIRE FILE...
-  if(file_exists($file)) {
+  //5. IF FILE EXISTS - REQUIRE FILE...
+  
     
-    //CHECK IF ACTION IS VALID
-    $admin_pages    = $params['admin_pages'];
-    $action         = $params['action'];
-    $valid_actions  = $admin_pages[$page]['actions'] ?? []; //var_dump($valid_actions);
-
-
-    if(!empty($action) && !in_array($action, $valid_actions)) {
-      return "Invalid action, cannot display the content.";
-    }
-
-    //ELSE... BUFFER THE FILE CONTENT
-    ob_start();
-    include($file);
-    $admin_content = ob_get_contents();
-    ob_end_clean();
+    //5.1 ADMIN VARS - Will be available on admin page we call bellow
     
-  }
-  else {
-    $admin_content = "The file you seek doesn't exists!";
-  }
 
+    //5.2 CHECK IF ACTION IS VALID
+    
 
-  return $admin_content;
+    //5.3 ELSE... BUFFER THE FILE CONTENT
+    
+    
+  
+
+  //6. FILE DO NOT EXISTS, SHOW A MESSAGE
+  
+
+  //7. RETURN ADMIN CONTENT
+  
 
 
 }
@@ -208,7 +188,7 @@ function req($val) {
 
 
 /**
- * CHECK LOGIN
+ * CHECK LOGIN - TODO
  * ----------------------------------------------
  * MERGE $_GET & $_POST ARRAYS
  */
@@ -216,50 +196,7 @@ function req($val) {
 function check_login($post = []) {
 
 
-  $error = true;
-  //var_dump($post); exit();
-
-  //POST HAS ITEMS
-  if(!empty($post)) {
-
-    $email = $post['email'];
-    $pass = $post['pass'];
-    
-    //BOTH INPUTS HAVE VALUES
-    if(!empty($email) && !empty($pass)) {
-
-      //QUERY USERS
-      $sql = "SELECT fullname, email, pass FROM users WHERE email = ? LIMIT 1";
-
-      $sth = db()->prepare($sql);
-      $sth->execute([$email]);
-      $user = $sth->fetch(); //var_dump($user); exit();
-
-      //A USER IS FOUND...
-      if($user) {
-
-        //THE PASSWORD IS A MATCH
-        if(password_verify($pass, $user['pass'])) {
-          $_SESSION['admin']['name']	= $row['fullname'];
-          $_SESSION['admin']['email']	= $row['email'];
-          $_SESSION['is_admin'] = true;
-
-          $error = false;
-        }
-
-      } //END A USER IS FOUND
-
-    } //END email & pass are not empty
-
-  } //END POST HAS ITEMS
-
-
-  if($error) {
-    redirect('?page=login&error=true');
-  }
-  else {
-    redirect('?page=pages');
-  }
+  //CODE...
 
 
 }
@@ -267,19 +204,14 @@ function check_login($post = []) {
 
 
 /**
- * LOGOUT
+ * LOGOUT - TODO
  * ----------------------------------------------
- * MERGE $_GET & $_POST ARRAYS
+ * UNSET ADMIN SESSION
  */
 /*#region LOGOUT*/
 function logout() {
 
-  unset(
-    $_SESSION['admin'],
-    $_SESSION['is_admin']
-  );
-
-  redirect('../');
+  //CODE...
 
 }
 /*#endregion*/
@@ -302,14 +234,14 @@ function action() {
 
 
 /**
- * IS ADMIN SHORCCUT
+ * IS ADMIN SHORTCUT - TODO
  * ----------------------------------------------
  * Check admin session
  */
 /*#region ADMIN*/
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  //CODE...
 
 }
 /*#endregion*/
@@ -337,7 +269,7 @@ function redirect($url) {
  * FIND STRING
  * ----------------------------------------------
  */
-/*#region REDIRECT*/
+/*#region FIND STRING*/
 function findstr($find, $str) {
 	
 	if(is_array($str)) {
@@ -420,85 +352,92 @@ function admin_menu($params = []) {
 
 
 /**
- * SIMPLE SHOW CODE
+ * SLUGIFY A STRING
  * ----------------------------------------------
- * A simple code display with <pre> formatting
+ * Thanks to: https://stackoverflow.com/a/10152907
  */
-/*#region SHOW*/
-function show($data = '') {
+/*#region SLUGIFY*/
+function slugify($text, $strict = true) {
 	
-	echo '<pre>';
-	print_r($data);
-	echo '<pre>';
+	$text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
 	
+	//replace dots by -
+	if($strict) {
+		$text = str_replace(".", "-", $text);
+	}
+	
+	//replace non letter or digits by -
+	$text = preg_replace('~[^\\pL\d.]+~u', '-', $text);
+
+	//trim
+	$text = trim($text, '-');
+	setlocale(LC_CTYPE, 'en_GB.utf8');
+	
+	//transliterate
+	if(function_exists('iconv')) {
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+	}
+
+	//lowercase
+	$text = strtolower($text);
+	
+	//remove unwanted characters
+	$text = preg_replace('~[^-\w.]+~', '', $text);
+  
+  //return something weird if the text is empty so we can see a result
+	if(empty($text)) {
+		return 'empty_$';
+	}
+
+	
+	return $text;
+	
+}
+/*#endregion*/
+
+
+/**
+ * PDO NUM ROWS
+ * ----------------------------------------------
+ * Count SQL table items
+ */
+/*#region PDO NUM ROWS*/
+function pdo_num_rows($endquery, $params = []) {
+	
+	$sql = "SELECT COUNT(*) FROM ".$endquery;
+	
+	try {
+		
+		$sth = db()->prepare($sql);
+		$sth->execute($params);
+		$tot = $sth->fetchColumn();
+		
+	} catch(PDOException $e) {
+		show($e->getMessage());
+	}
+	
+	return (int)$tot;
+
 }
 /*#endregion*/
 
 
 
 /**
- * DEBUGGER
+ * SIMPLE SHOW CODE
  * ----------------------------------------------
- * An elaborate debug function to display test code
+ * A simple code display with <pre> formatting
  */
-/*#region DEBUGGER*/
-//COLLECT DEBUG DATA
-function debug($data = '') {
-
-  if(empty($data)) {
-    return false;
+/*#region SHOW*/
+function show($data = '', $do_exit = false) {
+	
+	echo '<pre>';
+	print_r($data);
+  echo '<pre>';
+  
+  if($do_exit) {
+    exit();
   }
-
-  $bt         = debug_backtrace();
-  $file_arr   = explode(DIRECTORY_SEPARATOR, $bt[0]['file']);
-  $file       = array_pop($file_arr);
-  $line       = $bt[0]['line'];
-
-  $GLOBALS['debug_arr'][] = [
-    'file' => $file,
-    'line' => $line,
-    'data' => $data
-  ];
-
-}
-
-//DISPLAY DEBUG
-function debug_view($debug_arr) {
- 
-  if(empty($debug_arr)) {
-    return false;
-  }
-  
-  $tot_items = count($debug_arr);
-  $n = 0;
-
-  echo '<div style="position:absolute;left:0;bottom:0;width:50%;max-width:600px;max-height:50%;overflow:auto;padding:.5em;font-family:monospace;background:#fff;">';
-  echo '<h3 style="font-size:1em;color:#f00;">Debug items</h3>';
-  
-  echo '<ul style="list-style:none;background-color:rgba(240,240,240,.5);font-size:.9em;padding:1em;border:solid 1px #ddd;">';
-  
-  //START LOOP
-  foreach($debug_arr as $item) {
-    
-    $n++;
-
-    $style = ($n < $tot_items) ? ' style="padding:0 0 1em 0;margin:0 0 1em 0;border-bottom:dotted 1px #ccc;"' : '';
-    echo '<li'.$style.'>';
-   
-    //DATA
-    echo '<pre>';
-    print_r($item['data']);
-    echo '</pre>';
-    
-    //FILE INFO
-    echo PHP_EOL.'<em style="color:#ccc;font-family:serif;font-style:italic;">' . $item['file'] . ':' . $item['line'] . '</em>' . PHP_EOL;
-    
-    echo '</li>';
-    
-  } //END LOOP
-
-  echo '</ul>';
-  echo '</div>';
-
+	
 }
 /*#endregion*/

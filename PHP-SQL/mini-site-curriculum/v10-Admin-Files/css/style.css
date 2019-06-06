@@ -43,45 +43,10 @@ p {
   margin-bottom: 1em; /*18px*/
 }
 
-a:hover {
-  text-decoration: none;
-}
-
-strong {
-  font-weight: bold;
-}
-
-ul {
-  list-style: 
-}
-
 
 /* CLASSES EN COMMUN
 ************************************************************/
-.DB {
-  display: block !important;
-}
-.W10p {
-  width: 10% !important;
-}
-.W20p {
-  width: 20% !important;
-}
-.W30p {
-  width: 30% !important;
-}
-.W70p {
-  width: 70% !important;
-}
-.W80p {
-  width: 80% !important;
-}
-.W90p {
-  width: 90% !important;
-}
-.W100p {
-  width: 100% !important;
-}
+/*ici toutes les classes réutilisables*/
 
 
 /* LAYOUT
@@ -90,9 +55,6 @@ ul {
 -------------------------------------*/
 body {
   margin: 40px;
-}
-body#tinymce {
-  margin: 10px;
 }
 
 
@@ -153,8 +115,9 @@ body#tinymce {
 }
 
 
-/* CONTENT
+/* CONTENU
 -------------------------------------*/
+/*MAIN - max 80% de large, centrer horizontalement*/
 .content {
   width: 100%;
   margin: 3em 0;
@@ -163,19 +126,6 @@ body#tinymce {
 .main-title {
   text-align: center;
   margin-bottom: 2rem;
-}
-
-.admin-header {
-  border-bottom: dotted 1px #ccc;
-  margin-bottom: 2em;
-}
-
-.tools,
-th.tools {
-  text-align: right;
-}
-th.tools {
-  padding-right: 1em;
 }
 
 

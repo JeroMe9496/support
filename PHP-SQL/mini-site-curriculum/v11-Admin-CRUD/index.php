@@ -11,9 +11,9 @@ require_once('php/functions.php');
     <title><?php echo title('head', $params); ?></title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?php echo $params['settings']["description"]; ?>">
-    <meta name="keywords" content="<?php echo $params['settings']["keywords"]; ?>">
-    <meta name="author" content="<?php echo $params['settings']["author"]; ?>">
+    <meta name="description" content="<?php echo $params['site_data']["description"]; ?>">
+    <meta name="keywords" content="<?php echo $params['site_data']["keywords"]; ?>">
+    <meta name="author" content="<?php echo $params['site_data']["author"]; ?>">
 
     <link rel="icon" href="img/favicon.png">
 

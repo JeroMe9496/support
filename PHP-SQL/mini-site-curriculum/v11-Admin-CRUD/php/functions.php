@@ -36,7 +36,7 @@ $get_page = router();                       //debug($get_page);
 ----------------------------------*/
 $params = [
   'get_page'    => $get_page,
-  'settings'    => query('settings'),
+  'site_data'   => query('settings'),
   'menus'       => query('menus'),
 	'active_page' => query('page', [$get_page])
 ];
