@@ -1,24 +1,18 @@
 <?php
 //1. EXIT HERE IS NOT CALLED FROM INDEX
-if( !defined('IS_ADMIN_INDEX')) {
-  exit();
-}
+
 
 
 //2. STOP HERE IF NO SESSION ADMIN
-if( !is_admin() ) {
-	exit("Hey dude, only admin can access this page!");
-}
+
 
 
 //3. A 'crud-action' will be sent when we update/insert/delete
-$crud_action = req('crud-action');
+
 
 
 //4. CALL CRUD FUNCTION
-if($crud_action) {
-	crud($crud_action);
-}
+
 
 
 
