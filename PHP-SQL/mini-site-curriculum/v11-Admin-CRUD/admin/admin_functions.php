@@ -15,6 +15,7 @@
  * admin session before doing something else
  */
 session_start();
+
 //$hash = password_hash('bobisgreat!', PASSWORD_DEFAULT); //show($hash);
 
 
