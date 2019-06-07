@@ -2,11 +2,10 @@
 /**
  * ERROR REPORTING
  * ----------------------------------------------
- * display_errors: FOR DEV USE 1, FOR PROD USE 0
- * We display all errors except NOTICE
+ * DONE WITH .htaccess
+ * We call this "server level" errors
  */
-ini_set('display_errors', 1);
-error_reporting(E_ALL & ~E_NOTICE);
+
 
 
 /**
@@ -14,6 +13,7 @@ error_reporting(E_ALL & ~E_NOTICE);
  * ----------------------------------------------
  */
 session_start();
+
 
 
 /**
