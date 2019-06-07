@@ -2,11 +2,10 @@
 /**
  * ERROR REPORTING
  * ----------------------------------------------
- * display_errors: FOR DEV USE 1, FOR PROD USE 0
- * We display all errors except NOTICE
+ * DONE WITH .htaccess
+ * We call this "server level" errors
  */
-ini_set('display_errors', 1);
-error_reporting(E_ALL & ~E_NOTICE);
+
 
 
 /**
@@ -14,6 +13,7 @@ error_reporting(E_ALL & ~E_NOTICE);
  * ----------------------------------------------
  */
 session_start();
+
 
 
 /**
@@ -25,9 +25,6 @@ session_start();
 /*#region GLOBALS*/
 /* BASE VARS
 ----------------------------------*/
-//DEBUG ARR
-$debug_arr  = [];
-
 //GET THE SLUG (URI current page string)
 $get_page = router();                       //debug($get_page);
 
@@ -141,8 +138,10 @@ function menu_html($params = []) {
   } //END LOOP
 
 
-  //Add to menu html
-  $html .= '<li class="menu-item"><a href="admin/">LOGIN</a></li>'.PHP_EOL;
+  //Add LOGIN/LOGOUT to menu html
+  //$log_str = (is_admin()) ? 'LOGOUT' : 'LOGIN';
+  //$log_href = (is_admin()) ? '?action=logout' : 'admin/';
+  //$html .= '<li class="menu-item"><a href="'.$log_href.'">'.$log_str.'</a></li>'.PHP_EOL;
 
 
   $html .= '</ul>'.PHP_EOL; //END MENU
@@ -226,6 +225,7 @@ function content($params = []) {
 /*#endregion*/
 
 
+
 /**
  * SIMPLE SHOW CODE
  * ----------------------------------------------
@@ -239,71 +239,3 @@ function show($data = '') {
 	
 }
 
-
-
-/**
- * DEBUGGER
- * ----------------------------------------------
- * An elaborate debug function to display test code
- */
-/*#region DEBUGGER*/
-//COLLECT DEBUG DATA
-function debug($data = '') {
-
-  if(empty($data)) {
-    return false;
-  }
-
-  $bt         = debug_backtrace();
-  $file_arr   = explode(DIRECTORY_SEPARATOR, $bt[0]['file']);
-  $file       = array_pop($file_arr);
-  $line       = $bt[0]['line'];
-
-  $GLOBALS['debug_arr'][] = [
-    'file' => $file,
-    'line' => $line,
-    'data' => $data
-  ];
-
-}
-
-//DISPLAY DEBUG
-function debug_view($debug_arr) {
- 
-  if(empty($debug_arr)) {
-    return false;
-  }
-  
-  $tot_items = count($debug_arr);
-  $n = 0;
-
-  echo '<div style="position:absolute;left:0;bottom:0;width:50%;max-width:600px;max-height:50%;overflow:auto;padding:.5em;font-family:monospace;background:#fff;">';
-  echo '<h3 style="font-size:1em;color:#f00;">Debug items</h3>';
-  
-  echo '<ul style="list-style:none;background-color:rgba(240,240,240,.5);font-size:.9em;padding:1em;border:solid 1px #ddd;">';
-  
-  //START LOOP
-  foreach($debug_arr as $item) {
-    
-    $n++;
-
-    $style = ($n < $tot_items) ? ' style="padding:0 0 1em 0;margin:0 0 1em 0;border-bottom:dotted 1px #ccc;"' : '';
-    echo '<li'.$style.'>';
-   
-    //DATA
-    echo '<pre>';
-    print_r($item['data']);
-    echo '</pre>';
-    
-    //FILE INFO
-    echo PHP_EOL.'<em style="color:#ccc;font-family:serif;font-style:italic;">' . $item['file'] . ':' . $item['line'] . '</em>' . PHP_EOL;
-    
-    echo '</li>';
-    
-  } //END LOOP
-
-  echo '</ul>';
-  echo '</div>';
-
-}
-/*#endregion*/

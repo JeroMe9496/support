@@ -5,8 +5,7 @@
  * display_errors: FOR DEV USE 1, FOR PROD USE 0
  * We display all errors except NOTICE
  */
-ini_set('display_errors', 1);
-error_reporting(E_ALL & ~E_NOTICE);
+
 
 
 /**
@@ -141,8 +140,10 @@ function menu_html($params = []) {
   } //END LOOP
 
 
-  //Add to menu html
-  $html .= '<li class="menu-item"><a href="admin/">LOGIN</a></li>'.PHP_EOL;
+  //Add LOGIN/LOGOUT to menu html
+  $log_str = (is_admin()) ? 'LOGOUT' : 'LOGIN';
+  $log_href = (is_admin()) ? '?action=logout' : 'admin/';
+  $html .= '<li class="menu-item"><a href="'.$log_href.'">'.$log_str.'</a></li>'.PHP_EOL;
 
 
   $html .= '</ul>'.PHP_EOL; //END MENU

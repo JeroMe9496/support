@@ -61,16 +61,12 @@ $admin_pages = [
   ],
 
   //CRUD
-  'crud' => [
-    'menu'    => '', //no menu for this one
-    'file'    => 'crud.php',
-    'actions' => [
-      'new-page',
-      'update-page',
-      'delete-page',
+  'crud-actions' => [
+    'new-page',
+    'update-page',
+    'delete-page',
 
-      'update-settings'
-    ]
+    'update-settings'
   ]
 
 ];
@@ -83,6 +79,7 @@ $params = [
   'action'      => req('action'),
   'crud-action' => req('crud-action')
 ];
+/*#endregion*/
 
 
 
@@ -319,7 +316,7 @@ function admin_menu($params = []) {
   foreach($admin_pages as $key => $page) {
 
     //SKIP CRUD MENU
-    if($key === 'crud') {
+    if($key === 'crud-actions') {
       continue;
     }
 

@@ -57,8 +57,6 @@ require_once('php/functions.php');
       <p>&copy;1998 - <?php echo date('Y'); ?> - Heavy Metal Company</p>
     </footer>
 
-    <?php echo debug_view($debug_arr); ?>
-
   </body>
 
 </html>
