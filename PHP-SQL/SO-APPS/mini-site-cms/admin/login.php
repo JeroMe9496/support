@@ -18,7 +18,7 @@ if(req('action') === 'logout' && is_admin()) {
 <h2 class="uk-text-center uk-text-danger uk-h4">Login error. Please try again.</h2>
 <?php endif; ?>
 
-<form class="uk-form-horizontal uk-margin-large" method="post">
+<form class="uk-form-horizontal uk-margin-large" action="index.php" method="post">
 
   <input type="hidden" name="action" value="check-login">
 

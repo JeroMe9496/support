@@ -35,38 +35,6 @@ function query($zone, $params = []) {
 
 
 
-		/* PAGES - "ONE QUERY FOR ALL" VARIANTE
-		-----------------------------------------------------------*/
-		/*#region PAGES*/
-		case 'pages' :
-
-			$where = "";
-			
-			//IF NOT ADMIN ADD THIS WHERE CLAUSE
-			if(!is_admin()) {
-				$where = "WHERE is_visible = ?";
-				$params[] = 1;
-			}
-
-			$sql = "SELECT slug, page_key, title, menu, content, is_home FROM pages $where ORDER BY position ASC";
-			
-			try {
-
-				$sth = db()->prepare($sql);
-				$sth->execute($params);
-				//$results = $sth->fetchAll(PDO::FETCH_GROUP); //debug($results);
-				//$results = array_map('reset', $results); //debug($results);
-				$results = $sth->fetchAll(PDO::FETCH_UNIQUE | PDO::FETCH_ASSOC); //debug($results);
-				
-			} catch(PDOException $e) {
-				debug($e->getMessage());
-			}
-
-		break;
-		/*#endregion PAGES*/
-
-
-
 		/* MENUS
 		-----------------------------------------------------------*/
 		/*#region MENUS*/
@@ -79,7 +47,7 @@ function query($zone, $params = []) {
 				$params[] = 1;
 			}
 
-			$sql = "SELECT slug, menu, is_home FROM pages $where ORDER BY position ASC";
+			$sql = "SELECT slug, menu, is_home, is_visible FROM pages $where ORDER BY position ASC";
 			
 			try {
 
@@ -101,7 +69,14 @@ function query($zone, $params = []) {
 		/*#region PAGE*/
 		case 'page' :
 
-			$sql = "SELECT page_key, title, content FROM pages WHERE slug = ?";
+			$and = "";
+				
+			if(!is_admin()) {
+				$and = "AND is_visible = ?";
+				$params[] = 1;
+			}
+
+			$sql = "SELECT page_key, title, content FROM pages WHERE slug = ? $and";
 			
 			try {
 

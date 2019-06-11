@@ -15,8 +15,8 @@
  * admin session before doing something else
  */
 session_start();
+//var_dump($_SESSION);
 //$hash = password_hash('bobisgreat!', PASSWORD_DEFAULT); //show($hash);
-
 
 /**
  * GLOBALS
@@ -64,19 +64,6 @@ $admin_pages = [
       'logout'
     ],
   ],
-
-  //CRUD
-  'crud' => [
-    'menu'    => '', //no menu for this one
-    'file'    => 'crud.php',
-    'actions' => [
-      'new-page',
-      'update-page',
-      'delete-page',
-
-      'update-settings'
-    ]
-  ]
 
 ];
 
@@ -168,12 +155,21 @@ function admin_page($params = []) {
 /*#region HEADER*/
 function admin_header($params = []) {
 
-  $title    = $params['title'];
-  $buttons  = $params['buttons'];
+  //TITLE AND BUTTONS
+  $title      = $params['title'];
+  $buttons    = $params['buttons'];
+
+  //GET MESSAGE (if any)
+  $get_msg    = req('msg') ?? false;
+  $msg_type   = req('error') ? 'error' : 'success';
+
+  $msg        = $get_msg ? ' - <span class="msg '.$msg_type.'">'.$get_msg.'</span>' : '';
+
+  
 
   $html = '
   <header class="admin-header uk-flex uk-flex-between uk-flex-top">
-    <h1 class="header-left uk-h3">'.$title.'</h1>
+    <h1 class="header-left uk-h3">'.$title.$msg.'</h1>
     <div class="header-right">'.$buttons.'</div>
   </header>
   ';
@@ -191,15 +187,22 @@ function admin_header($params = []) {
  * MERGE $_GET & $_POST ARRAYS
  */
 /*#region REQUEST*/
-function req($val) {
+function req($val = '') {
 
   //MERGE POST AND GET METHODS
   $req = [];
   $req = array_merge($_POST, $_GET) ;
 
+  //RETURN A VALUE
   if(!empty($val) && !empty($req)) {
     return $req[$val];
   }
+
+  //RETURN THE REQUEST ARRAY
+  elseif(empty($val) && !empty($req)) {
+    return $req;
+  }
+  
 
   return false;
 
@@ -256,10 +259,10 @@ function check_login($post = []) {
 
 
   if($error) {
-    redirect('?page=login&error=true');
+    redirect('index.php?page=login&error=true');
   }
   else {
-    redirect('?page=pages');
+    redirect('index.php?page=pages');
   }
 
 
@@ -281,21 +284,6 @@ function logout() {
   );
 
   redirect('../');
-
-}
-/*#endregion*/
-
-
-
-/**
- * ACTION SHORTCUT
- * ----------------------------------------------
- * Admin action
- */
-/*#region ACTION*/
-function action() {
-
-	return req('action');
 
 }
 /*#endregion*/
@@ -396,15 +384,17 @@ function admin_menu($params = []) {
     if($key === 'login') {
       $menu = (is_admin()) ? 'LOGOUT' : $page['menu'];
       $uri_extra = '&action=logout';
+      $id_attr = ' id="logout"';
     }
     else {
       $menu = $page['menu'];
       $uri_extra = '';
+      $id_attr = '';
     }
 
     $active = $key === req('page') ? ' active' : '';
 
-    $html .= '<li class="menu-item'.$active.'"><a href="?page='.$key.$uri_extra.'">'.$menu.'</a></li>';
+    $html .= '<li class="menu-item'.$active.'"><a'.$id_attr.' href="?page='.$key.$uri_extra.'">'.$menu.'</a></li>';
 
   } //END LOOP
 

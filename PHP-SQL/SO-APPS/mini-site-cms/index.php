@@ -18,7 +18,11 @@ require_once('php/functions.php');
     <link rel="icon" href="img/favicon.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400">
+    <?php if($params['active_page']['page_key'] === 'contact') : ?>
+    <link rel="stylesheet" href="admin/css/uikit.min.css">
+    <?php endif; ?>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
   </head>
 
   <body id="<?php echo $params['active_page']['page_key']; ?>">

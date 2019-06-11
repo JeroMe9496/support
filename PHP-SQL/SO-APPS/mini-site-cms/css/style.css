@@ -10,11 +10,11 @@ html {
 /*#endregion*/
 
 
-/* FORMATAGE BASE
+/* BASIC FORMATING
 ************************************************************/
 /*ROOT FONT SIZE - rem*/
 html {
-  font-size: 18px; /*10px*/
+  font-size: 16px;
 }
 
 /*BODY*/
@@ -24,7 +24,7 @@ body {
   line-height: 1.5;
 }
 
-/*TITRES*/
+/*TITLES*/
 h1, h2, h3 {
   font-family: "Roboto Slab", serif;
 }
@@ -38,15 +38,39 @@ h3 {
   font-size:1.2em; /*21px*/
 }
 
-/*PARAGRAPHES*/
+/*PARAGRAPHS*/
 p {
   margin-bottom: 1em; /*18px*/
 }
 
 
-/* CLASSES EN COMMUN
+/* COMMON CLASSES
 ************************************************************/
-/*ici toutes les classes réutilisables*/
+.flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flex article {
+  min-height: 200px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: #fc0;
+  margin-bottom: 5%;
+}
+
+.cols {
+  column-gap: 3em;
+}
+.two-cols {
+  column-count: 2;
+}
+.three-cols {
+  column-count: 3;
+}
 
 
 /* LAYOUT
@@ -54,7 +78,7 @@ p {
 /* BODY
 -------------------------------------*/
 body {
-  margin: 40px;
+  margin: 20px 5%;
 }
 
 
@@ -86,6 +110,9 @@ body {
   margin-left: 15%;
   line-height: 1;
 }
+.menu .hidden {
+  opacity: .3;
+}
 .menu a {
   color: #888;
   position: relative;
@@ -115,9 +142,8 @@ body {
 }
 
 
-/* CONTENU
+/* CONTENT
 -------------------------------------*/
-/*MAIN - max 80% de large, centrer horizontalement*/
 .content {
   width: 100%;
   margin: 3em 0;
@@ -125,7 +151,7 @@ body {
 
 .main-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 
@@ -142,10 +168,29 @@ body {
 
 /* MEDIA QUERIES
 ************************************************************/
-@media (min-width: 640px) {
+@media (min-width: 768px) {
 
   body {
-    margin: 2em 4em;
+    margin: 2em 40px;
+  }
+
+  .flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .flex article {
+    width: 47.5%;
+  }
+  
+  .cols {
+    column-gap: 3em;
+  }
+  .two-cols {
+    column-count: 2;
+  }
+  .three-cols {
+    column-count: 3;
   }
 
   /*NAVIGATION - MENU*/
@@ -157,6 +202,15 @@ body {
   .content {
     max-width: 1024px;
     margin: 3em auto;
+  }
+
+}
+
+
+@media (min-width: 1024px) {
+
+  .flex article {
+    width: 30%;
   }
 
 }

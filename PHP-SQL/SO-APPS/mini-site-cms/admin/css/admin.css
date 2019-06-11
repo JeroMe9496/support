@@ -10,11 +10,11 @@ html {
 /*#endregion*/
 
 
-/* FORMATAGE BASE
+/* BASIC FORMATING
 ************************************************************/
 /*ROOT FONT SIZE - rem*/
 html {
-  font-size: 18px; /*10px*/
+  font-size: 16px; /*10px*/
 }
 
 /*BODY*/
@@ -24,7 +24,7 @@ body {
   line-height: 1.5;
 }
 
-/*TITRES*/
+/*TITLES*/
 h1, h2, h3 {
   font-family: "Roboto Slab", serif;
 }
@@ -38,7 +38,7 @@ h3 {
   font-size:1.2em; /*21px*/
 }
 
-/*PARAGRAPHES*/
+/*PARAGRAPHS*/
 p {
   margin-bottom: 1em; /*18px*/
 }
@@ -52,15 +52,22 @@ strong {
 }
 
 ul {
-  list-style: 
+  list-style: none;
 }
 
 
-/* CLASSES EN COMMUN
+/* COMMON CLASSES
 ************************************************************/
+/*DISPLAY*/
 .DB {
   display: block !important;
 }
+.DN {
+  display: none;
+}
+
+
+/*WIDTHS*/
 .W10p {
   width: 10% !important;
 }
@@ -84,27 +91,82 @@ ul {
 }
 
 
+/*PADDINGS*/
+.PT1 {
+  padding-top: 1em!important;
+}
+.PR1 {
+  padding-right: 1em!important;
+}
+.PB1 {
+  padding-bottom: 1em!important;
+}
+.PL1 {
+  padding-left: 1em!important;
+}
+
+
+/*BORDERS*/
+.BOR {
+  border: solid 1px #e5e5e5;
+}
+.BOR-TOP {
+  border-top: solid 1px #e5e5e5;
+}
+.BOR-BOTTOM {
+  border-bottom: solid 1px #e5e5e5;
+}
+.BOR-LEFT {
+  border-left: solid 1px #e5e5e5;
+}
+.BOR-RIGHT {
+  border-right: solid 1px #e5e5e5;
+}
+
+
+/*SO UK ADD MISC*/
+.uk-button-new {
+  background-color: #79c944;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.uk-button-new:focus,
+.uk-button-new:hover {
+  background-color: #4bbc00;
+  color: #fff;
+}
+
+
+/*Admin Messages*/
+.msg {
+  font-size: .8em;
+  color: #79c944;
+}
+.msg.error {
+  color: red;
+}
+
+
+
 /* LAYOUT
 ************************************************************/
 /* BODY
--------------------------------------*/
+=======================================================*/
 body {
   margin: 40px;
-}
-body#tinymce {
-  margin: 10px;
 }
 
 
 /* HEADER
+=======================================================*/
+/* HEADER
 -------------------------------------*/
-/*HEADER*/
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1em;
-  border-bottom: dotted 1px #ccc;
+  border-bottom: dotted 1px #dadada;
   min-height: 73px;
 }
 
@@ -153,29 +215,75 @@ body#tinymce {
 }
 
 
-/* CONTENT
+/* ADMIN CONTENT
+=======================================================*/
+/* ADMIN CONTENT
 -------------------------------------*/
-.content {
+content {
   width: 100%;
   margin: 3em 0;
 }
 
-.main-title {
-  text-align: center;
-  margin-bottom: 2rem;
+
+/* ADMIN HEADER
+-------------------------------------*/
+.admin-header {
+  border-bottom: dotted 1px #dadada;
+  margin-bottom: 2em;
 }
 
-.admin-header {
-  border-bottom: dotted 1px #ccc;
-  margin-bottom: 2em;
+
+/* ADMIN LISTS
+-------------------------------------*/
+.admin-header,
+.uk-list li,
+.list-head,
+.uk-form-stacked {
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.list-head {
+  font-size: .875rem;
+  color: #999;
+  text-transform: uppercase;
+  padding: 1em .75em;
+}
+.admin-list li:first-child {
+  padding-top: 1.25em;
+  border-top: 1px solid #e5e5e5;
+}
+.admin-list li:last-child,
+.uk-table tr:last-child td {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1.25em;
 }
 
 .tools,
 th.tools {
   text-align: right;
 }
-th.tools {
-  padding-right: 1em;
+
+.tools .tool svg {
+  pointer-events: none;
+}
+.home-icon svg {
+  transform: rotate(-90deg);
+  fill: #e1e1e1;
+  transition: transform .2s ease;
+}
+.home-icon:hover svg {
+  transform: none;
+  fill: #ccc;
+}
+.home-icon.is-home svg {
+  transform: none;
+  fill: #000;
+}
+
+.uk-sortable-placeholder,
+.uk-sortable-drag {
+  background-color: #fff;
+  padding: .8em;
 }
 
 
@@ -185,7 +293,7 @@ th.tools {
   font-size: .8em;
   text-align: center;
   padding-top: 1em;
-  border-top: dotted 1px #ccc;
+  border-top: dotted 1px #dadada;
 }
 
 
@@ -206,7 +314,7 @@ th.tools {
   /*CONTENT*/
   .content {
     max-width: 1024px;
-    margin: 3em auto;
+    margin: 3em auto 6em;
   }
 
 }

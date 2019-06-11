@@ -4,7 +4,6 @@ if( !defined('IS_ADMIN_INDEX')) {
 }
 
 
-
 //WHAT FUNCTION TO CALL ?
 if(empty($action) || $action === 'pages') {
   pages();
@@ -25,7 +24,7 @@ function pages() {
 
   /* PAGES QUERY
   ----------------------------------------*/
-  $pages = crud('show_pages');
+  $pages = crud('show-pages');
 
 
   /* TABLE ROWS
@@ -35,68 +34,83 @@ function pages() {
 
   //START LOOP
   foreach($pages as $key => $page) {
+
+
+    //MAIN VARS
+    $id			  = (int)$page['id'];
+    $title    = $page['title'];
+    $menu     = $page['menu'];
+
+    //IS HOME
+    $is_home        = (bool)$page['is_home'];
+    $home_css       = $is_home ? ' is-home' : '';
     
-    $id			= (int)$page['id'];
-    $title  = $page['title'];
-    $menu   = $page['menu'];
 
-    $edit_link = '?page=pages&action=edit-page&id='.$id;
+    //IS VISIBLE
+    $is_visible     = (bool)$page['is_visible'];
+    $visible_css    = $is_visible ? ' is-visible' : '';
+    $visible_icon   = $is_visible ? 'check' : 'ban';
+    $is_visible_val = $is_visible ? 0 : 1;
 
+    
+    //TOOL LINKS
+    $home_page_link = $is_home || !$is_visible ? 'javascript:void(0);' : '?crud-action=home-page&id='.$id;
+    $delete_link    = $is_home ? 'javascript:void(0);' : '?crud-action=delete-page&id='.$id;
+    $visible_link   = '?crud-action=switch-visible&is-visible-val='.$is_visible_val.'&id='.$id;
+    $edit_link      = '?page=pages&action=edit-page&id='.$id;
+
+
+    //PAGE ROW
     $rows .= '
-    <tr>
-      <td>'.$id.'</td>
-      <td><a href="'.$edit_link.'" title="Edit page">'.$title.'</a></td>
-      <td>'.$menu.'</td>
-      <td class="tools">
+    <li class="uk-flex uk-sortable-item">
+      <div class="uk-width-auto uk-margin-right">'.$id.'</div>
+      <div class="uk-width-3-6"><a href="'.$edit_link.'" title="Edit page">'.$title.'</a></div>
+      <div class="uk-width-1-6">'.$menu.'</div>
+      <div class="tools uk-width-large">
+        <a class="tool home uk-margin-right home-icon'.$home_css.'" uk-icon="icon: home" href="'.$home_page_link.'"></a>
+        <a class="tool home uk-margin-right visible-icon'.$visible_css.'" uk-icon="icon: '.$visible_icon.'" href="'.$visible_link.'"></a>
+        <a class="tool edit delete-link uk-margin-right" uk-icon="icon: trash" href="'.$delete_link.'"></a>
         <a class="tool edit uk-margin-right" uk-icon="icon: pencil" href="'.$edit_link.'"></a>
-        <a class="tool edit delete-link" href="index.php?crud-action=delete-page&id='.$id.'">x</a>
-      </td>
-    </tr>
+        <span class="tool move uk-sortable-handle" uk-icon="icon: more-vertical"></span>
+      </div>
+      <input type="hidden" name="sortable['.$id.']" value="'.$id.'">
+    </li>
     ';
-    
+
+
   } //END LOOP
 
 
   /* HTML DISPLAY
   ----------------------------------------*/
   $html = admin_header([
-    'title' => 'Pages list'.($_GET['msg'] ? ' - '.$_GET['msg'] : ''),
-    'buttons' => '<a href="?page=pages&amp;action=new-page" class="uk-button uk-button-default">New Page</a>'
+    'title' => 'Pages list',
+    'buttons' => '<a href="?page=pages&amp;action=new-page" class="uk-button uk-button-new">New Page</a>'
   ]);
   
   $html .= '
-  <table id="pages-list" class="uk-table uk-table-hover uk-table-middle uk-table-divider">
-    <thead>
-      <tr>
-        <th class="uk-table-shrink">#id</th>
-        <th class="country uk-width-xlarge">Title</th>
-        <th class="name">Menu</th>
-        <th class="tools uk-width-small">Tools</th>
-      </tr>
-    </thead>
-    <tbody>
-      '.$rows.'
-    </tbody>
-  </table>
+  <ul class="admin-list-head uk-list uk-list-large">
+    <li class="list-head uk-flex uk-text-muted">
+      <div class="uk-width-auto uk-margin-right">#id</div>
+      <div class="uk-width-3-6">Title</div>
+      <div class="uk-width-1-6">Menu</div>
+      <div class="tools uk-width-large">Tools</div>
+    </li>
+  </ul>
 
-  <script>
-  document.addEventListener("click", function(event) {
-
-    var elementClicked = event.target;
-
-    if(elementClicked.classList.contains("delete-link")) {
-
-      event.preventDefault();
-      var href = elementClicked.href;
-
-      if(confirm("Shall I DELETE this item ???")) {
-        window.location.replace(href);
-      }
-
-    }
   
-  });
-  </script>
+  <form action="" method="post">
+
+    <ul id="admin-list" class="admin-list sortable uk-list uk-list-large uk-list-divider" uk-sortable="handle: .uk-sortable-handle; group: test">
+      '.$rows.'
+    </ul>
+
+    <div id="update-positions-wrap" class="DN uk-margin-medium-top uk-flex uk-flex-center">
+      <input type="hidden" name="crud-action" value="update-positions">
+      <button type="submit" id="update-positions" class="uk-button uk-button-primary">Update positions</button>
+    </div>
+
+  </form>
   ';
 
   echo $html;
@@ -129,7 +143,7 @@ function page_detail($action = 'edit-page') {
   if($is_edit) {
 
     //QUERY - GET PAGE DATA
-    $page = crud('page_detail', [$id]);
+    $page = crud('page-detail', [$id]);
 
     //PAGE TITLE
     $page_title = 'Edit page: <span class="uk-text-primary">' . $page['title'].'</span>';
@@ -157,7 +171,7 @@ function page_detail($action = 'edit-page') {
     'title'     => $page['title'],
     'menu'      => $page['menu'],
     'page_key'  => $page['page_key'],
-    //'slug'      => $page['slug'], //better let PHP deal with this
+    //'slug'      => $page['slug'], //Ali is right, better let PHP deal with this
     'content'   => $page['content'],
   ];
 
@@ -195,7 +209,7 @@ function page_detail($action = 'edit-page') {
       $label = ucfirst($label);
 
       $form_items_html .= '
-      <div class="uk-margin uk-flex">
+      <div class="uk-margin uk-flex uk-flex-middle">
         <label class="uk-form-label W10p" for="'.$key.'">'.$label.':</label>
         <div class="uk-form-controls DB W90p">
           '.$form_input.'
@@ -216,18 +230,19 @@ function page_detail($action = 'edit-page') {
   ]);
 
   $html .= '
-  <form class="uk-form-stacked" action="index.php" method="post">
+  <form class="uk-form" action="index.php" method="post">
 
     '.$form_items_html .'
-    
-    <div class="uk-margin uk-flex uk-flex-right">
-      <button class="uk-button uk-button-primary">Submit</button>
+
+    <div class="uk-margin-medium-top uk-flex uk-flex-center">
+      <label class="uk-form-label W10p">&nbsp;</label>
+      <button type="submit" class="uk-button uk-button-primary">Submit</button>
     </div>
 
   </form>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.4/tinymce.min.js"></script>
-  <script src="js/tinymce-init.js"></script>  
+  
+  <script src="js/tinymce/tinymce.min.js"></script>
+  <script src="js/tinymce/tinymce-init.js"></script>  
   ';
 
 

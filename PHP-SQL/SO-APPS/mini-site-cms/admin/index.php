@@ -58,6 +58,7 @@ require_once('crud.php');
 
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
+    <script src="js/admin.js"></script>
 
   </body>
 

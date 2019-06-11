@@ -103,7 +103,7 @@ function menu_html($params = []) {
 
 
 	//QUERY - GET MENUS (from pages)
-  $menus = query('menus');
+  $menus = query('menus'); //show($menus);
  
   
   //If pages array is empty stop here with a message
@@ -131,19 +131,20 @@ function menu_html($params = []) {
 		//CSS
     $active = $slug === $get_page ? ' active' : '';
     $is_home_class = $is_home ? ' is-home' : '';
+    $hidden_class = $item['is_visible'] > 0 ? '' : ' hidden';
 
     //Menu text
     $menu = $is_home ? '<span class="is-home">⌂</span>' : $item['menu'];
 
     //Add to menu html
-    $html .= '<li class="menu-item'.$active.$is_home_class.'"><a href="'.$slug.'">'.$menu.'</a></li>'.PHP_EOL;
+    $html .= '<li class="menu-item'.$active.$is_home_class.$hidden_class.'"><a href="'.$slug.'">'.$menu.'</a></li>'.PHP_EOL;
 
   } //END LOOP
 
 
   //Add LOGIN/LOGOUT to menu html
   $log_str = (is_admin()) ? 'LOGOUT' : 'LOGIN';
-  $log_href = (is_admin()) ? '?action=logout' : 'admin/';
+  $log_href = (is_admin()) ? 'admin/index.php?page=login&action=logout' : 'admin/';
   $html .= '<li class="menu-item"><a href="'.$log_href.'">'.$log_str.'</a></li>'.PHP_EOL;
 
 
@@ -169,10 +170,10 @@ function title($zone = 'content', $params = []) {
 
   /* GET DATA FROM PARAMS
   -----------------------------------*/
-  $site_data    = $params['site_data'];
+  $settings    = $params['settings']; //debug($settings);
   $active_page  = $params['active_page'];
 
-  $global_title = $site_data['global_title'];
+  $global_title = $settings['global_title'];
   $page_title   = $active_page['title'];
 
 
@@ -209,7 +210,7 @@ function content($params = []) {
 
 	/* GET DATA FROM PARAMS
   -----------------------------------*/
-  $active_page = $params['active_page'];
+  $active_page = $params['active_page']; show($active_page['page_key']);
   
 
   /* IF ACTIVE PAGE ARRAY IS EMPTY
@@ -220,8 +221,13 @@ function content($params = []) {
 
 
 	/* EXTRACT PAGE CONTENT
-	-----------------------------------*/
-	return $active_page['content'];
+  -----------------------------------*/
+  $form_start = '<form action="index.php" method="post"><input name="user-action" type="hidden" value="sent-contact-form">';
+  $form_end = '</form>';
+  $page_content = $active_page['content'];
+  $content = ($active_page['page_key'] !== 'contact') ? $page_content : $form_start.$page_content.$form_end;
+  
+  return $content;
 
 
 }
@@ -233,6 +239,7 @@ function content($params = []) {
  * ----------------------------------------------
  * A simple code display with <pre> formatting
  */
+/*#region*/
 function show($data = '') {
 	
 	echo '<pre>';
@@ -240,6 +247,7 @@ function show($data = '') {
 	echo '<pre>';
 	
 }
+/*#endregion*/
 
 
 
