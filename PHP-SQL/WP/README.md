@@ -3,139 +3,69 @@ Optimisation, Recommended plugins, Learning ressources
 
 <br>
 
-## Optimisation
+## OPTIMISATION
 
-**functions.php**
-```php
-<?php
-//MAIN CONTSTANTS - FOR REQUIRES
-define('TEMPLATE_DIR', str_replace('\\', '/', get_template_directory()).'/'); //reverse slashes for Windows
-define( 'TEMPLATE_INC_DIR', TEMPLATE_DIR.'inc/' );
+1. FRONT END *(see **[functions.php](Themes/sorin/functions.php)**)*
+    * Remove WP defaults (feeds, rds links, manifest, emoji, ...)
+    * Add custom styles and scripts (google-fonts, style, editor-style)<br>
 
-
-//GET PATH TO MISC DIRS - FOR NORMAL LINKS
-function get_path_to($end_path = '', $dir = 'theme') {
-
-	$wp_content		= '/wp-content/';
-
-	if($dir === 'theme') {
-		$active_theme	= get_template_directory_uri().'/';
-		return $active_theme.$end_path;
-	}
-	elseif($dir === 'uploads') {
-		$upload_dir = wp_upload_dir();
-		$uploads_dir = $upload_dir['baseurl'];
-		return $uploads_dir.'/'.$end_path;
-	}
-	
-}
+2. BACK END *(see **[inc/admin_functions.php](Themes/sorin/inc/admin_functions.php)**)*
+    * Install a plugin to get back the Classic Editor
+    * Install a plugin to manage admin menus
+    * Install a plugin to organize WordPress media files into folders/categories
 
 
-//ADD TITLE TAG IN HEAD
-add_theme_support( 'title-tag' );
+<br>
 
 
-//DISABLE DEFAULT EMBED SCRIPTS
-add_action( 'init', function() {
+## RECOMMENDED PLUGINS
 
-    // Remove the REST API endpoint.
-    remove_action('rest_api_init', 'wp_oembed_register_route');
+### Productivity
+* [Admin Menu Editor](https://wordpress.org/plugins/admin-menu-editor/)
+* [Classic Editor](https://wordpress.org/plugins/classic-editor/)
+* [FileBird Lite](https://wordpress.org/plugins/filebird/)
+* [Simple Page Ordering](https://wordpress.org/plugins/simple-page-ordering/)
+* [TinyMCE Advanced](https://wordpress.org/plugins/tinymce-advanced/)
+* [Header Footer Code Manager](https://wordpress.org/plugins/header-footer-code-manager/)
 
-    // Turn off oEmbed auto discovery.
-    // Don't filter oEmbed results.
-    remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+### Security
+* [Wordfence](https://wordpress.org/plugins/wordfence/)
 
-    // Remove oEmbed discovery links.
-    remove_action('wp_head', 'wp_oembed_add_discovery_links');
+### Performance/Speed
+* [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/)
+* [WP Super Cache](https://wordpress.org/plugins/wp-super-cache/)
+* [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/)
+* [Hummingbird](https://wordpress.org/plugins/hummingbird-performance/)
 
-    // Remove oEmbed-specific JavaScript from the front-end and back-end.
-    remove_action('wp_head', 'wp_oembed_add_host_js');
-}, PHP_INT_MAX - 1 );
+### SEO
+* [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/)
 
+### Backup / Migration
+* [Duplicator](https://wordpress.org/plugins/duplicator/)
 
-//DISABLE (SOME ?) WP HEAD AUTO SHIT
-remove_action( 'wp_head', 'feed_links_extra', 3); //disable feeds
-remove_action ('wp_head', 'rsd_link'); //disable EditURI/RSD Weblog Client Link
-remove_action('wp_head', 'wp_generator'); //disable meta "generator"
-remove_action( 'wp_head', 'wlwmanifest_link'); //disable Windows Live Writer Manifest Link
-
-
-//DISABLE WP EMOJI SHIT !
-function disable_wp_emojicons() {
-
-  // all actions related to emojis
-  remove_action( 'admin_print_styles', 'print_emoji_styles' );
-  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-  remove_action( 'wp_print_styles', 'print_emoji_styles' );
-  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-
-  // filter to remove TinyMCE emojis
-  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
-}
-add_action( 'init', 'disable_wp_emojicons' );
-
-function disable_emojicons_tinymce( $plugins ) {
-  if ( is_array( $plugins ) ) {
-    return array_diff( $plugins, array( 'wpemoji' ) );
-  } else {
-    return array();
-  }
-}
-add_filter( 'emoji_svg_url', '__return_false' );
+### Page Builder
+* [Elementor Page Builder](https://wordpress.org/plugins/elementor/)
+* [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/)
 
 
-//DISABLE Gutenberg CSS
-function wps_deregister_styles() {
-	wp_dequeue_style( 'wp-block-library' );
-}
-add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
+### Sliders
+* [Soliloquy](https://wordpress.org/plugins/soliloquy-lite/)
+* [Smart Slider 3](https://wordpress.org/plugins/smart-slider-3/)
 
 
-//Show REST API only for admin - Require Authentication for All Reque​sts
-add_filter('rest_authentication_errors', function($result) {
-	if(!empty($result)) {
-		return $result;
-	}
-	if(!is_user_logged_in()) {
-		return new WP_Error( 'rest_not_logged_in', 'You are not currently logged in.', array( 'status' => 401 ) );
-	}
-	return $result;
-});
+### Forms
+* [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
+
+<br>
+
+## LEARNING RESSOURCES
+* [(Official) WordPress Support](https://wordpress.org/support/)
+* [WordPress Stack Exchange](https://wordpress.stackexchange.com/)
+* [WordPress 101: Create a Theme from Scratch](https://www.youtube.com/watch?v=oTRZYnYQlmo&list=PLriKzYyLb28nUFbe0Y9d-19uVkOnhYxFE)
+* [How To Make a WordPress Website - In 24 Easy Steps
+](https://www.youtube.com/watch?v=2cbvZf1jIJM)
+* *...propose your prefered WP learning site...*
 
 
-//DISABLE REST API
-add_filter('rest_enabled', '__return_false');
-add_filter('rest_jsonp_enabled', '__return_false');
-
-remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-remove_action( 'template_redirect', 'rest_output_link_header', 11 );
-
-
-//ADMIN - Show only published post/pages BY DEFAULT
-// change post link to display published posts only
-function wcs_change_admin_post_link() {
-  global $submenu;
-  $submenu['edit.php'][5][2] = 'edit.php?post_status=publish';
-}
-add_action( 'admin_menu', 'wcs_change_admin_post_link' );
-
-
-//ADMIN - change page link to display published pages only
-function wcs_change_admin_page_link() {
-  global $submenu;
-  $submenu['edit.php?post_type=page'][5][2] = 'edit.php?post_type=page&post_status=publish';
-}
-add_action( 'admin_menu', 'wcs_change_admin_page_link' );
-?> 
-```
-
-
-## Inheritance :
-
-```php
-
-```
+* [xxxxx](xxxxxxxx)
+* [xxxxx](xxxxxxxx)
