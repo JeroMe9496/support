@@ -65,7 +65,3 @@ Optimisation, Recommended plugins, Learning ressources
 * [How To Make a WordPress Website - In 24 Easy Steps
 ](https://www.youtube.com/watch?v=2cbvZf1jIJM)
 * *...propose your prefered WP learning site...*
-
-
-* [xxxxx](xxxxxxxx)
-* [xxxxx](xxxxxxxx)
