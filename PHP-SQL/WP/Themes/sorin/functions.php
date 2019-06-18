@@ -24,6 +24,12 @@
  * @subpackage Sorin
  * @since Sorin 1.0
  */
+
+function time_elapsed() {
+  $time_elapsed = microtime(true) - $_SERVER['REQUEST_TIME'];
+  echo 'SHUTDOWN MICROTIME: '.round($time_elapsed, 3), PHP_EOL;
+}
+//add_action('shutdown', 'time_elapsed');
  
  
 /* MAIN PATHS AND INIT
