@@ -32,6 +32,7 @@ Optimisation, Recommended plugins, Learning ressources
 * [Wordfence](https://wordpress.org/plugins/wordfence/)
 
 ### Performance/Speed
+Try all of them, keep only one
 * [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/)
 * [WP Super Cache](https://wordpress.org/plugins/wp-super-cache/)
 * [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/)
@@ -44,11 +45,13 @@ Optimisation, Recommended plugins, Learning ressources
 * [Duplicator](https://wordpress.org/plugins/duplicator/)
 
 ### Page Builder
+Try all of them, keep only one
 * [Elementor Page Builder](https://wordpress.org/plugins/elementor/)
 * [Beaver Builder](https://wordpress.org/plugins/beaver-builder-lite-version/)
 
 
 ### Sliders
+Try all of them, keep only one
 * [Soliloquy](https://wordpress.org/plugins/soliloquy-lite/)
 * [Smart Slider 3](https://wordpress.org/plugins/smart-slider-3/)
 
