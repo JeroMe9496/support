@@ -52,11 +52,12 @@ For a more robust and flexible solution (you can use your SSH keys on each of yo
   
 <br>  
 
-  3. **Adding your SSH key to the ssh-agent** - [GitHub Help Page](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account)
+  3. **Adding your SSH key to the ssh-agent** - [GitHub Help Page](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
 
       ##### I. Ensure the ssh-agent is running, type:
 
       ``` sh
+      # start the ssh-agent in the background
       $ eval $(ssh-agent -s)
       ```
 
