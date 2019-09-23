@@ -32,47 +32,62 @@ By default VC shows settings in a UI style. If you want more control and speed c
 This is my JSON User Settings. I'll try to keep it up to date, so visit this page again...
 ``` javascript
 {
-    //Microsoft
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "update.showReleaseNotes": false,
-    "update.enableWindowsBackgroundUpdates": false,
-    "liveServer.settings.donotShowInfoMsg": true,
 
-    //EXPLORER
-    "files.exclude": {
-      "**/.git": false,
-      ".gitignore": false
-    },
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
+  //Microsoft
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "update.showReleaseNotes": false,
+  "update.enableWindowsBackgroundUpdates": false,
+  "liveServer.settings.donotShowInfoMsg": true,
 
-    //WORKBENCH - UI look and feel
-    "workbench.settings.editor": "json",
-    "workbench.settings.useSplitJSON": true,
-    "workbench.tips.enabled": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Material Theme",
-    "workbench.iconTheme": "material-icon-theme",
-    
-    //EDITOR - Code Look and feel
-    "editor.fontFamily": "'Courier New', 'Source Code Pro', Consolas, monospace",
-    "editor.fontSize": 16,
-    "editor.minimap.enabled": false,
-    "window.zoomLevel": 0,
-    "editor.tabSize": 2,
-    "[html]": {
-    	"editor.matchBrackets": false
-    },
-    "editor.parameterHints.enabled": false,
-    "editor.hover.enabled": false,
+  //EXPLORER
+  "files.exclude": {
+    "**/.git": false,
+    ".gitignore": false
+  },
+  
+  "workbench.settings.useSplitJSON": true,
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Material Theme",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.enableExperiments": false,
+  "workbench.tree.indent": 15,
+  "workbench.tips.enabled": false,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editor.highlightModifiedTabs": true,
 
-    //EMMET
-    "emmet.triggerExpansionOnTab": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "zenMode.hideLineNumbers": false,
+  "breadcrumbs.enabled": false,
+  "update.mode": "manual",
 
-    //WHAT INTEGRATED TERMINAL SHELL
-    //"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  //EDITOR - Code Look and feel
+  "editor.fontFamily": "'Courier New', 'Source Code Pro', Consolas, monospace",
+  "editor.fontSize": 16,
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 0,
+  "editor.tabSize": 2,
+  "[html]": {
+    "editor.matchBrackets": false
+  },
+  "editor.parameterHints.enabled": false,
+  "editor.hover.enabled": false,
+  "materialTheme.accent": "Graphite",
+
+  //EMMET
+  "emmet.triggerExpansionOnTab": true,
+
+  //WHAT INTEGRATED TERMINAL SHELL
+  //"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "terminal.external.windowsExec": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "terminal.integrated.fontFamily": "'Courier New', 'Source Code Pro', Consolas, monospace",
+  "terminal.integrated.fontSize": 18,
+
+  //GIT
+  "git.enabled": false
+  
 }
 ```
 
