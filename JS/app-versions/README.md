@@ -12,7 +12,7 @@ A good way to name the folders is something like this:<br>
 
 //or
 "v1-Arrays"
-"v1-Functions"
+"v2-Functions"
 "..."
 
 //or simply this if you keep trak of the course subjects on your notebook
