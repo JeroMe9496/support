@@ -30,7 +30,7 @@ require_once('crud.php');
       <!-- Logo -->
       <figure class="logo-figure">
         <a href="./"><img src="../img/logo.svg" alt="The heavy metal company"></a>
-        <!-- <span class="uk-h5">Admin</span> -->
+        <span class="uk-h5">Admin</span>
       </figure>
 
       <!-- Nav -->
