@@ -61,7 +61,7 @@ CREATE TABLE `settings` (
 INSERT INTO `settings` VALUES ('1', 'global_title', 'The Heavy Metal Company.', '1');
 INSERT INTO `settings` VALUES ('2', 'description', 'How to use PHP/SQLto create a dynamic website', '2');
 INSERT INTO `settings` VALUES ('3', 'keywords', 'php,dynamic site,cool,raoul', '3');
-INSERT INTO `settings` VALUES ('7', 'author', 'Sorin Paun', null);
+INSERT INTO `settings` VALUES ('7', 'author', 'Your Name', null);
 
 -- ----------------------------
 -- Table structure for users
@@ -78,4 +78,4 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'Sorin Paun', 'sorin.paun@powercoders.org', '$2y$10$ZEDYjYsgaM5wuaGbgQZKR.4z5aLp7X0zVbgGhJhxEKtG3MyKZrbti');
+INSERT INTO `users` VALUES ('1', 'Your Name', 'your.email@powercoders.org', '$2y$10$ZEDYjYsgaM5wuaGbgQZKR.4z5aLp7X0zVbgGhJhxEKtG3MyKZrbti');
