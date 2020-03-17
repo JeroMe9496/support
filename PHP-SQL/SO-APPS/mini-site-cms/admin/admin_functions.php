@@ -75,6 +75,7 @@ $params = [
   'action'      => req('action'),
   'crud-action' => req('crud-action')
 ];
+/*#endregion GLOBALS*/
 
 
 
