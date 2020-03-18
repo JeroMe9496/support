@@ -80,7 +80,7 @@ This file is used to instruct git to ignore files and folders.
 
 2. #### Open *.gitignore* file with your Editor and write inside the name of the files or folders you want to ignore.
 
-   Examples (do this only if these files/folders exists, of course):
+   Examples (do this only if these files/folders exists):
 
    ```sh
    bla-bla/
@@ -94,9 +94,9 @@ This file is used to instruct git to ignore files and folders.
 
 ## F. Create a project repository and structure 
 #### Repeat the steps <span style="color:red">B to E</span> in order to create a web project repo and structure.
-   At the end you should have something like this
+At the end you should have something like this :
    ```sh
-   my-web-project    (this will hold your web project; change the name accordingly)
+   my-project    (this will hold your web project; the name will be )
      |- css
      |- img
      |- js
@@ -120,8 +120,17 @@ This file is used to instruct git to ignore files and folders.
    remote: Total 32 (delta 6), reused 24 (delta 4), pack-reused 0
    Unpacking objects: 100% (32/32), done.
    ```
-   > Note: This folder will contain the "official" support files for your training. You will update his contents each day with the "git pull" command (we'll see more about this in the Github course)
+
+   > <span style="color:red;">IMPORTANT</span>: **DO NOT CHANGE THE CONTENT OF THIS FOLDER**
+
 <br>
+
+   #### This is what you should have inside the POWERCODERS folder :
+   ![Windows user folder](../_assets/git-folders-you-should-have.png)
+
+<br>
+
+
 
 ## H. Update your (cloned) support folder
 In order to have the last changes from the remote suport repo, you have to update it like this :
