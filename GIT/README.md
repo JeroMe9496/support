@@ -244,3 +244,4 @@ In order to have the last changes from the remote suport repo, you simply have t
 
    The **-f** option means *force*. This can cause the remote repository to lose commits; use it with care.<br>
    See more **[here](https://stackoverflow.com/a/18135171)**.
+   
