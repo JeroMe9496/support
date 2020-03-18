@@ -10,30 +10,34 @@ If you are not present and you want to catch up, please go to directly to [Githu
 
 > *Note: If you already have an account on Github, jump to the next section*
 
+
 <br>
+
 
 ## B. Create the "workshop" repository
 
-Follow the steps bellow in order to create a new repository named **`workshop`**<br>
-Go [here](https://help.github.com/en/articles/creating-a-new-repository) for more info.
+   Follow the steps bellow in order to create a new repository named **`workshop`**<br>
+   *More info on how to create a new repository [here](https://help.github.com/en/articles/creating-a-new-repository).*
 
 
-### 1. In the Click New
-![New repo button](../_assets/git-create-a-new-repository-button.png)
+   ### 1. Click the "Repositories" link and after, the "New" button
+   ![New repo button](../_assets/git-create-a-new-repository-button.png)
 
-### 2. In the New repository page...
-![New repo page](../_assets/git-create-a-new-repository-page.png)
+   ### 2. In the New repository page...
+   ![New repo page](../_assets/git-create-a-new-repository-page.png)
+
 
 <br>
 
+
 ## C. Clone your Github repository locally
 
-### 1. Copy the repo URL
+   ### 1. Copy the repo URL
 
-![Clone URL](../_assets/git-anim-copy-clone-url.gif)<br>
-Go [here](https://help.github.com/en/articles/cloning-a-repository) for more info.
+   ![Clone URL](../_assets/git-anim-copy-clone-url.gif)<br>
+   Go [here](https://help.github.com/en/articles/cloning-a-repository) for more info.
 
-### 2. Open your terminal bash ([Git SCM](https://git-scm.com/downloads)) and type the following commands
+   ### 2. Open your terminal bash ([Git SCM](https://git-scm.com/downloads)) and type the following commands
 
    Change directory to your Powercoders folder :
    1. **`$ cd ~/POWERCODERS`**
@@ -55,11 +59,13 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
    ...and will clone the remote folder into our POWERCODERS folder :
    
    ![Windows user folder](../_assets/git-the-cloned-folder.png)
-   
+
+ 
 <br>
 
+
 ## D. Create this folder structure INSIDE the "workshop" folder :
-```sh
+```shell
    workshop          (this is your training folder, create a folder for each subject taught in class !)
      |- CLI          (CLI exercices)
      |- HTML-CSS     (HTML/CSS exercices)
@@ -69,7 +75,9 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
 ```
 > *Note: the empty folders will not be uploaded to Github but keep them here for future usage!*
 
+
 <br>
+
 
 ## E. Create an ".gitignore" file
 This file is used to instruct git to ignore files and folders.
@@ -82,20 +90,23 @@ This file is used to instruct git to ignore files and folders.
 
    Examples (do this only if these files/folders exists):
 
-   ```sh
-   bla-bla/
-   bob/
-   Ideas.docx
+   ```shell
+   some-folder/
+   some-other-folder/
+   .editorconfig
+   .gitignore
    ```
 
 3. #### Save the file
 
+
 <br>
+
 
 ## F. Create a project repository and structure 
 #### Repeat the steps <span style="color:red">B to E</span> in order to create a web project repo and structure.
 At the end you should have something like this :
-   ```sh
+   ```shell
    my-project    (this will hold your web project; the name will be )
      |- css
      |- img
@@ -112,7 +123,7 @@ At the end you should have something like this :
 2. #### Clone the support repo
 
    **`$ git clone https://github.com/powercoders-lausanne/support.git`**
-   ``` sh
+   ```shell
    Cloning into 'support'...
    remote: Enumerating objects: 32, done.
    remote: Counting objects: 100% (32/32), done.
@@ -121,77 +132,94 @@ At the end you should have something like this :
    Unpacking objects: 100% (32/32), done.
    ```
 
-   > <span style="color:red;">IMPORTANT</span>: **DO NOT CHANGE THE CONTENT OF THIS FOLDER**
+   > <span style="color:red;">IMPORTANT</span>:<br>
+   > *DO NOT add or remove content from this folder, consider it as "read only".<br>
+   > If you need some files from the support just **copy** them into your "workshop" folder*
 
-<br>
+   <br>
 
-   #### This is what you should have inside the POWERCODERS folder :
+   #### This is what you should have now inside the POWERCODERS folder :
    ![Windows user folder](../_assets/git-folders-you-should-have.png)
 
+
 <br>
 
 
+## H. Update your (cloned) support folder (every day!)
+In order to have the last changes from the remote suport repo, you simply have to :
 
-## H. Update your (cloned) support folder
-In order to have the last changes from the remote suport repo, you have to update it like this :
-
-1. #### Set url origin to the suport repo
-
-   **`$ git remote set-url origin https://github.com/powercoders-lausanne/support.git`**
-
-2. #### Go to your local support folder
-   
+1. #### Go to your local support folder
    **`$ cd ~/POWERCODERS/support`**
-   
-3. #### Fetch the the remote origin and reset/update local files
-   
-   **`$ git fetch origin master`**
 
-   and after...
+2. #### Pull (=update) the changes with this git command :
+   **`$ git pull`**
 
-   **`$ git reset --hard origin/master`**
+   ---
+
+   **NOTE :**<br>
+   If you modified some files inside the support folder (don't do it!) the procedure is a little bit more complex.<br>Follow the steps bellow to "force" the update.
+
+   Go to your local support folder :
+
+      ```sh
+      $ cd ~/POWERCODERS/support
+      ```
+   
+   Fetch the the remote origin and reset local files by entering these commands in order :<br>
+   
+      ```sh
+      $ git fetch origin master
+      $ git reset --hard origin/master
+      $ git clean -f
+      ```
+   *<span style="color:red">Attention!</span> The last command (clean -f) will delete any files/folders that are not present on the remote. if you want to keep those files, backup them first.*
+
+   ---
+
 
 <br>
 
 ## I. "Push" changes to your remote repo
 
 
-1. #### Let's make some changes in our local files.<br>
-   For instance, we'll add a file named README.md into both, *portfolio* and *workshop* folders
-   
-   **`$ cd ~/powercoders/portfolio`** - goes directly to *portfolio* dir
+   1. #### Let's make some changes in our local files.<br>
+      For instance, we'll add a file named README.md into both, *my-project* and *workshop* folders. <br>
+      If README.md exists, skip the ```$ touch``` commands, just change the content.
+      
+      **`$ cd ~/POWERCODERS/my-project`** - goes directly to *my-project* dir
 
-   **`$ touch README.md`** - creates the file with this name into *portfolio* dir
+      **`$ touch README.md`** - creates the file with this name into *my-project* dir
 
-   **`$ cd ../workshop`** - goes from *portfolio* to *workshop* dir
+      **`$ cd ../workshop`** - goes from *my-project* to *workshop* dir
 
-   **`$ touch README.md`** - creates a README.md file into *workshop* dir
+      **`$ touch README.md`** - creates a README.md file into *workshop* dir
 
-   <br> 
 
-2. #### Now, let's upload the changes to our remote repo
-   
-   **`$ cd ~/powercoders`** - go to local main dir, *powercoders*
+   2. #### Now, let's upload the changes to our remote repo
+      
+      **`$ cd ~/POWERCODERS/my-project`** - go to project dir, *my-project*
 
-   **`$ git add .`** - add all changes to **staging area**
+      **`$ git add .`** - add all changes to **staging area**
 
-   **`$ git commit -m "Add portfolio and workshop dirs"`** - add all changes to **staging area**
+      **`$ git commit -m "Added the project description"`** - add all changes to **staging area**
 
-   **`$ git push`** - push changes to remote repo
+      **`$ git push`** - push changes to remote repo
+
+   3. **Do the same for the "workshop" folder !**
 
 
    > *Note:*<br>
-   > *When you push files/folders to remote, GitHub may ask you **to login***<br>
+   > *When you push files/folders to remote for the first time, GitHub will ask you **to login***<br>
    > *We have a support chapter on how to permanently store your GitHub credentials :*<br>
    > **[GitHub - Storing your credentials](github-bash-login.md)**
 
-   -------------------
-   
+   ---
+      
    ### TIP
 
    While **push**ing your changes you may see an error like this :
 
-   ``` shell
+   ```shell
    ! [rejected] master -> master (non-fast-forward)
    error: failed to push some refs to 'git@github.com:user/project.git'
    hint: Updates were rejected because the tip of your current branch is behind
@@ -203,14 +231,14 @@ In order to have the last changes from the remote suport repo, you have to updat
    This is because you made some changes on remote and you do not have them on your local machine.<br>
    To resolve this issue try first to **pull** the changes from your remote :
 
-   ``` shell
+   ```shell
    $ git pull origin master
    ```
 
    If no errors try again the push command.<br>
    If you see an error, you can use **force** option :
 
-   ``` shell
+   ```shell
    $ git push -f origin master
    ```
 
