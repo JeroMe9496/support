@@ -6,18 +6,17 @@ Please follow the steps bellow to create a Github account and set up your work r
 ## A. Create a [Github account](https://github.com/join)
 
 We will create together a Github account for each one of you, in class, the first day<br>
-If you are not present and you want to catch up, please go to directly to [Github Join page](https://github.com/join) and create an account on your own. If confused, follow the steps on [WikiHow](https://www.wikihow.com/Create-an-Account-on-GitHub)
+If you are not present and you want to catch up, please go to directly to [Github Join page](https://github.com/join) and create an account on your own. If confused, follow the steps on [WikiHow](https://www.wikihow.com/Create-an-Account-on-GitHub).
 
-> *Note: If you already have an account on Github, jump to the next section* 
+> *Note: If you already have an account on Github, jump to the next section*
 
 <br>
 
-## B. Create the "powercoders" repository
+## B. Create the "workshop" repository
 
-Follow the steps bellow in order to create a new repository named **`powercoders`**<br>
+Follow the steps bellow in order to create a new repository named **`workshop`**<br>
 Go [here](https://help.github.com/en/articles/creating-a-new-repository) for more info.
 
-> *Note: the name **"powercoders"** is important as we will use external links to show your work to other people, so, please keep this name !*
 
 ### 1. In the Click New
 ![New repo button](../_assets/git-create-a-new-repository-button.png)
@@ -35,14 +34,17 @@ Go [here](https://help.github.com/en/articles/creating-a-new-repository) for mor
 Go [here](https://help.github.com/en/articles/cloning-a-repository) for more info.
 
 ### 2. Open your terminal bash ([Git SCM](https://git-scm.com/downloads)) and type the following commands
-1. **`$ cd ~`** - Change directory to your user folder. This will go here: /c/Users/your-username
 
-2. **`$ git clone https://github.com/`*your-username*`/powercoders.git`** - Change "your-username" with your actual username !
+   Change directory to your Powercoders folder :
+   1. **`$ cd ~/POWERCODERS`**
+
+   Clone the remote repo (change "your-username" with your actual username !)
+   2. **`$ git clone https://github.com/`*your-username*`/workshop.git`** - 
 
    The bash will show us something like this...
    ```sh
-   $ git clone https://github.com/stupoare/powercoders.git
-   Cloning into 'powercoders'...
+   $ git clone https://github.com/your-username/workshop.git
+   Cloning into 'workshop'...
    remote: Enumerating objects: 7, done.
    remote: Counting objects: 100% (7/7), done.
    remote: Compressing objects: 100% (4/4), done.
@@ -50,32 +52,62 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
    Unpacking objects: 100% (7/7), done.
    ```
 
-   ...and will clone the remote folder into our Windows user account :
+   ...and will clone the remote folder into our POWERCODERS folder :
    
    ![Windows user folder](../_assets/git-the-cloned-folder.png)
    
 <br>
 
-## D. Create this folder structure INSIDE the "powercoders" folder :
-### powercoders folder contents
-``` sh
-   portfolio         (this will hold your portfolio projects)
+## D. Create this folder structure INSIDE the "workshop" folder :
+```sh
    workshop          (this is your training folder, create a folder for each subject taught in class !)
-      CLI            (CLI exercices)
-      HTML-CSS       (html-css exercices)
-      JS             (js exercices)
-      PHP            (php exercices)  
-      ...            (etc.)
-   `README.md        (this will be your global info file, we'll use it for training your "markdown" skills)
+     |- CLI          (CLI exercices)
+     |- HTML-CSS     (HTML/CSS exercices)
+     |- JS           (JS exercices)
+     |- PHP-SQL      (PHP/SQL exercices)  
+     |- README.md    (this will be your global info file, we´ll use it for training your "markdown" skills)
 ```
-> *Note: empty folders will not be uploaded to Github but keep them here for future usage!*
+> *Note: the empty folders will not be uploaded to Github but keep them here for future usage!*
 
 <br>
 
-## E. Clone PowerCoders support repo inside "powercoders" folder
-1. #### Be sure to be into your *powercoders* folder :
+## E. Create an ".gitignore" file
+This file is used to instruct git to ignore files and folders.
 
-   **`$ cd ~/powercoders`**
+1. #### Put it at the root of your git folder. Example with the "workshop" folder :
+   
+   **`$ touch ~/POWERCODERS/workshop/.gitignore`** → this will create the file
+
+2. #### Open *.gitignore* file with your Editor and write inside the name of the files or folders you want to ignore.
+
+   Examples (do this only if these files/folders exists, of course):
+
+   ```sh
+   bla-bla/
+   bob/
+   Ideas.docx
+   ```
+
+3. #### Save the file
+
+<br>
+
+## F. Create a project repository and structure 
+#### Repeat the steps <span style="color:red">B to E</span> in order to create a web project repo and structure.
+   At the end you should have something like this
+   ```sh
+   my-web-project    (this will hold your web project; change the name accordingly)
+     |- css
+     |- img
+     |- js
+     |- index.html
+   ```
+<br>
+
+## G. Clone PowerCoders support repo inside "POWERCODERS" folder
+1. #### Be sure to be into your *POWERCODERS* folder !
+
+   **`$ cd ~/POWERCODERS`**
 
 2. #### Clone the support repo
 
@@ -88,27 +120,10 @@ Go [here](https://help.github.com/en/articles/cloning-a-repository) for more inf
    remote: Total 32 (delta 6), reused 24 (delta 4), pack-reused 0
    Unpacking objects: 100% (32/32), done.
    ```
-
+   > Note: This folder will contain the "official" support files for your training. You will update his contents each day with the "git pull" command (we'll see more about this in the Github course)
 <br>
 
-## F. Create an ".gitignore" file
-This file is used to instruct git to ignore files and folders.
-
-1. #### Put it at the root of your git folder :
-   
-   **`$ touch ~/powercoders/.gitignore`**
-
-2. #### Open *.gitignore* file with your Editor and write this inside :
-
-   **`support`** - the name of the folder you want to ignore
-
-3. #### Save the file
-
-> Note: we want to ignore the "support" folder ! This folder will contain the "official" support files for your training. You will update his contents each day with the "git pull" command (we'll see more about this in the Github course)
-
-<br>
-
-## G. Update your (cloned) support folder
+## H. Update your (cloned) support folder
 In order to have the last changes from the remote suport repo, you have to update it like this :
 
 1. #### Set url origin to the suport repo
@@ -117,10 +132,8 @@ In order to have the last changes from the remote suport repo, you have to updat
 
 2. #### Go to your local support folder
    
-   **`$ cd ~/powercoders/support`**
+   **`$ cd ~/POWERCODERS/support`**
    
-
-
 3. #### Fetch the the remote origin and reset/update local files
    
    **`$ git fetch origin master`**
@@ -131,7 +144,7 @@ In order to have the last changes from the remote suport repo, you have to updat
 
 <br>
 
-## H. "Push" changes to your remote repo
+## I. "Push" changes to your remote repo
 
 
 1. #### Let's make some changes in our local files.<br>
