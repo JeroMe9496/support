@@ -111,3 +111,18 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   <br>
   ---
   <br>
+  
+  ### checkout
+  Switching branches
+  
+  ```sh
+  # Generic
+  $ git checkout <branch name>
+
+  # Example
+  $ git checkout gh-pages
+  ```
+
+  <br>
+  ---
+  <br>
