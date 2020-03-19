@@ -72,13 +72,8 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   
   #### 3. push
   ```sh
-  # Generic
-  $ git push <-flag>
-  
-  # Examples
+  # Generic and example
   $ git push
-  $ git commit -m "Updated helper classes"
-  $ git commit -m "Removed repetead styles"
   ```
   <br>
 
@@ -111,8 +106,6 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   ```sh
   # Generic & example
   $ git pull
-  
-  # Note:   
   ```
 
   <br>
