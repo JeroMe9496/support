@@ -111,5 +111,3 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   <br>
   ---
   <br>
-
-  
