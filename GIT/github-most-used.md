@@ -9,7 +9,7 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
 ## Basic operations
   ### cd
   Not related to Git but, **the first thing to do, always, is to go into the target folder**
-  ```bash
+  ```sh
   # Generic
   $ cd <path>
 
@@ -24,7 +24,7 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   ### clone
   Cloning a remote repository from Git. A clone is an exact replica of the target repo.
   
-  ```bash
+  ```sh
   # Generic
   $ git clone <url>
   
@@ -46,7 +46,7 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
 
   #### 1. add
 
-  ```bash
+  ```sh
   # Generic
   $ git add <file name 1> <file name 2>
   
@@ -55,10 +55,12 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   $ git add css/styles.css                    # a file inside a folder
   $ git add index.html about.html             # add two (or more) files
   $ git add .                                 # add ALL the files (who changed)
+  
+  # [Remember] Git do not add empty folders.
   ```
 
   #### 2. commit
-  ```bash
+  ```sh
   # Generic
   $ git commit -m "short description of the change you made to the file(s)"
   
@@ -69,7 +71,7 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   ```
   
   #### 3. push
-  ```bash
+  ```sh
   # Generic
   $ git push <-flag>
   
@@ -78,31 +80,39 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   $ git commit -m "Updated helper classes"
   $ git commit -m "Removed repetead styles"
   ```
-  
-  #### [TIP] Add and commit all in one step
-  ```bash
-  # First, create a Git config alias. In this case the alias is "coa" :
-  git config --global alias.coa '!git add -A && git commit -m'
-  
-  # After restarting your bash console, use the alias like this :
-  $ git coa "your message..."
-  ```
+  <br>
 
-  > **[Remember] Git do not add empty folders.**
+  **[TIP] For lazy people: *add, commit, push* in one step**<br>
+  You could do this when you're trained enough with Git and you want to accelerate things.<br>
+  Don't use this if you're just discovering Git, first, work a little ! :-))
+  ```sh
+  # 1. Create an alias in your ".bash_profile" or ".bashsrc" file.
+  # In this case, we'll create the alias "gitGO" who refers to the "git_add_commit_push()" function :
+  git_add_commit_push() {
+    git add .
+    git commit -m "$1"
+    git push
+  }
+  alias gitGO=git_add_commit_push
+
+  # 2. Restart your bash console
+  
+  # 3. After restarting your bash console, use the alias like this :
+  $ gitGO "your message..."
+  ```
 
   <br>
   ---
   <br>
 
   ### pull
-  Getting the latest changes from Git
+  Integrate remote changes
   
-  ```bash
-  # Generic
+  ```sh
+  # Generic & example
   $ git pull
   
-  # Example :
-  $ git clone https://github.com/powercoders-lausanne/support.git
+  # Note:   
   ```
 
   <br>
