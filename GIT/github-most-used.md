@@ -14,7 +14,7 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
 <br>
 
 ## Basic operations
-  Not related to Git <span class="text-purple">but</span>, the first thing to do, **always**, is to go into the target folder :
+  Not related to Git <span class="text-purple">**but**</span>, the first thing to do, **always**, is to go into the target folder :
   ```sh
   # Generic
   $ cd <path>
