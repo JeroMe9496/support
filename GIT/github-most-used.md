@@ -1,14 +1,20 @@
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+
 # GIT MOST USED/USEFUL COMMANDS
 
 A customized list of most useful commands with GIT.<br>
-Git is (incredibily) complex. We have a lot of tutorials online where everybody tries to summarize "the best Git commands".<br>
+Git is (incredibily :flushed:) complex. We have a lot of tutorials online where everybody tries to summarize "the best Git commands".<br>
 The content bellow is what I believe to be the most useful for us, @Powercoders.
 
 <br>
 
+## At a glance
+![Git Workflow at a glance](assets/git-workflow.png)
+
+<br>
+
 ## Basic operations
-  ### cd
-  Not related to Git but, **the first thing to do, always, is to go into the target folder**
+  Not related to Git <span class="text-purple">but</span>, the first thing to do, **always**, is to go into the target folder :
   ```sh
   # Generic
   $ cd <path>
@@ -39,10 +45,7 @@ The content bellow is what I believe to be the most useful for us, @Powercoders.
   ### add + commit + push
   Those 3 come together, in this order.<br>
   Adding the latest changes to Git while describing what these changes are.
-  
-  <figure align="center"><img src="assets/git-add-commit.png" alt="Git add and commit" width="360">
-    <figcaption>Illustration of the process. <a href="https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh">Source</a></figcaption>
-  </figure>
+
 
   #### 1. add
 
