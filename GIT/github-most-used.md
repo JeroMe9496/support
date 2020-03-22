@@ -145,14 +145,9 @@ The content bellow is what I believe to be the most useful for us, at Powercoder
   > *Integrate remote changes. More [HERE](https://www.atlassian.com/git/tutorials/syncing/git-pull).*
   
   ```sh
-  # Generic & example
-  $ git pull
-
-  # Force the remote files to replace your local files
-  $ git reset --hard HEAD
+  # Example
   $ git pull
   ```
-  :warning: The
 
   <br>
   ---
