@@ -1,247 +1,223 @@
-# GITHUB - ACCOUNT AND BASIC FOLDER STRUCTURE  
-Please follow the steps bellow to create a Github account and set up your work repository for PowerCoders
+# MOST USED GIT COMMANDS @POCO
+
+A customized list of some very useful commands with GIT.<br>
+Git is (incredibily :flushed:) complex. We have a lot of tutorials online where everybody tries to summarize "the best Git commands".<br>
+The content bellow is what I believe to be the most useful for us, at Powercoders.
 
 <br>
 
-## A. Create a [Github account](https://github.com/join)
-
-We will create together a Github account for each one of you, in class, the first day<br>
-If you are not present and you want to catch up, please go to directly to [Github Join page](https://github.com/join) and create an account on your own. If confused, follow the steps on [WikiHow](https://www.wikihow.com/Create-an-Account-on-GitHub).
-
-> *Note: If you already have an account on Github, jump to the next section*
-
+## Git Workflow
+![Git Workflow at a glance](assets/git-workflow.png)
 
 <br>
 
-
-## B. Create the "workshop" repository
-
-   Follow the steps bellow in order to create a new repository named **`workshop`**<br>
-   *More info on how to create a new repository [here](https://help.github.com/en/articles/creating-a-new-repository).*
-
-
-   ### 1. Click the "Repositories" link and after, the "New" button
-   ![New repo button](../_assets/git-create-a-new-repository-button.png)
-
-   ### 2. In the New repository page...
-   ![New repo page](../_assets/git-create-a-new-repository-page.png)
-
+---
 
 <br>
 
+## Before using Git, be sure you're in the right folder
+  > *Not related to Git but, the first thing to do, **always**, is to go into the target folder :*
+  ```sh
+  # Generic
+  $ cd <path>
 
-## C. Clone your Github repository locally
-
-   ### 1. Copy the repo URL
-
-   ![Clone URL](../_assets/git-anim-copy-clone-url.gif)<br>
-   Go [here](https://help.github.com/en/articles/cloning-a-repository) for more info.
-
-   ### 2. Open your terminal bash ([Git SCM](https://git-scm.com/downloads)) and type the following commands
-
-   Change directory to your Powercoders folder :
-   1. **`$ cd ~/POWERCODERS`**
-
-   Clone the remote repo (change "your-username" with your actual username !)
-   2. **`$ git clone https://github.com/`*your-username*`/workshop.git`** - 
-
-   The bash will show us something like this...
-   ```sh
-   $ git clone https://github.com/your-username/workshop.git
-   Cloning into 'workshop'...
-   remote: Enumerating objects: 7, done.
-   remote: Counting objects: 100% (7/7), done.
-   remote: Compressing objects: 100% (4/4), done.
-   remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
-   Unpacking objects: 100% (7/7), done.
-   ```
-
-   ...and will clone the remote folder into our POWERCODERS folder :
-   
-   ![Windows user folder](../_assets/git-the-cloned-folder.png)
-
- 
-<br>
-
-
-## D. Create this folder structure INSIDE the "workshop" folder :
-```shell
-   workshop          (this is your training folder, create a folder for each subject taught in class !)
-     |- CLI          (CLI exercices)
-     |- HTML-CSS     (HTML/CSS exercices)
-     |- JS           (JS exercices)
-     |- PHP-SQL      (PHP/SQL exercices)  
-     |- README.md    (this will be your global info file, we´ll use it for training your "markdown" skills)
-```
-> *Note: the empty folders will not be uploaded to Github but keep them here for future usage!*
-
+  # Example
+  $ cd ~/powercoders/my-project
+  ```
 
 <br>
 
-
-## E. Create an ".gitignore" file
-This file is used to instruct git to ignore files and folders.
-
-1. #### Put it at the root of your git folder. Example with the "workshop" folder :
-   
-   **`$ touch ~/POWERCODERS/workshop/.gitignore`** → this will create the file
-
-2. #### Open *.gitignore* file with your Editor and write inside the name of the files or folders you want to ignore.
-
-   Examples (do this only if these files/folders exists):
-
-   ```shell
-   some-folder/
-   some-other-folder/
-   .editorconfig
-   .gitignore
-   ```
-
-3. #### Save the file
-
+---
 
 <br>
 
-
-## F. Create a project repository and structure 
-#### Repeat the steps <span style="color:red">B to E</span> in order to create a web project repo and structure.
-At the end you should have something like this :
-   ```shell
-   my-project    (this will hold your web project; the name will be )
-     |- css
-     |- img
-     |- js
-     |- index.html
-   ```
-<br>
-
-## G. Clone PowerCoders support repo inside "POWERCODERS" folder
-1. #### Be sure to be into your *POWERCODERS* folder !
-
-   **`$ cd ~/POWERCODERS`**
-
-2. #### Clone the support repo
-
-   **`$ git clone https://github.com/powercoders-lausanne/support.git`**
-   ```shell
-   Cloning into 'support'...
-   remote: Enumerating objects: 32, done.
-   remote: Counting objects: 100% (32/32), done.
-   remote: Compressing objects: 100% (20/20), done.
-   remote: Total 32 (delta 6), reused 24 (delta 4), pack-reused 0
-   Unpacking objects: 100% (32/32), done.
-   ```
-
-   > <span style="color:red;">IMPORTANT</span>:<br>
-   > *DO NOT add or remove content from this folder, consider it as "read only".<br>
-   > If you need some files from the support just **copy** them into your "workshop" folder*
-
-   <br>
-
-   #### This is what you should have now inside the POWERCODERS folder :
-   ![Windows user folder](../_assets/git-folders-you-should-have.png)
+## Most used Git commands at Poco
 
 
-<br>
+  ### clone
+  > *Cloning a remote repository from Git. A clone is an exact replica of the target. More [HERE](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone).*
+  
+  ```sh
+  # Generic
+  $ git clone <url>
+  
+  # Example :
+  $ git clone https://github.com/powercoders-lausanne/support.git
+  ```
 
 
-## H. Update your (cloned) support folder (every day!)
-In order to have the last changes from the remote suport repo, you simply have to :
+  <br>
+  ---
+  <br>
 
-1. #### Go to your local support folder
-   **`$ cd ~/POWERCODERS/support`**
 
-2. #### Pull (=update) the changes with this git command :
-   **`$ git pull`**
+  ### status
+  > *Displays the state of the working directory and the staging area. More [HERE](https://www.atlassian.com/git/tutorials/inspecting-a-repository).*
 
-   ---
+  ```sh
+  $ git status
 
-   **NOTE :**<br>
-   If you modified some files inside the support folder (don't do it!) the procedure is a little bit more complex.<br>Follow the steps bellow to "force" the update.
+  # This will show something like this :
+  On branch master
+  Your branch is up to date with 'origin/master'.
 
-   Go to your local support folder :
+  Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  modified:   "GIT/README.md"
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+  ```
+
+
+  <br>
+  ---
+  <br>
+
+
+  ### add → commit → push
+  > *Adding the latest changes to Git while describing what these changes are.*<br>
+  > *Those 3 come together, in this order. More [HERE](https://www.atlassian.com/git/tutorials/saving-changes).*
+
+
+  1. ### add
 
       ```sh
-      $ cd ~/POWERCODERS/support
+      # Generic
+      $ git add <file name 1> <file name 2>
+      
+      # Examples
+      $ git add README.md                         # a file at the root (same level as .git folder)
+      $ git add css/styles.css                    # a file inside a folder
+      $ git add index.html about.html             # add two (or more) files
+      $ git add .                                 # add ALL the files (who changed)
+      
+      # [Remember] Git do not add empty folders.
       ```
-   
-   Fetch the the remote origin and reset local files by entering these commands in order :<br>
-   
+
+  2. ### commit
+
       ```sh
-      $ git fetch origin master
+      # Generic
+      $ git commit -m "short description of the change you made to the file(s)"
+      
+      # Examples when adding/updating "styles.css"
+      $ git commit -m "Initial commit"            # Only once, when the file is created
+      $ git commit -m "Updated helper classes"
+      $ git commit -m "Removed repetead styles"
+      ```
+  
+  3. ### push
+      ```sh
+      # Generic and example
+      $ git push
+      ```
+  
+  <br>
+
+  **[TIP] For lazy people: *add, commit, push* in one step**<br>
+  > *You could do this when you're trained enough with Git and you want to accelerate things.*<br>
+  > *Don't use this if you're just discovering Git ! First, work a little.* :-)
+
+  ```sh
+  # 1. Create an alias in your ".bash_profile" or ".bashsrc" file.
+  # In this case, we'll create the alias "gitGO" who refers to the "git_add_commit_push()" function :
+  git_add_commit_push() {
+    git add .
+    git commit -m "$1"
+    git push
+  }
+  alias gitGO=git_add_commit_push
+
+  # 2. Restart your bash console
+  
+  # 3. After restarting your bash console, use the alias like this :
+  $ gitGO "your message..."
+  ```
+
+
+  <br>
+  ---
+  <br>
+
+
+  ### pull
+  > *Integrate remote changes. More [HERE](https://www.atlassian.com/git/tutorials/syncing/git-pull).*
+  
+  ```sh
+  # Example
+  $ git pull
+  ```
+
+  <br>
+  ---
+  <br>
+
+
+  ### checkout
+  > *Switching branches. More [HERE](https://www.atlassian.com/git/tutorials/using-branches/git-checkout).*
+  
+  ```sh
+  # Generic
+  $ git checkout <branch name>
+
+  # Example, switching from current branch (usually "master") to "gh-pages"
+  $ git checkout gh-pages
+  ```
+
+
+  <br>
+
+  ---
+
+  <br>
+
+
+## When you have Git errors (conflicts)
+> The most often these errors occur when you have what Git calls "conflicts".<br>
+> :warning: Using the ```--force``` flag is **destructive**. Do this only if you're working alone and you know what you're doing !
+> 
+> So, if this happens to you :
+
+  1. #### You have something *(new or newer)* on the remote not present on your local files.
+   
+      Git will refuse to push your local changes and will tell you to do a ```pull``` first.<br>
+      So, try first to pull the new stuff from the remote :
+  
+      ```sh
+      # 1. Pull the changes from the remote
+      $ git pull
+
+      # 2. Push your local changes
+      $ git push
+      ```
+
+  2. #### Force local files to replace remote files.
+   
+      :warning: You'll lose every change you may have on the remote repository.
+  
+      ```sh
+      # Replace "master" if the branch name is different
+      $ git push origin master --force 
+      ```
+
+  3. #### Force a replacement of your local files.
+   
+      :warning: You'll lose every change you may have on local repository.<br>
+  
+      ```sh
+      # Replace "master" if the branch name is different
+      $ git fetch --all
       $ git reset --hard origin/master
-      $ git clean -f
       ```
-   *<span style="color:red">Attention!</span> The last command (clean -f) will delete any files/folders that are not present on the remote. if you want to keep those files, backup them first.*
 
-   ---
-
-
-<br>
-
-## I. "Push" changes to your remote repo
-
-
-   1. #### Let's make some changes in our local files.<br>
-      For instance, we'll add a file named README.md into both, *my-project* and *workshop* folders. <br>
-      If README.md exists, skip the ```$ touch``` commands, just change the content.
-      
-      **`$ cd ~/POWERCODERS/my-project`** - goes directly to *my-project* dir
-
-      **`$ touch README.md`** - creates the file with this name into *my-project* dir
-
-      **`$ cd ../workshop`** - goes from *my-project* to *workshop* dir
-
-      **`$ touch README.md`** - creates a README.md file into *workshop* dir
-
-
-   2. #### Now, let's upload the changes to our remote repo
-      
-      **`$ cd ~/POWERCODERS/my-project`** - go to project dir, *my-project*
-
-      **`$ git add .`** - add all changes to **staging area**
-
-      **`$ git commit -m "Added the project description"`** - add all changes to **staging area**
-
-      **`$ git push`** - push changes to remote repo
-
-   3. **Do the same for the "workshop" folder !**
-
-
-   > *Note:*<br>
-   > *When you push files/folders to remote for the first time, GitHub will ask you **to login***<br>
-   > *We have a support chapter on how to permanently store your GitHub credentials :*<br>
-   > **[GitHub - Storing your credentials](github-bash-login.md)**
-
-   ---
-      
-   ### TIP
-
-   While **push**ing your changes you may see an error like this :
-
-   ```shell
-   ! [rejected] master -> master (non-fast-forward)
-   error: failed to push some refs to 'git@github.com:user/project.git'
-   hint: Updates were rejected because the tip of your current branch is behind
-   hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
-   hint: before pushing again.
-   hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-   ```
-
-   This is because you made some changes on remote and you do not have them on your local machine.<br>
-   To resolve this issue try first to **pull** the changes from your remote :
-
-   ```shell
-   $ git pull origin master
-   ```
-
-   If no errors try again the push command.<br>
-   If you see an error, you can use **force** option :
-
-   ```shell
-   $ git push -f origin master
-   ```
-
-   The **-f** option means *force*. This can cause the remote repository to lose commits; use it with care.<br>
-   See more **[here](https://stackoverflow.com/a/18135171)**.
+  4. #### Force a replacement of your local files AND DELETE all the files/folders not present on remote.
    
+      :warning: Git ```clean``` deletes all your untracked files/directories and can't be undone.<br>
+  
+      ```sh
+      # WARNING: this can't be undone !
+      $ git reset --hard HEAD
+      $ git clean -f -d
+      $ git pull
+      ```
