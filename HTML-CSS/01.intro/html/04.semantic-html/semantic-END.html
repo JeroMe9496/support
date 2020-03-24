@@ -1,12 +1,11 @@
 <!-- The DOCTYPE tag indicates the type of document. Here it's HTML5 -->
 <!DOCTYPE html>
 
-	<!-- The html tag contains all the html code of the document. The attribute "lang" indicates to the computers the language used in this page -->
-	<html lang="en">
+<!-- The html tag contains all the html code of the document. The attribute "lang" indicates to the computers the language used in this page -->
+<html lang="en">
 
 
 	<!-- HEAD - In the head tag we have the metadata (hidden information) of the document (not to be confused with the <header> tag!) -->
-
 	<head>
 		<meta charset="utf-8"> <!-- Encoding the page. UTF-8 for universal compatibility -->
 		<title>Tags - Semantic HTML END</title> <!-- Title that appears in the browser tab and in the search engines -->
@@ -14,7 +13,6 @@
 
 
 	<!-- BODY - In the body tag we have the content (visible) of the page -->
-
 	<body>
 
 		<!-- HEADER - Here we put most often the logo, a menu, an important title (not to be confused with the tag <head>!) -->
@@ -25,47 +23,56 @@
 				<img src="path/to/your/logo.svg" alt="Company name">
 			</figure>
 
-			<!-- The title that appears first in the readers (can be hidden with css) -->
-			<h2> Web page structure example </h2>
+			<h2>Header title</h2> <!-- Could be the main title (<h1>) or can be hidden with css -->
 
 			<!-- NAV - The menu of the site -->
 			<nav>
-				<h3> The menu </h3>
+
+				<h3>The menu</h3> <!-- (can be hidden with css) -->
+
 				<!-- UL - A list with menus ... -->
+				<ul>
+					<li><a href="index.html"></a></li>
+					<li><a href="work.html"></a></li>
+					<li><a href="contact.html"></a></li>
+					<!-- etc. -->
+				</ul>
+
 			</nav>
 
 		</header>
 		<!-- FIN HEADER -->
 
 
-		<!-- ARTICLE - The content of the page ... -->
-		<article>
+		<!-- MAIN - The main content of the page ... -->
+		<main>
 
 			<!-- H1 - Main title of the page -->
-			<h1>The title of the article </h1>
+			<h1>The title of the content</h1>
 
-			<!-- section of the article ... -->
+			<!-- content section 1 ... -->
 			<section>
 				<h2>Title section A</h2>
 				<p>Content section ...</p>
 			</section>
 
-			<!-- section of the article ... -->
+			<!-- content section 2 ... -->
 			<section>
 				<h2>Title section B</h2>
 				<p>Content section ...</p>
 			</section>
 
-			</article>
-			<!-- END ARTICLE -->
+		</main>
+		<!-- END MAIN -->
 
 
-			<!-- footer - May contain copyright, secondary menu, etc. -->
-			<footer>
-				<p>nobody &copy;2019</p>
-			</footer>
-			<!-- END footer -->
+		<!-- footer - May contain copyright, secondary menu, etc. -->
+		<footer>
+			<p>nobody &copy;2019</p>
+		</footer>
+		<!-- END footer -->
 
 	</body>
+	<!-- END body -->
 
-	</html>
+</html>
