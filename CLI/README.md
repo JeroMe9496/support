@@ -212,4 +212,5 @@ $ cat file.txt -n
 ## USEFUL KEYBOARD SHORTCUTS
 
 1. **`Up / Down`** arrows **`↑ ↓`** - Navigate in bash history
-2. **...** - other will follow...
+2. **`Copy`** (a selection in bash) → **`CTRL + Insert`**
+3. **`Paste`** (a selected text) → **`SHIFT + Insert`**
