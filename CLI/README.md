@@ -4,7 +4,7 @@
 
 <br>
 
-## USEFUL FILE SYSTEM COMMANDS
+## USEFUL/MOST USED BASH COMMANDS
 
 ## pwd
 > *Print Working Directory*
