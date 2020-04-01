@@ -30,7 +30,7 @@ By default VC shows settings in a UI style. If you want more control and speed c
 
 ## Basic (Sorin's) settings
 This is my JSON User Settings. I'll try to keep it up to date, so visit this page again...
-``` javascript
+```javascript
 {
 
   //Microsoft
@@ -40,13 +40,19 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
   "update.enableWindowsBackgroundUpdates": false,
   "liveServer.settings.donotShowInfoMsg": true,
 
-  //EXPLORER
+
+  //VS Code EXPLORER
   "files.exclude": {
-    "**/.git": false,
-    ".gitignore": false
+    ".gitignore": true,
+    "**/.git": true,
+    "desktop.ini": true,
+    "Thumbs.db": true
   },
   
-  "workbench.settings.useSplitJSON": true,
+
+  //WORKBENCH AND THEMES
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": false,
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Material Theme",
   "workbench.iconTheme": "material-icon-theme",
@@ -54,39 +60,69 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
   "workbench.tree.indent": 15,
   "workbench.tips.enabled": false,
   "workbench.tree.renderIndentGuides": "always",
+  "workbench.sideBar.location": "left",
   "workbench.editor.highlightModifiedTabs": true,
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#7a7a7a"
+  },
 
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
+  "materialTheme.accent": "Graphite",
   "zenMode.hideLineNumbers": false,
-  "breadcrumbs.enabled": false,
   "update.mode": "manual",
+
 
   //EDITOR - Code Look and feel
   "editor.fontFamily": "'Courier New', 'Source Code Pro', Consolas, monospace",
-  "editor.fontSize": 16,
+  "editor.fontSize": 18,
   "editor.minimap.enabled": false,
   "window.zoomLevel": 0,
   "editor.tabSize": 2,
-  "[html]": {
-    "editor.matchBrackets": false
-  },
   "editor.parameterHints.enabled": false,
   "editor.hover.enabled": false,
-  "materialTheme.accent": "Graphite",
+  "editor.trimAutoWhitespace": true,
+  "editor.insertSpaceAfterComment": false,
+  "files.eol": "\n",
+
+  "editor.tokenColorCustomizations": {
+    "comments": "#8a8a8a",
+    "[Material Theme]": {
+      "comments": "#8a8a8a"
+    }
+  },
+  "[html]": {
+    "editor.matchBrackets": "near"
+  },
+
 
   //EMMET
   "emmet.triggerExpansionOnTab": true,
+  
+  
+  //CSS LINT
+  "css.lint.emptyRules": "ignore",
 
-  //WHAT INTEGRATED TERMINAL SHELL
-  //"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+
+  //BEAUTIFY EXTENSION
+  "beautify.language": {
+    "js": {
+      "type": ["javascript", "json"],
+      "filename": [".jshintrc", ".jsbeautifyrc"],
+      "ext": ["js", "json"]
+    },
+    "css": ["css", "scss"],
+    "html": ["htm", "html"]
+  },
+
+
+  //TERMINAL SHELL (WINDOWS)
   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "terminal.external.windowsExec": "C:\\Program Files\\Git\\bin\\bash.exe",
   "terminal.integrated.fontFamily": "'Courier New', 'Source Code Pro', Consolas, monospace",
-  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.cursorStyle": "line",
 
+  
   //GIT
-  "git.enabled": false
+  "git.enabled": false,
   
 }
 ```
@@ -103,9 +139,10 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
 1. Material Theme
 2. Material Icon Theme
 3. Live Server
-4. Markdown Preview Github Styling
-5. vscode-faker
-6. ... `Others later in this course`
+4. Github Markdown Preview
+5. Beautify
+6. Color Manager
+7. ... `Others later in this course`
 
 > *Note: if you find extensions with similar name, always install the most popular extension, look for number of downloads!*
 
@@ -136,6 +173,14 @@ Write a shorcut code and then press TAB key. Examples :
   h2#some-id              => <h2 id="some-id"></h2>
   h2.some-class           => <h2 class="some-class"></h2>
   h2#some-id.some-class   => <h2 id="some-id" class="some-class"></h2>
+  nav>ul>li*4>a           => <nav>
+                                <ul>
+                                  <li><a href=""></a></li>
+                                  <li><a href=""></a></li>
+                                  <li><a href=""></a></li>
+                                  <li><a href=""></a></li>
+                                </ul>
+                             </nav>
   ```
 
   **`! + TAB`** will create a basic html structure :
