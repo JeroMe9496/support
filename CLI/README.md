@@ -8,7 +8,7 @@
 
 ## pwd
 > *Print Working Directory*
-``` shell
+```shell
 $ pwd
 /PowerCoders/GitHub/support/CLI
 ```
@@ -18,12 +18,12 @@ $ pwd
 ## ls
 > *List (files and folders of the current working directory)*
 
-``` shell
+```shell
 $ ls
 dir1/  dir2/  README.md
 ```
 add option -a to display also hidden files and folders 
-``` shell
+```shell
 $ ls -a
 ./  ../  .bob/  dir1/  dir2/  README.md
 ```
@@ -33,18 +33,18 @@ $ ls -a
 ## cd
 > *Change directory*
 
-``` shell
+```shell
 $ cd /path/to/your/folder
 ```
 *Tip: if the path is too long, you can type **cd** and drag the folder into the bash window*
 
 **cd ..** - *go to parent dir (one step above)*
-``` shell
+```shell
 $ cd ..
 ```
 
 *or, go two or more steps above*
-``` shell
+```shell
 $ cd ../..
 $ cd ../../..
 etc.
@@ -55,12 +55,12 @@ etc.
 ## touch
 > *Create a file*
 
-``` shell
+```shell
 $ touch index.html
 ```
 *creates a file named "index.html" into the current dir*
 
-``` shell
+```shell
 $ touch dir1/index.html
 ```
 *creates a file named "index.html" into "dir1" (if dir exists)*
@@ -70,7 +70,7 @@ $ touch dir1/index.html
 ## mkdir
 > *Make Directory*
 
-``` shell
+```shell
 $ mkdir dir3
 ```
 *creates a folder named "dir3" into the current dir*
@@ -79,17 +79,17 @@ $ mkdir dir3
 
 ## rm
 > *Remove file/directory*
-``` shell
+```shell
 $ rm index.html
 ```
 *removes the file "index.html" (if exists)*
 
-``` shell
+```shell
 $ rm dir3
 ```
 *removes the folder "dir3" (if exists and not empty!)*
 
-``` shell
+```shell
 $ rm dir3 -r
 ```
 *removes the folder "dir3" even if not empty. **-r** stands for recursive*
@@ -98,7 +98,7 @@ $ rm dir3 -r
 
 ## mv
 > *Move file/directory*
-``` shell
+```shell
 $ mv style.css dir1
 
 or
@@ -107,7 +107,7 @@ $ mv style.css ./dir1
 ```
 *moves "style.css" from current directory to dir1*
 
-``` shell
+```shell
 $ mv dir1/style.css .
 
 or
@@ -120,12 +120,12 @@ $ mv dir1/style.css ./
 
 ## cp
 > *Copy file/directory*
-``` shell
+```shell
 $ cp style.css dir1
 ```
 *to copy the file "style.css" to "dir1"*
 
-``` shell
+```shell
 $ cp -r dir1 dir2
 ```
 *to copy "dir1" into "dir2" (-r option is for recursive)*
@@ -134,7 +134,7 @@ $ cp -r dir1 dir2
 
 ## clear
 > *Clear bash window*
-``` shell
+```shell
 $ clear
 ```
 
@@ -149,7 +149,7 @@ $ clear
 ## nano
 > *Edit a file*
 
-``` shell
+```shell
 $ nano file.txt
 ```
 *will open "file.txt" inside bash editor*
@@ -165,15 +165,43 @@ $ nano file.txt
 
 ## cat
 > *See (the content of a) a (text) file*
-``` shell
+```shell
 $ cat file.txt
 ```
 
 if you want to see also the line numbers, add the option **-n**
 
-``` shell
+```shell
 $ cat file.txt -n
 ```
+
+<br>
+
+---
+
+<br>
+
+## BASH ALIAS
+> *Create aliases (or shortcuts) to boost your productivity with bash*
+
+1. Locate a file named *".bash_profile"* or *".bashrc"* inside the user folder ```~/```<br>
+   *If the file doesn't exists, create it!*
+
+2. Open the file with a text editor (like VS Code ;-)) and write your first aliases :
+   
+    ```bash
+    # Note: only one space is permitted, after alias keyword
+    # A shortcut to the user folder
+    alias me='cd ~/'
+    
+    # A shortcut to Poco folder
+    alias poco= 'cd ~/POWERCODERS'
+
+    # A shortcut to workshop folder
+    alias work= 'cd ~/POWERCODERS/workshop'
+    ```
+3. Save the file and restart your bash app (if opened).<br>
+   Try the aliases you just created!
 
 <br>
 
