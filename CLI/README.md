@@ -1,6 +1,7 @@
 # COMMAND LINE INTERFACE
-<h3>Must known bash commands</h3>
-<p>Bash is an acronym for "Bourne Again Shell" named after Stephen Bourne, the creator of the Unix shell "sh."</p>
+### Must known bash commands
+
+> *Note: "bash" is an acronym for "Bourne Again Shell" named after Stephen Bourne, the creator of the Unix shell.*
 
 <br>
 
