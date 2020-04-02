@@ -215,3 +215,4 @@ $ cat file.txt -n
 1. **`Up / Down`** arrows **`↑ ↓`** - Navigate in bash history
 2. **`Copy`** (a selection in bash) → **`CTRL + Insert`**
 3. **`Paste`** (a selected text) → **`SHIFT + Insert`**
+4. **`Exit text mode`** (when you're stuck with >) → **`CTRL + C`**
