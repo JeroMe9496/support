@@ -15,7 +15,7 @@ A website must have his own repository<br>
 <br>
 
 ## 3. Clone the repo and start coding :-)
-  **[Support - Clone your Github repository locally →](https://github.com/powercoders-lausanne/support/tree/master/GITHUB#c-clone-your-github-repository-locally)**
+  **[Support - Clone your Github repository locally →](https://github.com/powercoders-lausanne/support/blob/master/GIT/README.md#clone)**
 
 <!--
 
