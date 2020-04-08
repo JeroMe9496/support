@@ -41,12 +41,16 @@ This is my JSON User Settings. I'll try to keep it up to date, so visit this pag
   "liveServer.settings.donotShowInfoMsg": true,
 
 
-  //VS Code EXPLORER
+  //EXPLORER
   "files.exclude": {
-    ".gitignore": true,
-    "**/.git": true,
+    ".gitignore": false,
+    "**/.git": false,
+    
     "desktop.ini": true,
-    "Thumbs.db": true
+    "Icon": true,
+    "Icon": true,
+    "Thumbs.db": true,
+    "**/*.lnk": true,
   },
   
 
