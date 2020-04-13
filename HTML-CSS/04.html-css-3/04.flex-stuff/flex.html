@@ -9,6 +9,8 @@
 
     <!-- CUSTOM FONT -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    
+    <link rel="stylesheet" href="https://poco.squarelabel.com/assets/common/prism.css">
 
     <!-- DEMO STYLES -->
     <link rel="stylesheet" href="css/demo.css">
@@ -68,9 +70,6 @@
     <article>
 
       <h1>FLEX STUFF</h1>
-
-      <hr>
-
       <section class="exemple">
         <h2>Flex - basic, no wrap</h2>
         <div class="container flex no-wrap">
@@ -81,6 +80,13 @@
           <div>Flex item 5</div>
           <div>Flex item 6</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            flex-wrap: no-wrap; /*default wrap*/
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -93,6 +99,14 @@
           <div>Flex item 5</div>
 					<div>Flex item 6</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -104,6 +118,14 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -115,6 +137,14 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -131,6 +161,15 @@
           <div class="holder"></div>
           <div class="holder"></div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          /*This container contains 3 empty divs*/
+          .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -142,6 +181,14 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -153,6 +200,14 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -164,6 +219,13 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            flex-direction: column;
+          }
+        </code></pre>
       </section>
 
       <section class="exemple">
@@ -175,6 +237,14 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
+
+        <pre class="MW-800"><code class="language-css">
+          .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        </code></pre>
       </section>
 
 
@@ -187,6 +257,14 @@
             <div>Flex item 4</div>
             <div>Flex item 5</div>
           </div>
+
+          <pre class="MW-800"><code class="language-css">
+            .container {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+            }
+          </code></pre>
         </section>
     </article>
 
@@ -201,6 +279,8 @@
 
       </ul>
     </footer>
+
+    <script src="https://poco.squarelabel.com/assets/common/prism.js"></script>
 
   </body>
 </html>
