@@ -48,7 +48,7 @@
 	2.0 / -0.0 // returns -Infinity in JavaScript
 	```
 
-4. **[Multiplication ( \ )](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Multiplication_(*))**<br>
+4. **[Multiplication ( * )](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Multiplication_(*))**<br>
 *The multiplication operator produces the product of the operands.*
 	```js
 	var n = 8 * 3; //n = 24
