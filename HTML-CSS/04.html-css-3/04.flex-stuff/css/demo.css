@@ -66,11 +66,19 @@ p, a {
 }
 
 
+
 /* LAYOUT
 --------------------------------------*/
 .exemple {
   margin: 0 0 4rem;
-
+  padding-bottom: 4rem;
+  border-bottom: solid 1px #eaeaea;;
+}
+.exemple .MW-800 {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto 0;
 }
 
 .exemple.bg {
