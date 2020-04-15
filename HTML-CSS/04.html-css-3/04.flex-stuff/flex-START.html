@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FLEX - Exemples</title>
+    <title>FLEX - Basic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- RESET -->
@@ -16,50 +16,46 @@
 
 		<!-- STYLES POUR CETTE PAGE -->
     <style>
-			/*FLEX*/
+
 			.flex {
-				display: flex;
-        flex-direction: row;
+				
 			}
 			.flex.wrap {
-        flex-wrap: wrap;
+        
 			}
 			.flex.no-wrap {
-				flex-wrap: no-wrap; /*default wrap*/
+				
 			}
 			.space-between {
-				justify-content: space-between;
+				
 			}
 			.space-around {
-				justify-content: space-around;
-				padding:0 1.6665%; /*valable pour*/
+				
 			}
 			.space-evenly {
-				justify-content: space-evenly;
+				
 			}
 			.flex-start {
-				justify-content: flex-start;
+				
 			}
 			.flex-end {
-				justify-content: flex-end;
+				
 			}
 			.center-center {
-				align-items: center;
- 				justify-content: center;
+			
 			}
 			.align-content {
-				align-content: flex-start;
+				
       }
       .columns {
-        flex-direction: column;
+        
       }
       .columns.center {
-        align-items: center;
+        
       }
       .columns.right {
-        align-items: flex-end;
+        
       }
-
 
     </style>
 
@@ -79,13 +75,6 @@
           <div>Flex item 5</div>
           <div>Flex item 6</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            flex-wrap: no-wrap; /*default wrap*/
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -98,14 +87,6 @@
           <div>Flex item 5</div>
 					<div>Flex item 6</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -117,14 +98,6 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -136,14 +109,6 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -160,15 +125,6 @@
           <div class="holder"></div>
           <div class="holder"></div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          /*This container contains 3 empty divs*/
-          .container {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -180,14 +136,6 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -199,14 +147,6 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -218,13 +158,6 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            flex-direction: column;
-          }
-        </code></pre>
       </section>
 
       <section class="exemple">
@@ -236,14 +169,6 @@
           <div>Flex item 4</div>
           <div>Flex item 5</div>
         </div>
-
-        <pre class="MW-800"><code class="language-css">
-          .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-        </code></pre>
       </section>
 
 
@@ -256,14 +181,6 @@
             <div>Flex item 4</div>
             <div>Flex item 5</div>
           </div>
-
-          <pre class="MW-800"><code class="language-css">
-            .container {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-end;
-            }
-          </code></pre>
         </section>
     </article>
 
@@ -278,8 +195,6 @@
 
       </ul>
     </footer>
-
-    <script src="https://poco.squarelabel.com/assets/common/prism.js"></script>
 
   </body>
 </html>
