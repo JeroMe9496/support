@@ -10,7 +10,7 @@ html {
  box-sizing: inherit;
 }
 
-/* Les liens par défaut */
+/* Default for all links */
 a {
  text-decoration: none;
  color: inherit;
