@@ -98,11 +98,6 @@ p, a {
 	height: 200px;
 	background-color: #fafafa;
 	margin:0 0 3.333%;
-
-	/*Pour centrer le text à l'interieur des div*/
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 .container .holder {
