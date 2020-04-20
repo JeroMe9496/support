@@ -1,40 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My todoApp - v8</title>
+  <title>Todo List - v8 Get data from inputs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <p>
-    <button onclick="todoList.displayTodos()">Display Todos</button>
-    <button onclick="todoList.toggleAll()">Toggle All Todos</button>
+  <p><button id="btnDisplay" onclick="todos.displayTodos()">Display Todos</button></p>
+  <p><button id="btnToggleAll" onclick="todos.toggleAll()">Toggle all</button></p>
+
+  <p class="row">
+    <input id="inputAdd" type="text" placeholder="Todo Text">
+    <button id="btnAdd" onclick="handlers.addTodo()">Add Todo</button>
   </p>
 
-  <p>
-    <input type="text" id="addTodoInput" placeholder="Text...">
-    <button onclick="handlers.addTodo()">Add Todo</button>
+  <p class="row">
+    <input id="inputChangeIndex" class="index" type="number" min="0" placeholder="Index">
+    <input id="inputChangeText" type="text" placeholder="Todo Text">
+    <button id="btnChange" onclick="handlers.changeTodo()">Change Todo</button>
   </p>
 
-  <p>
-    <input type="number" min="0" id="changeTodoIndexInput" placeholder="Index...">
-    <input type="text" id="changeTodoInput" placeholder="Text...">
-    <button onclick="handlers.changeTodo()">Change Todo</button>
+  <p class="row">
+    <input id="inputToggleIndex" class="index" type="number" min="0" placeholder="Index">
+    <button id="btnToggle" onclick="handlers.toggleTodo()">Toggle Todo</button>
   </p>
 
-  <p>
-    <input type="number" min="0" id="deleteTodoIndexInput" placeholder="Index...">
-    <button onclick="handlers.deleteTodo()">Delete Todo</button>
+  <p class="row">
+    <input id="inputDeleteIndex" class="index" type="number" min="0" placeholder="Index">
+    <button id="btnDelete" onclick="handlers.deleteTodo()">Delete Todo</button>
   </p>
 
-  <p>
-    <input type="number" min="0" id="toggleTodoIndexInput" placeholder="Index...">
-    <button onclick="handlers.toggleCompleted()">Toggle Todo</button>
-  </p>
-
-  <script src="scripts.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

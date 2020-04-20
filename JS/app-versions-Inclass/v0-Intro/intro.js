@@ -1,91 +1,104 @@
-//Single line Comment
-/**
- * Multi line Comment
- * ------------------------------------
- */
+//Single line comment
+/*
+Multi
+line
+comment
+*/
 
 /**
  * DATA TYPES
- * ------------------------------------
+ * All data types in JavaScript
+ * ------------------------------------------
  */
-//STRINGS
-"A string";
-"Another string";
 
-"Wrong string';
+/* STRINGS
+---------------------------------*/
+"I'm Sorin and glad to be"
+'I\'am Sorin and maybe glad to be'
 
-"I'm a string also";
+"Wrong string'
 
-'<h1 class="bob">Title</h1>';
-
-
-//NUMBERS
-3;
-3.5;
-0;
-0.01;
-
-2 + 5;
-2 * 5;
-2 / 5;
+'<h1 class="bob" id="dada">I\'m Bob</h1>'
 
 
-//BOOLEANS
-true; //also 1
-false; //also 0
+/* NUMBERS
+---------------------------------*/
+//integers
+3
+34
+567856755555555
+0
+1
+
+//decimals or floats
+34.3
+
+//negative numbers
+-3 
+-0.01
 
 
-//NULL & UNDEFINED
+/* BOOLEANS
+---------------------------------*/
+true //also 1
+false //also 0
+
+
+/* NULL & UNDEFINED
+---------------------------------*/
 let bob = null;
-let bob;
+let age;
 
 
-//OBJECTS
+/* OBJECTS
+---------------------------------*/
 //Array
-[1,2,3,4];
+["Bob", "Marc", "James"]
+
+//Function
+function myFunction() {
+  return 'Something';
+}
 
 //Object
 {
-  "Sorin": 1966,
-  "Marc": 1985
+  "Name": 1,
+  "Age": 52,
+  "Country": "RO"
 }
-
-//Function
-function person(name, birthYear) {
-  return name + ' is born in ' + birthYear;
-}
-
-
-
-//---------------------------------------------------------------//
 
 
 /**
  * VARIABLES
- * ------------------------------------
+ * Variables are like boxes / containers
+ * ------------------------------------------
  */
-//Global scope variable
-var myName = 'Sorin';
+//let => when content will/can change
+let name = "Marc";
+let age = 39;
 
-//Local (block) scope variable (read it like in math: "let myName be 'Sorin'")
-let myName = 'Sorin';
+let person = name + age;
 
-//Read only, local (block) scope variable (cannot reassign values)
-const myName = 'Sorin';
+//const => when content must not change
+const days = ["Monday", "Tuesday", "etc."];
 
+//var => the old way, a global variable;
+var bob = 3;
 
-//RULES
-// - Variable names cannot start with numbers.
-// - Variable names are case sensitive, so myName and myname would be different variables. It is bad practice to create two variables that have the same name using different cases
-// - Variable names cannot be the same as reserved keywords.
+//RULES & CONVENTIONS (of naming variables)
+let bob = 3; //GOOD practice
+let BOB = 3; //bad practice
+let Bob = 3; //bad practice
 
+let 0bob = 3; //WRONG, starts with number
+let bob the great = 3; //WRONG, have spaces
+let aimé = 3; //WRONG, have special characters
 
-/**
- * HOW TO WRITE
- * ------------------------------------
- */
-//Camel Case
-let startWithLowerCaseAndAfterUseUpperCaseForEachStartOfANewWord;
+//JS is case sensitive language
+let bob = 3;
+let BOB = 2; //not the same as bob !
 
-//Underscore
-let a_variable_with_underscore_separations;
+//Long words and the Camel Case
+let bob_the_great = 34; //could be like this
+let bobthegreat = 34; //bad practice
+let bobTheGreat = 34; //good practice, very used

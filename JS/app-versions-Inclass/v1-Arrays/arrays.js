@@ -1,66 +1,17 @@
-// creating an array
-["item 1", "item 2", "item 3"];
+let todoList = ["Item 1", "Item 2", "Item 3"];
 
-// creating a variable
-let todos = ["item 1", "item 2", "item 3"];
+//Call an array item with the index.
+//Indexes starts with 0 (zero)
+todoList[1]; //output: "Item 2"
+todoList[0]; //output: "Item 1"
 
-// console.log function
-console.log("Hello", "JavaScript!");
+//ADD an Array item (.push)
+todoList.push("Item 4");
+todoList.push("I'm an element of the array");
 
-// console.log with multiple arguments
-console.log("Hello there", "JavaScript");
+//DELETE an Array item (.splice)
+todoList.splice(1,1); //start at index 1 and delete one item
+todoList.splice(0,2); //start at index zero and delete two items
 
-// console.log combining strings
-console.log("Hello there" + "JavaScript");
-
-// creating and printing a variable
-let todos = ["item 1", "item 2", "item 3"];
-console.log(todos);
-
-// pretty printing a variable
-let todos = ["item 1", "item 2", "item 3"];
-console.log("My todos: ", todos);
-
-// push command
-let todo = ["item 1", "item 2", "item 3"];
-todo.push("item 4");
-todo.push("item 5");
-console.log(todo);
-
-// printing one element of an array
-let todos = ["item 1", "item 2", "item 3", "item 4", "item 5"];
-console.log(todos[2]);
-
-// changing and printing a todo
-let todos = ["item 1", "item 2", "item 3", "item 4", "item 5"];
-todos[4] = "item 5 updated";
-console.log(todos);
-
-// accessing an out of bounds element
-let todos = ["item 1", "item 2", "item 3", "item 4", "item 5"];
-console.log(todos[6]);
-
-// splicing an array
-let todos = ["item 1", "item 2", "item 3", "item 4", "item 5 updated"];
-todos.splice(0, 1);
-console.log(todos);
-
-// deleting out of bounds element
-let todos = ["item 1", "item 2", "item 3", "item 4", "item 5 updated"];
-todos.splice(0, 1); // Now, there are only 4 elements in the array
-todos.splice(4, 1);
-console.log(todos);
-
-/*
-	Hello JavaScript!
-	Hello there JavaScript
-	Hello thereJavaScript
-	[ 'item 1', 'item 2', 'item 3' ]
-	My todos:  [ 'item 1', 'item 2', 'item 3' ]
-	[ 'item 1', 'item 2', 'item 3', 'item 4', 'item 5' ]
-	item 3
-	[ 'item 1', 'item 2', 'item 3', 'item 4', 'item 5 updated' ]
-	undefined
-	[ 'item 2', 'item 3', 'item 4', 'item 5 updated' ]
-	[ 'item 2', 'item 3', 'item 4', 'item 5 updated' ]
-*/
+//CHANGE an Array item
+todoList[1] = "Something else"; //define the index and asign a new value

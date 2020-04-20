@@ -59,8 +59,31 @@ p {
 	margin-bottom: 1em;
 }
 
+a {
+	text-decoration: none;
+	transition: color .3s ease;
+}
+
 :focus {
 	outline: 0;
+}
+
+::placeholder {
+	color: #fc0;
+}
+
+
+/*HELPER CLASSES*/
+.row {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 auto 1.5em;
+}
+
+.max-width {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
 }
 
 .hidden {
@@ -72,20 +95,27 @@ p {
 .hide {
 	display: none!important;
 }
-
-::placeholder {
-	color: #fc0;
-}
 /*#endregion*/
+
+
+/* ADD TODO ROW
+--------------------------------------------*/
+.add-todo-row {
+	margin-bottom: .8em;
+}
+#add-todo {
+	display: block;
+	width: 100%;
+	padding: .6em;
+	font-size: 1.2em;
+}
 
 
 /* LIST
 --------------------------------------------*/
 /*#region LIST*/
 ul {
-	width: 100%;
-	max-width: 600px;
-	margin: 0 auto 3em;
+	margin-bottom: 3em;
 	font-size: 1.2em;
 	font-weight: 400;
 
@@ -103,34 +133,66 @@ ul li {
 }
 
 li .item-state {
+	display: inline-block;
 	min-width: 30px;
+	color: #888;
 }
+li .item-state:hover,
+li.completed .item-state {
+	color: #000;
+}
+
 li .item-text {
 	width: 100%;
 	text-align: left;
 }
-li .deleteButton {
-	width: 20%;
-	max-width: 30px;
-	text-align: center;
+li.completed .item-text {
+	text-decoration: line-through;
+	color: #888;
 }
 
-/*Messages*/
+li .delete-button {
+	width: 20%;
+	max-width: 30px;
+	font-size: 1.4em;
+	text-align: center;
+	color: #ccc;
+}
+li .delete-button:hover {
+	background: none;
+	color: #000;
+}
+
+
+/* MESSAGES
+--------------------------------------------*/
+/*#region*/
 #msg {
-	color: red;
-	font-weight: 500;
+	min-height: 32px;
+	padding: .3em 0;
 	text-align: center;
 	opacity: 1;
-	transition: opacity 2s ease;
+	transition: opacity 1s ease;
 }
+
 #msg.hidden {
 	opacity: 0;
 }
-#msg span {
-	font-size: 1.3em;
-	vertical-align: middle;
+
+#msg.error {
+	font-weight: 500;
+	color: red;
+}
+#msg.success {
+	color: green;
 }
 
+#msg span {
+	vertical-align: middle;
+}
+#msg-icon {
+	font-size: 1.3em;
+}
 /*#endregion*/
 
 
@@ -154,13 +216,7 @@ li .deleteButton {
 	margin: 0 0 2em 0;
 }
 
-.row {
-	display: flex;
-	justify-content: flex-end;
-	max-width: 400px;
-	margin: 0 auto 1.5em;
-}
-li button,
+
 .row button {
 	background-color: #f1f1f1;
 	color: #333;
@@ -178,11 +234,11 @@ li button {
 	margin-left: 0;
 }
 
-li button:hover,
 .row button:hover {
 	background-color: #ccc;
 	color: #000;
 }
+
 .row input {
 	border: solid 1px #ccc;
 	padding: .5em;
