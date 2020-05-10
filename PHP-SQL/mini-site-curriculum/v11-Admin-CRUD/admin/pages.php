@@ -26,6 +26,7 @@ function pages() {
   /* PAGES QUERY
   ----------------------------------------*/
   $pages = crud('show_pages');
+  $admin_msg = (isset($_GET['msg']) ? ' - '.$_GET['msg'] : '');
 
 
   /* TABLE ROWS
@@ -60,7 +61,7 @@ function pages() {
   /* HTML DISPLAY
   ----------------------------------------*/
   $html = admin_header([
-    'title' => 'Pages list'.($_GET['msg'] ? ' - '.$_GET['msg'] : ''),
+    'title' => 'Pages list'.$admin_msg,
     'buttons' => '<a href="?page=pages&amp;action=new-page" class="uk-button uk-button-default">New Page</a>'
   ]);
   

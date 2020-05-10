@@ -9,9 +9,9 @@
 /* DB INFO
 ------------------------------------------*/
 $db_host    = '127.0.0.1';
-$db_name    = 'mini-site';
+$db_name    = 'poco_minisite';
 $db_user    = 'root';
-$db_pass    = ''; //On WAMP by default is '' → empty string; on XAMPP & MAMP by default is 'root'
+$db_pass    = ''; //On WAMP and LARAGON is empty by default; on XAMPP & MAMP by default is 'root'
 $db_charset = 'utf8mb4';
 
 

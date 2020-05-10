@@ -240,8 +240,8 @@ function check_login($post = []) {
 
         //THE PASSWORD IS A MATCH
         if(password_verify($pass, $user['pass'])) {
-          $_SESSION['admin']['name']	= $row['fullname'];
-          $_SESSION['admin']['email']	= $row['email'];
+          $_SESSION['admin']['name']	= $user['fullname'];
+          $_SESSION['admin']['email']	= $user['email'];
           $_SESSION['is_admin'] = true;
 
           $error = false;
@@ -309,7 +309,7 @@ function action() {
 /*#region ADMIN*/
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  return isset($_SESSION['is_admin']) ? (bool)$_SESSION['is_admin'] : false;
 
 }
 /*#endregion*/

@@ -142,7 +142,7 @@ function menu_html($params = []) {
 
 
   //Add to menu html
-  $html .= '<li class="menu-item"><a href="admin/">LOGIN</a></li>'.PHP_EOL;
+  $html .= '<li class="menu-item"><a href="#">LOGIN</a></li>'.PHP_EOL;
 
 
   $html .= '</ul>'.PHP_EOL; //END MENU

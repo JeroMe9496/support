@@ -58,7 +58,7 @@ require_once('functions.php');
   <!-- FOOTER -->
   <footer class="footer">
     <p>&copy;1998 - <?php echo date('Y'); ?> - Heavy Metal Company</p>
-    <p>Last update: <?php echo $site_data['last_update']; ?></p>
+    <p>Last update: <?php echo $params['site_data']['last_update']; ?></p>
   </footer>
 
 </body>

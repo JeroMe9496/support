@@ -2,9 +2,10 @@
 /**
  * ERROR REPORTING
  * ----------------------------------------------
- * DONE WITH .htaccess
  * We call this "server level" errors
  */
+ini_set('display_errors', 1); //0 to disable
+error_reporting(E_ALL);
 
 
 
@@ -196,7 +197,7 @@ function req($val) {
   $req = array_merge($_POST, $_GET) ;
 
   if(!empty($val) && !empty($req)) {
-    return $req[$val];
+    return isset($req[$val]) ? $req[$val] : false;
   }
 
   return false;
@@ -239,8 +240,8 @@ function check_login($post = []) {
 
         //THE PASSWORD IS A MATCH
         if(password_verify($pass, $user['pass'])) {
-          $_SESSION['admin']['name']	= $row['fullname'];
-          $_SESSION['admin']['email']	= $row['email'];
+          $_SESSION['admin']['name']	= $user['fullname'];
+          $_SESSION['admin']['email']	= $user['email'];
           $_SESSION['is_admin'] = true;
 
           $error = false;
@@ -308,7 +309,7 @@ function action() {
 /*#region ADMIN*/
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  return isset($_SESSION['is_admin']) ? (bool)$_SESSION['is_admin'] : false;
 
 }
 /*#endregion*/

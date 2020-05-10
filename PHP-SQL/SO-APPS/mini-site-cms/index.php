@@ -1,4 +1,12 @@
 <?php
+/* ERRORS DISPLAY
+------------------------------------------*/
+ini_set('display_errors', "on");
+error_reporting(E_ALL); // & ~(E_STRICT|E_NOTICE|E_WARNING)
+
+
+/* REQUIRED FILES
+------------------------------------------*/
 require_once('php/pdo.php');
 require_once('php/queries.php');
 require_once('php/functions.php');

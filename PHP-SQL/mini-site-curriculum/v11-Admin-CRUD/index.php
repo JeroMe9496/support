@@ -54,7 +54,7 @@ require_once('php/functions.php');
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>&copy;1998 - <?php echo date('Y'); ?> - Heavy Metal Company</p>
+      <p>&copy;1998 → <?php echo date('Y'); ?> - Heavy Metal Company</p>
     </footer>
 
     <?php echo debug_view($debug_arr); ?>

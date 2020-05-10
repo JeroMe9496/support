@@ -52,7 +52,7 @@ $params = [
 /*#region ADMIN*/
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  return isset($_SESSION['is_admin']) ? (bool)$_SESSION['is_admin'] : false;
 
 }
 /*#endregion*/
@@ -103,7 +103,7 @@ function menu_html($params = []) {
 
 
 	//QUERY - GET MENUS (from pages)
-  $menus = query('menus');
+  $menus = query('menus'); //debug($menus);
  
   
   //If pages array is empty stop here with a message
@@ -135,16 +135,16 @@ function menu_html($params = []) {
     //Menu text
     $menu = $is_home ? '<span class="is-home">⌂</span>' : $item['menu'];
 
-    //Add LOGIN/LOGOUT to menu html
-    $log_str = (is_admin()) ? 'LOGOUT' : 'LOGIN';
-    $log_href = (is_admin()) ? '?action=logout' : 'admin/';
-    $html .= '<li class="menu-item"><a href="'.$log_href.'">'.$log_str.'</a></li>'.PHP_EOL;
+    //Add to menu html
+    $html .= '<li class="menu-item'.$active.$is_home_class.'"><a href="'.$slug.'">'.$menu.'</a></li>'.PHP_EOL;
 
   } //END LOOP
 
 
-  //Add to menu html
-  $html .= '<li class="menu-item"><a href="admin/">LOGIN</a></li>'.PHP_EOL;
+  //Add LOGIN/LOGOUT to menu html
+  $log_str = (is_admin()) ? 'LOGOUT' : 'LOGIN';
+  $log_href = (is_admin()) ? '?action=logout' : 'admin/';
+  $html .= '<li class="menu-item"><a href="'.$log_href.'">'.$log_str.'</a></li>'.PHP_EOL;
 
 
   $html .= '</ul>'.PHP_EOL; //END MENU

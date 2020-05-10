@@ -48,31 +48,40 @@ HOW TO CONVERT A STATIC SITE INTO A CMS IN 11 STEPS<br>
 - We shold have a router() function who decompose the URI and grabs the current page
 
 ## v8-DataBase-Storage
-- We shoud have a new database called **mini-site**
+*Will see this **probably** in the "web developpment track"*
+- We shoud have a new database called **poco_minisite**
 - We should have a table called **settings** (with json "site-data" values)<br>
   The **settings** table columns are:
   * id
-  * key
-  * value
+  * settings_key
+  * settings_value
+  * position
 - We should have a table called "pages" (with json **pages** values)<br>
   The **pages** table columns are:
   * id
+  * parent_id
+  * page_key
   * title
   * menu
   * slug
   * content
   * is_home
+  * is_visible
+  * position
+  * last_update
+  * created_on
 
 - We should have a **pdo.php** file with DB connection data
 - We should have a **queries.php** file containing a **query()** function
 
 ## v9-DB-Queries
-- We shoud have a query **settings**
-- We shoud have a query **menus**
-- We shoud have a query **page**
+- We shoud have a **settings** query
+- We shoud have a **menus** query
+- We shoud have a **page** query
 - We shoud replace all json based data with DB data
 
 ## v10-Admin-Files
+*Will see this **most probably** in the "web developpment track"*
 - We should have an **admin** folder to store all admin pages
   * *This page should check if an admin session exists and return the appropriate page*
 - We should have a page **index.php** inside admin/ folder<br>
@@ -88,6 +97,7 @@ HOW TO CONVERT A STATIC SITE INTO A CMS IN 11 STEPS<br>
   * *This page should contain all admin SQL CRUD operations*
 
 ## v11-Admin-CRUD
+*Will see this **most probably** in the "web developpment track"*
 1. **PAGES**
     - We should have a SQL command to *Read* all existing pages
     - We should have a SQL command to *Read* a single page data

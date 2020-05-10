@@ -168,11 +168,11 @@ function page_detail($action = 'edit-page') {
 
   //EDITABLE ITEMS ARRAY
   $editable_items = [
-    'title'     => $page['title'],
-    'menu'      => $page['menu'],
-    'page_key'  => $page['page_key'],
-    //'slug'      => $page['slug'], //Ali is right, better let PHP deal with this
-    'content'   => $page['content'],
+    'title'     => isset($page['title']) ? $page['title'] : '',
+    'menu'      => isset($page['menu']) ? $page['menu'] : '',
+    'page_key'  => isset($page['page_key']) ? $page['page_key'] : '',
+    'content'   => isset($page['content']) ? $page['content'] : '',
+    //'slug'      => $page['slug'], //Better let PHP deal with this
   ];
 
   

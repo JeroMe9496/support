@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL); // & ~E_NOTICE
 
 
 //TEST HOISTING
@@ -42,7 +42,6 @@ function router() {
   //$last = end($root_arr); show('Last: '.$last);
 
 }
-//show( router() );
  
 
 

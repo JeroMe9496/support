@@ -18,13 +18,14 @@ session_start();
 //var_dump($_SESSION);
 //$hash = password_hash('bobisgreat!', PASSWORD_DEFAULT); //show($hash);
 
+
 /**
  * GLOBALS
  * ----------------------------------------------
  * Globally available variables & init stuff
  * We store the values to "inject" into our functions 
  */
-/*#region GLOBALS*/
+#region
 //DEBUG ARR
 $debug_arr  = [];
 
@@ -75,7 +76,7 @@ $params = [
   'action'      => req('action'),
   'crud-action' => req('crud-action')
 ];
-/*#endregion GLOBALS*/
+#endregion
 
 
 
@@ -89,7 +90,7 @@ $params = [
  * ADMIN PAGE
  * ----------------------------------------------
  */
-/*#region ADMIN PAGE*/
+#region
 function admin_page($params = []) {
 
 
@@ -145,7 +146,7 @@ function admin_page($params = []) {
 
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -153,7 +154,7 @@ function admin_page($params = []) {
  * ADMIN HEADER
  * ----------------------------------------------
  */
-/*#region HEADER*/
+#region
 function admin_header($params = []) {
 
   //TITLE AND BUTTONS
@@ -178,7 +179,7 @@ function admin_header($params = []) {
   return $html;
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -187,16 +188,17 @@ function admin_header($params = []) {
  * ----------------------------------------------
  * MERGE $_GET & $_POST ARRAYS
  */
-/*#region REQUEST*/
+#region
 function req($val = '') {
 
   //MERGE POST AND GET METHODS
   $req = [];
   $req = array_merge($_POST, $_GET) ;
 
+
   //RETURN A VALUE
   if(!empty($val) && !empty($req)) {
-    return $req[$val];
+    return isset($req[$val]) ? $req[$val] : false;
   }
 
   //RETURN THE REQUEST ARRAY
@@ -208,7 +210,7 @@ function req($val = '') {
   return false;
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -217,7 +219,7 @@ function req($val = '') {
  * ----------------------------------------------
  * MERGE $_GET & $_POST ARRAYS
  */
-/*#region CHECK LOGIN*/
+#region
 function check_login($post = []) {
 
 
@@ -245,8 +247,8 @@ function check_login($post = []) {
 
         //THE PASSWORD IS A MATCH
         if(password_verify($pass, $user['pass'])) {
-          $_SESSION['admin']['name']	= $row['fullname'];
-          $_SESSION['admin']['email']	= $row['email'];
+          $_SESSION['admin']['name']	= $user['fullname'];
+          $_SESSION['admin']['email']	= $user['email'];
           $_SESSION['is_admin'] = true;
 
           $error = false;
@@ -268,7 +270,7 @@ function check_login($post = []) {
 
 
 }
-/*#endregion*/
+#endregion
 
 
 /**
@@ -276,7 +278,7 @@ function check_login($post = []) {
  * ----------------------------------------------
  * MERGE $_GET & $_POST ARRAYS
  */
-/*#region LOGOUT*/
+#region
 function logout() {
 
   unset(
@@ -287,7 +289,7 @@ function logout() {
   redirect('../');
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -296,13 +298,13 @@ function logout() {
  * ----------------------------------------------
  * Check admin session
  */
-/*#region ADMIN*/
+#region
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  return isset($_SESSION['is_admin']) ? (bool)$_SESSION['is_admin'] : false;
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -310,7 +312,7 @@ function is_admin() {
  * REDIRECT SHORCCUT
  * ----------------------------------------------
  */
-/*#region REDIRECT*/
+#region
 function redirect($url) {
 	
 	if (!headers_sent()) {
@@ -319,7 +321,7 @@ function redirect($url) {
 	}
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -327,7 +329,7 @@ function redirect($url) {
  * FIND STRING
  * ----------------------------------------------
  */
-/*#region FIND STRING*/
+#region
 function findstr($find, $str) {
 	
 	if(is_array($str)) {
@@ -343,7 +345,7 @@ function findstr($find, $str) {
   return false;
 	
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -353,7 +355,7 @@ function findstr($find, $str) {
  * An example of a dynamic menu
  * Check the active page and add a CSS class
  */
-/*#region MENU*/
+#region
 function admin_menu($params = []) {
 
   if(!is_admin()) {
@@ -407,7 +409,7 @@ function admin_menu($params = []) {
 
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -416,7 +418,7 @@ function admin_menu($params = []) {
  * ----------------------------------------------
  * Thanks to: https://stackoverflow.com/a/10152907
  */
-/*#region SLUGIFY*/
+#region
 function slugify($text, $strict = true) {
 	
 	$text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
@@ -453,7 +455,7 @@ function slugify($text, $strict = true) {
 	return $text;
 	
 }
-/*#endregion*/
+#endregion
 
 
 /**
@@ -461,7 +463,7 @@ function slugify($text, $strict = true) {
  * ----------------------------------------------
  * Count SQL table items
  */
-/*#region PDO NUM ROWS*/
+#region
 function pdo_num_rows($endquery, $params = []) {
 	
 	$sql = "SELECT COUNT(*) FROM ".$endquery;
@@ -479,7 +481,7 @@ function pdo_num_rows($endquery, $params = []) {
 	return (int)$tot;
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -488,7 +490,7 @@ function pdo_num_rows($endquery, $params = []) {
  * ----------------------------------------------
  * A simple code display with <pre> formatting
  */
-/*#region SHOW*/
+#region
 function show($data = '', $do_exit = false) {
 	
 	echo '<pre>';
@@ -500,7 +502,7 @@ function show($data = '', $do_exit = false) {
   }
 	
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -509,7 +511,7 @@ function show($data = '', $do_exit = false) {
  * ----------------------------------------------
  * An elaborate debug function to display test code
  */
-/*#region DEBUGGER*/
+#region
 //COLLECT DEBUG DATA
 function debug($data = '') {
 
@@ -569,4 +571,4 @@ function debug_view($debug_arr) {
   echo '</div>';
 
 }
-/*#endregion*/
+#endregion

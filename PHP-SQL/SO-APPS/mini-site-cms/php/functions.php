@@ -22,7 +22,7 @@ session_start();
  * Globally available variables & init stuff
  * We store the values to "inject" into our functions 
  */
-/*#region GLOBALS*/
+#region
 /* BASE VARS
 ----------------------------------*/
 //DEBUG ARR
@@ -40,7 +40,7 @@ $params = [
   'menus'       => query('menus'),
 	'active_page' => query('page', [$get_page])
 ];
-/*#endregion*/
+#endregion
 
 
 
@@ -49,13 +49,13 @@ $params = [
  * ----------------------------------------------
  * Check admin session
  */
-/*#region ADMIN*/
+#region
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  return isset($_SESSION['is_admin']) ? (bool)$_SESSION['is_admin'] : false;
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -67,7 +67,7 @@ function is_admin() {
  * The code below will only work if a .htaccess file exists
  * The "security" part is still to be done.
  */
-/*#region ROUTER*/
+#region
 function router() {
 
   $from_root    = str_replace('/index.php', '', $_SERVER['PHP_SELF']).'/';	//debug('From root: '.$from_root);
@@ -88,7 +88,7 @@ function router() {
   return $get_page;
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -98,7 +98,7 @@ function router() {
  * An example of a dynamic menu
  * Check the active page and add a CSS class
  */
-/*#region MENU*/
+#region
 function menu_html($params = []) {
 
 
@@ -155,7 +155,7 @@ function menu_html($params = []) {
 
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -164,7 +164,7 @@ function menu_html($params = []) {
  * ----------------------------------------------
  * Return active page title
  */
-/*#region TITLE*/
+#region
 function title($zone = 'content', $params = []) {
 
 
@@ -195,7 +195,7 @@ function title($zone = 'content', $params = []) {
 
 
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -204,13 +204,13 @@ function title($zone = 'content', $params = []) {
  * ----------------------------------------------
  * Return active page content
  */
-/*#region CONTENT*/
+#region
 function content($params = []) {
 
 
 	/* GET DATA FROM PARAMS
   -----------------------------------*/
-  $active_page = $params['active_page']; show($active_page['page_key']);
+  $active_page = $params['active_page']; // show($active_page['page_key']);
   
 
   /* IF ACTIVE PAGE ARRAY IS EMPTY
@@ -231,7 +231,7 @@ function content($params = []) {
 
 
 }
-/*#endregion*/
+#endregion
 
 
 /**
@@ -239,7 +239,7 @@ function content($params = []) {
  * ----------------------------------------------
  * A simple code display with <pre> formatting
  */
-/*#region*/
+#region
 function show($data = '') {
 	
 	echo '<pre>';
@@ -247,7 +247,7 @@ function show($data = '') {
 	echo '<pre>';
 	
 }
-/*#endregion*/
+#endregion
 
 
 
@@ -256,7 +256,7 @@ function show($data = '') {
  * ----------------------------------------------
  * An elaborate debug function to display test code
  */
-/*#region DEBUGGER*/
+#region
 //COLLECT DEBUG DATA
 function debug($data = '') {
 
@@ -316,4 +316,4 @@ function debug_view($debug_arr) {
   echo '</div>';
 
 }
-/*#endregion*/
+#endregion

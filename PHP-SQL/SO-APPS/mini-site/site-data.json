@@ -1,11 +1,11 @@
 {
 
   "site-data": {
-    "global_title"  : "Heavy Metal Company.",
+    "global_title"  : "The Heavy Metal Company.",
     "description"   : "How to use PHP to create a dynamic website",
     "keywords"      : "php,dynamic site,cool,raoul",
 		"author"        : "Sorin Paun",
-		"last_update"   : "27.05.2050"
+		"last_update"   : "10.05.2020"
   },
 
   "pages": {

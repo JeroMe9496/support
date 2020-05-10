@@ -5,7 +5,9 @@ define("IS_ADMIN_INDEX", true);
 //REQUIRES
 require_once('../php/pdo.php');
 require_once('admin_functions.php'); //var_dump($admin_pages);
-require_once('crud.php');
+if(is_admin()) {
+  require_once('crud.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +37,7 @@ require_once('crud.php');
 
       <!-- Nav -->
       <nav class="nav">
-        <?php echo admin_menu($params); ?>
+        <?php echo !is_admin() ? '<a href="../">← Back to site</a>' : admin_menu($params); ?>
       </nav>
 
     </header>

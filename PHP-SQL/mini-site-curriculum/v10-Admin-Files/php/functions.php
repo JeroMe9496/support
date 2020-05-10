@@ -51,7 +51,7 @@ $params = [
 /*#region ADMIN*/
 function is_admin() {
 
-  return (bool)$_SESSION['is_admin'];
+  return isset($_SESSION['is_admin']) ? (bool)$_SESSION['is_admin'] : false;
 
 }
 /*#endregion*/
