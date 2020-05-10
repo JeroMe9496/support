@@ -4,7 +4,7 @@ require_once('php/queries.php');
 require_once('php/functions.php');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <meta charset="utf-8">

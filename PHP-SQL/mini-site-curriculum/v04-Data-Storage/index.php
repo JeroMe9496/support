@@ -33,7 +33,7 @@ $site_info = $site_data["site_info"]; //var_dump($site_info);
 $site_pages = $site_data['pages'];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <meta charset="utf-8">
