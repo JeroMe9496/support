@@ -6,18 +6,18 @@ A good way to name the folders is something like this:<br>
 
 ```js
 //(the version and what concept you learned)
-"Version1-Static"
-"Version2-PHP"
+"Version01-Static"
+"Version02-PHP"
 "..."
 
 //or
-"v1-Static"
-"v2-PHP"
+"v01-Static"
+"v02-PHP"
 "..."
 
 //or simply this if you keep trak of the course subjects on your notebook
-"v1"
-"v2"
+"v01"
+"v02"
 "..."
 ```
 
