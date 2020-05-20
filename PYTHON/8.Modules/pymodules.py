@@ -113,7 +113,7 @@ printus = mod.printus
 
 import time
 
-# Local time → A list of valibles containing time related values
+# Local time → A list of variables containing time related values
 local = time.localtime()
 
 # print(local) # → tm_year=2020, tm_mon=5, tm_mday=17, tm_hour=12, tm_min=28, tm_sec=19, tm_wday=6, tm_yday=138, tm_isdst=1
