@@ -3,10 +3,47 @@
 # A loop statement allows us to execute a statement or group of statements multiple times.
 # This allows us to do repeated tasks in a controlled manner
 
+
+# To test our loops, some values :
+num_max   = 10
+counter   = 0
+
+#... and some lists
+name_list = ["Marcel", "Mary", "Dolores", "John"]
+num_list  = [1,2,3,4,5,6]
+letters   = "Python"
+
+
+
+# LOOPS ANATOMY
+# -------------------------------------
+# THE FOR LOOP
+# for letter in letters:
+#   print(letter)
+
+# for name in name_list:
+#   print(name)
+
+
+# THE WHILE LOOP
+while counter < num_max:
+  counter += 1
+  print(counter)
+
+
+while True:
+  if(counter < num_max):
+    counter += 1
+    print(counter)
+  else:
+    break
+
+
+
 # Alternatively, if we want a specific amount of loops
 # We can use range(num)
-for x in range(10):
-  print(x)
+# for x in range(10):
+#   print(x)
 
 
 # WHILE: This loop repeats the executing the code while the condition remains true
